@@ -8,6 +8,7 @@
 </div>
 
 <div class="@NavMenuCssClass">
+    <BitSearchBox Placeholder="Search with Binded value" IsUnderlined="true" OnChange="onChange"></BitSearchBox>
     <BitNav Style="width: auto;
        height: auto;
        box-sizing: border-box;
@@ -21,6 +22,12 @@
 </div>
 
 @code {
+
+    private void onChange(string value)
+    {
+        BasicNoToolTipNavLinks = AllNavLinks.Where(x => x.Name.Contains(value)).ToList();
+    }
+
     private bool collapseNavMenu = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -30,27 +37,36 @@
         collapseNavMenu = !collapseNavMenu;
     }
 
-    private readonly List<BitNavLinkItem> BasicNoToolTipNavLinks = new()
+    private List<BitNavLinkItem> BasicNoToolTipNavLinks = new List<BitNavLinkItem>();
+
+    private readonly List<BitNavLinkItem> AllNavLinks = new()
         {
             new BitNavLinkItem
             {
                 Name = "Home",
                 Url = "http://example.com",
                 Title = "",
-                IsExpanded = true,
                 CollapseAriaLabel = "Collapse Home section",
                 ExpandAriaLabel = "Expand Home section",
                 IconName = BitIconName.Home,
-                Links = new List<BitNavLinkItem>
-             {
-                 new BitNavLinkItem { Name = "Activity", Url = "http://msn.com", Key = "key1", Target="_blank", Title = "" },
-                 new BitNavLinkItem { Name = "MSN", Url = "http://msn.com", Key = "key2", IsEnabled = false, Target = "_blank", Title = "" }
-             }
             },
-            new BitNavLinkItem { Name = "Shared Documents and Files", Url = "http://example.com", Key = "key3", Target = "_blank", Title = "" },
-            new BitNavLinkItem { Name = "Pages", Url = "http://msn.com", Key = "key4", Target = "_parent", Title = "" },
-            new BitNavLinkItem { Name = "Notebook", Url = "http://msn.com", Key = "key5", IsEnabled = false, Title = "" },
-            new BitNavLinkItem { Name = "Communication and Media", Url = "http://msn.com", Key = "key6", Target = "_top", Title = "" },
-            new BitNavLinkItem { Name = "News", Key = "key7", Url = "http://cnn.com", IconName = BitIconName.News, Target = "_self", Title = "" }
+            new BitNavLinkItem
+            {
+                Name = "Converters",
+                IconName = BitIconName.ChangeEntitlements,
+                Links = new List<BitNavLinkItem>
+                {
+                    new BitNavLinkItem { Name = "Timestamp", Url = "http://msn.com", IconName= BitIconName.Clock },
+                }
+            },
         };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            BasicNoToolTipNavLinks = AllNavLinks;
+            await this.InvokeAsync(() => this.StateHasChanged());
+        }
+    }
 }
