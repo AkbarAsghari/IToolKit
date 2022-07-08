@@ -1,4 +1,4 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿<div class="top-row ps-3 navbar navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="">IToolKit</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -7,24 +7,17 @@
     </div>
 </div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
+<div class="@NavMenuCssClass">
+    <BitNav Style="width: auto;
+       height: auto;
+       box-sizing: border-box;
+       border: 1px solid #eee;
+       overflow-y: auto;"
+            Class="bit-nav-wrapped-link"
+            SelectedKey="key6"
+            AriaLabel="Nav example with wrapped link text"
+            NavLinkItems="BasicNoToolTipNavLinks">
+    </BitNav>
 </div>
 
 @code {
@@ -36,4 +29,28 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+    private readonly List<BitNavLinkItem> BasicNoToolTipNavLinks = new()
+        {
+            new BitNavLinkItem
+            {
+                Name = "Home",
+                Url = "http://example.com",
+                Title = "",
+                IsExpanded = true,
+                CollapseAriaLabel = "Collapse Home section",
+                ExpandAriaLabel = "Expand Home section",
+                IconName = BitIconName.Home,
+                Links = new List<BitNavLinkItem>
+             {
+                 new BitNavLinkItem { Name = "Activity", Url = "http://msn.com", Key = "key1", Target="_blank", Title = "" },
+                 new BitNavLinkItem { Name = "MSN", Url = "http://msn.com", Key = "key2", IsEnabled = false, Target = "_blank", Title = "" }
+             }
+            },
+            new BitNavLinkItem { Name = "Shared Documents and Files", Url = "http://example.com", Key = "key3", Target = "_blank", Title = "" },
+            new BitNavLinkItem { Name = "Pages", Url = "http://msn.com", Key = "key4", Target = "_parent", Title = "" },
+            new BitNavLinkItem { Name = "Notebook", Url = "http://msn.com", Key = "key5", IsEnabled = false, Title = "" },
+            new BitNavLinkItem { Name = "Communication and Media", Url = "http://msn.com", Key = "key6", Target = "_top", Title = "" },
+            new BitNavLinkItem { Name = "News", Key = "key7", Url = "http://cnn.com", IconName = BitIconName.News, Target = "_self", Title = "" }
+        };
 }
