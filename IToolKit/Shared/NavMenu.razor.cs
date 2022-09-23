@@ -1,12 +1,31 @@
 ﻿using Bit.BlazorUI;
+using System.Reflection;
 
 namespace IToolKit.Shared
 {
     partial class NavMenu
     {
+
+        public NavMenu()
+        {
+            AllNavLinks.Add(new BitNavLinkItem
+            {
+                Name = "Encryption",
+                IconName = BitIconName.Switch,
+                Links = new List<BitNavLinkItem>
+                    {
+                        new BitNavLinkItem {
+                            Name = "Rijndael",
+                            Url = "Encryption/Rijndael",
+                            IconName= BitIconName.ReturnKey
+                        },
+                    }
+            });
+        }
+
         private void onChange(string value)
         {
-            BasicNoToolTipNavLinks = AllNavLinks.Where(x => x.Name.Contains(value)).ToList();
+            BasicNoToolTipNavLinks = AllNavLinks.Where(x => x.Name.ToLower().Contains(value.ToLower())).ToList();
         }
 
         private bool collapseNavMenu = true;
@@ -30,16 +49,7 @@ namespace IToolKit.Shared
                 CollapseAriaLabel = "Collapse Home section",
                 ExpandAriaLabel = "Expand Home section",
                 IconName = BitIconName.Home,
-            },
-            new BitNavLinkItem
-            {
-                Name = "Converters",
-                IconName = BitIconName.ChangeEntitlements,
-                Links = new List<BitNavLinkItem>
-                {
-                    new BitNavLinkItem { Name = "Timestamp", Url = "http://msn.com", IconName= BitIconName.Clock },
-                }
-            },
+            }
         };
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
