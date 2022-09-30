@@ -16,10 +16,17 @@ namespace IToolKit.Shared
                     {
                         new BitNavLinkItem {
                             Name = "Rijndael",
-                            Url = "Encryption/Rijndael",
+                            Url = "Tools/Encryption/Rijndael",
                             IconName= BitIconName.ReturnKey
                         },
                     }
+            });
+
+            AllNavLinks.Add(new BitNavLinkItem
+            {
+                Name = "Hashings",
+                IconName = BitIconName.Fingerprint,
+                Url = "Tools/Hashings"
             });
         }
 
