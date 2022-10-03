@@ -61,8 +61,7 @@ namespace IToolKit.Pages.Tools.Hashings
              {
                  ItemType = BitDropDownItemType.Normal,
                  Text = "SHA1",
-                 Value = "SHA1",
-                 IsSelected = true
+                 Value = "SHA1"                 
              },
              new BitDropDownItem()
              {
