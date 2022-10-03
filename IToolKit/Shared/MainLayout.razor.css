@@ -6,9 +6,11 @@
 
 main {
     flex: 1;
+    background-color: #f7fdff;
 }
 
 .sidebar {
+    border-right: 0.0625rem solid #e7ebf0;
 }
 
 .top-row {

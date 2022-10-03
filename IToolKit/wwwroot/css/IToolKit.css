@@ -1,0 +1,13 @@
+﻿.tool-section {
+    position: relative;
+    width: 100%;
+    padding: 1.75rem;
+    margin-bottom: 1.75rem;
+    border-radius: 0.25rem;
+    border: 0.0625rem solid #E0E3E7;
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
+    box-sizing: border-box;
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    height: inherit;
+}

@@ -26,6 +26,7 @@ namespace IToolKit.Shared
             {
                 Name = "Hashings",
                 IconName = BitIconName.Fingerprint,
+                Key = "Hashings",
                 Url = "Tools/Hashings"
             });
         }
@@ -51,14 +52,15 @@ namespace IToolKit.Shared
             new BitNavLinkItem
             {
                 Name = "Home",
-                Url = "http://example.com",
+                Url = "/",
                 Title = "",
+                Key = "Home",
                 CollapseAriaLabel = "Collapse Home section",
                 ExpandAriaLabel = "Expand Home section",
                 IconName = BitIconName.Home,
             }
         };
-
+        
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)

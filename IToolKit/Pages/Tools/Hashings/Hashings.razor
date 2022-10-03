@@ -2,9 +2,9 @@
 
 <BitDropDown Label="Hash Type" Items="GetHashTypeItems()" OnSelectItem="OnHashTypeChange" />
 <BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." OnChange="OnChangeEvent" />
-<BitCheckbox @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
+<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
 @if (_IsAutoUpdate == false)
 {
-    <BitButton ButtonType="BitButtonType.Button" OnClick="()=> CalcHash(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
+    <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> CalcHash(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
 }
 <BitTextField Label="Result" Prefix="@_HashType.ToString()" @bind-Value="@_Result" />
