@@ -1,6 +1,7 @@
 ﻿@page "/Tools/Hashings"
 
-<BitDropDown Label="Hash Type" Items="GetHashTypeItems()" OnSelectItem="OnHashTypeChange" />
+<h1>Hashings</h1>
+<BitDropDown Label="Hash Type" Items="GetHashTypeItems()" DefaultValue="SHA1" OnSelectItem="OnHashTypeChange" />
 <BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." OnChange="OnChangeEvent" />
 <BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
 @if (_IsAutoUpdate == false)
