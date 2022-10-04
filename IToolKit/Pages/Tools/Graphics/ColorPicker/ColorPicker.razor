@@ -1,0 +1,20 @@
+﻿@page "/Graphics/ColorPicker"
+
+<div class="row">
+    <div class="col-lg-6">
+        <BitColorPicker ShowPreview="true"
+                        @ref="colorPicker"
+                        @bind-Color="@color"
+                        ShowAlphaSlider="false">
+        </BitColorPicker>
+    </div>
+    <div class="col-lg-6">
+        <BitTextField Label="Hex Code" Value="@color"></BitTextField>
+    <BitTextField Label="RGB" Value="@(colorPicker?.Rgb ?? "rgb(255,255,255)")"></BitTextField>
+    </div>
+</div>
+
+@code {
+    private BitColorPicker colorPicker;
+    private string color = "#FFFFFF";
+}

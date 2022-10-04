@@ -77,6 +77,21 @@ namespace IToolKit.Shared
                         Key = "Key7" ,
                     }
                 }
+            },
+            new BitNavLinkItem
+            {
+                Name = "Graphics",
+                Key = "Key8",
+                IconName = BitIconName.PictureStretch,
+                Links = new List<BitNavLinkItem>
+                {
+                    new BitNavLinkItem
+                    {
+                        Name = "Color Picker",
+                        Url = "Graphics/ColorPicker",
+                        Key = "Key9" ,
+                    },
+                }
             }
         };
 
