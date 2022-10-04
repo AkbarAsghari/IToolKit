@@ -8,13 +8,6 @@ namespace IToolKit.Shared
 
         public NavMenu()
         {
-            AllNavLinks.Add(new BitNavLinkItem
-            {
-                Name = "Hashings",
-                Key = "Key2",
-                IconName = BitIconName.Fingerprint,
-                Url = "Tools/Hashings"
-            });
         }
 
         private void onChange(string value)
@@ -90,6 +83,21 @@ namespace IToolKit.Shared
                         Name = "Color Picker",
                         Url = "Graphics/ColorPicker",
                         Key = "Key9" ,
+                    },
+                }
+            },
+            new BitNavLinkItem
+            {
+                Name = "Generators",
+                Key = "Key2",
+                IconName = BitIconName.Generate,
+                Links = new List<BitNavLinkItem>
+                {
+                    new BitNavLinkItem
+                    {
+                        Name = "Hash",
+                        Url = "Generators/Hash",
+                        Key = "Key10" ,
                     },
                 }
             }

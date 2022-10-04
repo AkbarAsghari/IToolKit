@@ -1,11 +1,15 @@
-﻿@page "/Tools/Hashings"
+﻿@page "/Generators/Hash"
 
-<h1>Hashings</h1>
-<BitDropDown Label="Hash Type" Items="GetHashTypeItems()" DefaultValue="SHA1" OnSelectItem="OnHashTypeChange" />
+<h1>Hash</h1>
+
 <BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." OnChange="OnChangeEvent" />
 <BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
 @if (_IsAutoUpdate == false)
 {
     <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> CalcHash(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
 }
-<BitTextField Label="Result" Prefix="@_HashType.ToString()" @bind-Value="@_Result" />
+
+<BitTextField Label="SHA1" @bind-Value="@_SHA1Result" />
+<BitTextField Label="SHA256" @bind-Value="@_SHA256Result" />
+<BitTextField Label="SHA384" @bind-Value="@_SHA384Result" />
+<BitTextField Label="SHA512" @bind-Value="@_SHA512Result" />
