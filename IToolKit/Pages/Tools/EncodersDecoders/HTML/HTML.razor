@@ -8,4 +8,4 @@
 {
     <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> Calc(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
 }
-<BitTextField Label="Result" Prefix="@_EncodeDecodeType.ToString()" @bind-Value="@_Result" />
+<BitTextField Label="Result" IsMultiline=true @bind-Value="@_Result" />
