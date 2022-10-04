@@ -1,0 +1,11 @@
+﻿@page "/EncodersDecoders/Base64TextEncoderDecoder"
+
+<h1>Base64 Text Encoder/Decoder</h1>
+<BitDropDown Label="Encode/Decode" Items="GetEncodeDecodes()" DefaultValue="Encode" OnSelectItem="OnHashTypeChange" />
+<BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." OnChange="OnChangeEvent" />
+<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
+@if (_IsAutoUpdate == false)
+{
+    <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> Calc(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
+}
+<BitTextField Label="Result" Prefix="@_EncodeDecodeType.ToString()" @bind-Value="@_Result" />

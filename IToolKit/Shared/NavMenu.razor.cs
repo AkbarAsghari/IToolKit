@@ -10,23 +10,9 @@ namespace IToolKit.Shared
         {
             AllNavLinks.Add(new BitNavLinkItem
             {
-                Name = "Encryption",
-                IconName = BitIconName.Switch,
-                Links = new List<BitNavLinkItem>
-                    {
-                        new BitNavLinkItem {
-                            Name = "Rijndael",
-                            Url = "Tools/Encryption/Rijndael",
-                            IconName= BitIconName.ReturnKey
-                        },
-                    }
-            });
-
-            AllNavLinks.Add(new BitNavLinkItem
-            {
                 Name = "Hashings",
+                Key = "Key2",
                 IconName = BitIconName.Fingerprint,
-                Key = "Hashings",
                 Url = "Tools/Hashings"
             });
         }
@@ -54,13 +40,46 @@ namespace IToolKit.Shared
                 Name = "Home",
                 Url = "/",
                 Title = "",
-                Key = "Home",
+                Key = "Key1",
                 CollapseAriaLabel = "Collapse Home section",
                 ExpandAriaLabel = "Expand Home section",
                 IconName = BitIconName.Home,
+            },
+            new BitNavLinkItem
+            {
+                Name = "Encode/Decode",
+                Key = "Key3" ,
+                IconName = BitIconName.ChangeEntitlements,
+                Links = new List<BitNavLinkItem>
+                {
+                    new BitNavLinkItem
+                    {
+                        Name = "Base64 Text",
+                        Url = "EncodersDecoders/Base64TextEncoderDecoder",
+                        Key = "Key4" ,
+                    },
+                    new BitNavLinkItem
+                    {
+                        Name = "Base32 Text",
+                        Url = "EncodersDecoders/Base32TextEncoderDecoder",
+                        Key = "Key5" ,
+                    },
+                    new BitNavLinkItem
+                    {
+                        Name = "URL",
+                        Url = "EncodersDecoders/URL",
+                        Key = "Key6" ,
+                    },
+                    new BitNavLinkItem
+                    {
+                        Name = "HTML",
+                        Url = "EncodersDecoders/HTML",
+                        Key = "Key7" ,
+                    }
+                }
             }
         };
-        
+
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
