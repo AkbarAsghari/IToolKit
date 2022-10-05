@@ -1,0 +1,14 @@
+﻿@page "/Generators/UUID"
+
+<h1>UUID</h1>
+
+<div class="btn-group">
+    <BitButton ButtonType="BitButtonType.Button" OnClick="GnerateUUID">Generate UUID(s)</BitButton>
+    <BitNumericTextField Min="1" Step="1" Arrows="true" Label=" x" @bind-Value=@_Count />
+</div>
+<hr />
+<BitToggle Label="- Hyphens" IsInlineLabel=true @bind-Value=@_IsHyphens />
+<BitToggle Label="Uppercase" IsInlineLabel=true @bind-Value=@_IsUpperCase />
+<BitDropDown Items="Versions" Label="Version" DefaultValue="@DefaultVersion" @bind-Value=_UuidVersion />
+<hr />
+<BitTextField IsMultiline=true Label="Result" Rows="23" @bind-Value=@_Result />

@@ -99,6 +99,12 @@ namespace IToolKit.Shared
                         Url = "Generators/Hash",
                         Key = "Key10" ,
                     },
+                    new BitNavLinkItem
+                    {
+                        Name = "UUID",
+                        Url = "Generators/UUID",
+                        Key = "Key11" ,
+                    },
                 }
             }
         };
