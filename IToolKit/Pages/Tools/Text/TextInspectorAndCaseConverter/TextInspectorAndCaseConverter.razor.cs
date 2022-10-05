@@ -84,6 +84,7 @@ namespace IToolKit.Pages.Tools.Text.TextInspectorAndCaseConverter
 
         void ToInverseCase()
         {
+            _IsEdited = true;
             _Text = _Text.ToLower();
             char[] characters = _Text.ToCharArray();
             for (int i = 1; i < characters.Length; i += 2)
@@ -95,6 +96,7 @@ namespace IToolKit.Pages.Tools.Text.TextInspectorAndCaseConverter
 
         void ToAlternatingCase()
         {
+            _IsEdited = true;
             _Text = _Text.ToLower();
             char[] characters = _Text.ToCharArray();
             for (int i = 0; i < characters.Length; i += 2)
@@ -112,7 +114,7 @@ namespace IToolKit.Pages.Tools.Text.TextInspectorAndCaseConverter
 
         void ToKebabCase()
         {
-            ToCamelCase();
+            ToSnakeCase();
             _Result = _Result.Replace('_', '-');
         }
         void ToPascalCase()
