@@ -3,19 +3,21 @@
 <h1>Text Case Converter and Inspector</h1>
 
 <BitLabel>Convert</BitLabel>
-<BitButton Style="margin-top:5px">Orginal Text</BitButton>
-<BitButton Style="margin-top:5px">Sentence Case</BitButton>
-<BitButton Style="margin-top:5px">lower Case</BitButton>
-<BitButton Style="margin-top:5px">UPPER CASE</BitButton>
-<BitButton Style="margin-top:5px">Title Case</BitButton>
-<BitButton Style="margin-top:5px">camelCase</BitButton>
-<BitButton Style="margin-top:5px">PascalCase</BitButton>
-<BitButton Style="margin-top:5px">snake_case</BitButton>
-<BitButton Style="margin-top:5px">CONSTANT_CASE</BitButton>
-<BitButton Style="margin-top:5px">kebab-case</BitButton>
-<BitButton Style="margin-top:5px">COBOL-CASE</BitButton>
-<BitButton Style="margin-top:5px">Train-Case</BitButton>
-<BitButton Style="margin-top:5px">aLtErNaTiNg cAsE</BitButton>
-<BitButton Style="margin-top:5px">InVeRsE CaSe</BitButton>
+<BitButton Style="margin-top:5px" IsEnabled=@_IsEdited OnClick="ToOrginal">Orginal Text</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToSentence">Sentence Case</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToLower">lower Case</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToUpper">UPPER CASE</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToTitleCase">Title Case</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToCamelCase">camelCase</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToPascalCase">PascalCase</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToSnakeCase">snake_case</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToConstantCase">CONSTANT_CASE</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToKebabCase">kebab-case</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToCobolCase">COBOL-CASE</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToTrainCase">Train-Case</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToAlternatingCase">aLtErNaTiNg cAsE</BitButton>
+<BitButton Style="margin-top:5px" OnClick="ToInverseCase">InVeRsE CaSe</BitButton>
 
-<BitTextField Label="String" IsMultiline=true Rows="23" @bind-Value=@_Text />
+<BitTextField Label="String"
+              Value="@_Result"
+              @oninput="(i)=>OnTextChange(i.Value!.ToString()!)"></BitTextField>

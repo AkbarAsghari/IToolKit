@@ -7,7 +7,6 @@ namespace IToolKit.Pages.Tools.Generators.Hash
     public partial class Hash
     {
         string _CurrentValue;
-        string _CurrentSecret;
 
         string _SHA1Result;
         string _SHA256Result;
