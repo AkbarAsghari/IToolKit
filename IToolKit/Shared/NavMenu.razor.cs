@@ -106,6 +106,21 @@ namespace IToolKit.Shared
                         Key = "Key11" ,
                     },
                 }
+            },
+            new BitNavLinkItem
+            {
+                Name = "Text",
+                Key = "Key12",
+                IconName = BitIconName.InsertTextBox,
+                Links = new List<BitNavLinkItem>
+                {
+                    new BitNavLinkItem
+                    {
+                        Name = "Inspector And CaseConverter",
+                        Url = "Text/TextInspectorAndCaseConverter",
+                        Key = "Key13" ,
+                    }
+                }
             }
         };
 
