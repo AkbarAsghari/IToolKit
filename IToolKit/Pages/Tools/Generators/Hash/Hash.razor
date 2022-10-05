@@ -6,10 +6,12 @@
 <BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
 @if (_IsAutoUpdate == false)
 {
-    <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> CalcHash(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
+    <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> CalcHash()" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
 }
-
-<BitTextField Label="SHA1" @bind-Value="@_SHA1Result" />
-<BitTextField Label="SHA256" @bind-Value="@_SHA256Result" />
-<BitTextField Label="SHA384" @bind-Value="@_SHA384Result" />
-<BitTextField Label="SHA512" @bind-Value="@_SHA512Result" />
+<hr />
+<BitToggle Label="Uppercase" IsInlineLabel=true @bind-Value="@_IsUpperCase" OnChange="ChangeTextCase" />
+<hr />
+<BitTextField IsReadonly=true Label="SHA1" @bind-Value="@_SHA1Result" />
+<BitTextField IsReadonly=true Label="SHA256" @bind-Value="@_SHA256Result" />
+<BitTextField IsReadonly=true Label="SHA384" @bind-Value="@_SHA384Result" />
+<BitTextField IsReadonly=true Label="SHA512" @bind-Value="@_SHA512Result" />
