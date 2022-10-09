@@ -25,7 +25,6 @@ namespace IToolKit.Pages.Tools.Text.TextInspectorAndCaseConverter
             }
         }
 
-
         private void OnTextChange(string value)
         {
             _Result = value;

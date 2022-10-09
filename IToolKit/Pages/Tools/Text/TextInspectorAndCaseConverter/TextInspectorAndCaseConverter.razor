@@ -18,6 +18,21 @@
 <BitButton Style="margin-top:5px" OnClick="ToAlternatingCase">aLtErNaTiNg cAsE</BitButton>
 <BitButton Style="margin-top:5px" OnClick="ToInverseCase">InVeRsE CaSe</BitButton>
 
-<BitTextField Label="String"
-              Value="@_Result"
-              @oninput="(i)=>OnTextChange(i.Value!.ToString()!)"></BitTextField>
+<div class="bit-txt bit-txt-fluent bit-txt-enabled-fluent bit-txt-multiline-fluent">
+    <div class="bit-txt-wrapper" style="margin-top:5px">
+        <label class="bit-lbl bit-lbl-fluent bit-lbl-enabled-fluent">String</label>
+        <div class="bit-txt-field-grp">
+            <textarea value="@_Result" rows="15" class="txt-field" @oninput="(i)=>OnTextChange(i.Value!.ToString()!)"></textarea>
+        </div>
+    </div>
+</div>
+
+<BitLabel>Statics</BitLabel>
+<hr />
+<BitLabel>Line : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length - _Result.Replace(Environment.NewLine, string.Empty).Length)</BitLabel>
+<BitLabel>Column : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Length)</BitLabel>
+<BitLabel>Position : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Length)</BitLabel>
+<BitLabel>Characters : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length)</BitLabel>
+<BitLabel>Words : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new char[] {' ', '\r', '\n' },StringSplitOptions.RemoveEmptyEntries).Distinct().Count())</BitLabel>
+<BitLabel>Sentences : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.TrimEnd('.').Split('.').Length)</BitLabel>
+<BitLabel>Paragraphs : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new [] { Environment.NewLine + Environment.NewLine },StringSplitOptions.RemoveEmptyEntries).Count())</BitLabel>
