@@ -9,10 +9,15 @@ namespace IToolKit.Shared
         public NavMenu()
         {
         }
-
+        private void onClearSearch()
+        {
+            BasicNoToolTipNavLinks = AllNavLinks;
+        }
         private void onChange(string value)
         {
-            BasicNoToolTipNavLinks = AllNavLinks.Where(x => x.Name.ToLower().Contains(value.ToLower())).ToList();
+            BasicNoToolTipNavLinks = AllNavLinks.Where(x =>
+           x.Name.ToLower().Contains(value.ToLower()) ||
+           x.Links.Any(l => l.Name.ToLower().Contains(value.ToLower()))).ToList();
         }
 
         private bool collapseNavMenu = true;
@@ -123,11 +128,18 @@ namespace IToolKit.Shared
                 }
             }
         };
+        void ToggleNavMenu(BitNavLinkItem item)
+        {
+            ToggleNavMenu();
+        }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
+                AllNavLinks.ForEach(x => x.Links.ToList().ForEach(i => i.OnClick += ToggleNavMenu));
+                AllNavLinks.Where(x => x.Links.Count() == 0).ToList().ForEach(x => x.OnClick += ToggleNavMenu);
+
                 BasicNoToolTipNavLinks = AllNavLinks;
                 await this.InvokeAsync(() => this.StateHasChanged());
             }
