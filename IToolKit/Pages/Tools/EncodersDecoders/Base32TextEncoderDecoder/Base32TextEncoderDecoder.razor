@@ -6,6 +6,6 @@
 <BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
 @if (_IsAutoUpdate == false)
 {
-    <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> Calc(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
+    <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> Calc(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">@_EncodeDecodeType</BitButton>
 }
 <BitTextField Label="Result" @bind-Value="@_Result" />
