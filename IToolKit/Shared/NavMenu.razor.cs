@@ -24,9 +24,10 @@ namespace IToolKit.Shared
 
         private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-        private void ToggleNavMenu()
+        private async Task ToggleNavMenu()
         {
             collapseNavMenu = !collapseNavMenu;
+            await this.InvokeAsync(() => StateHasChanged());
         }
 
         private List<BitNavLinkItem> BasicNoToolTipNavLinks = new List<BitNavLinkItem>();
@@ -128,9 +129,10 @@ namespace IToolKit.Shared
                 }
             }
         };
-        void ToggleNavMenu(BitNavLinkItem item)
+
+        async void ToggleNavMenu(BitNavLinkItem item)
         {
-            ToggleNavMenu();
+            await ToggleNavMenu();
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
