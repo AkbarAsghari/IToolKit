@@ -21,16 +21,15 @@ namespace IToolKit.Pages.Tools.Generators.Hash
         bool _IsAutoUpdate = true;
         bool _IsUpperCase = true;
 
-        private void OnChangeEvent(string value)
+        private async void OnChangeEvent(string value)
         {
-            Console.WriteLine(value);
             _CurrentValue = value;
 
             if (_IsAutoUpdate)
-                CalcHash();
+                await CalcHash();
         }
 
-        async void CalcHash()
+        async Task CalcHash()
         {
             if (String.IsNullOrWhiteSpace(_CurrentValue))
             {
@@ -45,6 +44,7 @@ namespace IToolKit.Pages.Tools.Generators.Hash
             _SHA512Result = HashingsTool.ComputeSHA512Hash(_CurrentValue);
 
             ChangeTextCase(_IsUpperCase);
+            await this.InvokeAsync(() => StateHasChanged());
         }
 
         void ChangeTextCase(bool value)
