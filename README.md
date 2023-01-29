@@ -3,18 +3,18 @@ free online tools for developers with offline usable
 
 tools list
 
-#Encode/Decode
+# Encode/Decode
 Base64
 Base32
 HTML
 URL
 
-#Graphic
+# Graphic
 Color Picker
 
-#Generator
+# Generator
 Hash
 UUID
 
-#Text
+# Text
 Text Case Converter and Inspector
