@@ -127,6 +127,13 @@ namespace IToolKit.Shared
                         Key = "Key13" ,
                     }
                 }
+            },
+            new BitNavLinkItem
+            {
+                Name = "Repository",
+                Key = "Key999",
+                IconName = BitIconName.OpenSource,
+                Url = "https://github.com/AkbarAsghari/IToolKit"
             }
         };
 
