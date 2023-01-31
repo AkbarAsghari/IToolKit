@@ -37,11 +37,11 @@ namespace IToolKit.Pages.Tools.Generators.Hash
                 return;
             }
 
-            _MD5Result = await _JSRuntime.InvokeAsync<string>("md5", _CurrentValue);
-            _SHA1Result = HashingsTool.ComputeSHA1Hash(_CurrentValue);
-            _SHA256Result = HashingsTool.ComputeSHA256Hash(_CurrentValue);
-            _SHA384Result = HashingsTool.ComputeSHA384Hash(_CurrentValue);
-            _SHA512Result = HashingsTool.ComputeSHA512Hash(_CurrentValue);
+            _MD5Result = await _JSRuntime.InvokeAsync<string>("IToolKit.MD5", _CurrentValue);
+            _SHA1Result = await _JSRuntime.InvokeAsync<string>("IToolKit.SHA1", _CurrentValue);
+            _SHA256Result = await _JSRuntime.InvokeAsync<string>("IToolKit.SHA256", _CurrentValue);
+            _SHA384Result = await _JSRuntime.InvokeAsync<string>("IToolKit.SHA384", _CurrentValue);
+            _SHA512Result = await _JSRuntime.InvokeAsync<string>("IToolKit.SHA512", _CurrentValue);
 
             ChangeTextCase(_IsUpperCase);
             await this.InvokeAsync(() => StateHasChanged());
