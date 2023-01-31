@@ -1,6 +1,5 @@
 ﻿using Bit.BlazorUI;
 using IToolKit.API.Enums.Tools.Hashings;
-using IToolKit.API.Tools.Hashings;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
@@ -37,11 +36,11 @@ namespace IToolKit.Pages.Tools.Generators.Hash
                 return;
             }
 
-            _MD5Result = await _JSRuntime.InvokeAsync<string>("IToolKit.MD5", _CurrentValue);
-            _SHA1Result = await _JSRuntime.InvokeAsync<string>("IToolKit.SHA1", _CurrentValue);
-            _SHA256Result = await _JSRuntime.InvokeAsync<string>("IToolKit.SHA256", _CurrentValue);
-            _SHA384Result = await _JSRuntime.InvokeAsync<string>("IToolKit.SHA384", _CurrentValue);
-            _SHA512Result = await _JSRuntime.InvokeAsync<string>("IToolKit.SHA512", _CurrentValue);
+            _MD5Result = await _JSRuntime.InvokeAsync<string>("IToolKit.Hash.MD5", _CurrentValue);
+            _SHA1Result = await _JSRuntime.InvokeAsync<string>("IToolKit.Hash.SHA1", _CurrentValue);
+            _SHA256Result = await _JSRuntime.InvokeAsync<string>("IToolKit.Hash.SHA256", _CurrentValue);
+            _SHA384Result = await _JSRuntime.InvokeAsync<string>("IToolKit.Hash.SHA384", _CurrentValue);
+            _SHA512Result = await _JSRuntime.InvokeAsync<string>("IToolKit.Hash.SHA512", _CurrentValue);
 
             ChangeTextCase(_IsUpperCase);
             await this.InvokeAsync(() => StateHasChanged());
