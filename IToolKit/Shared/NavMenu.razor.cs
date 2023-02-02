@@ -54,13 +54,13 @@ namespace IToolKit.Shared
                     new BitNavLinkItem
                     {
                         Name = "Base64 Text",
-                        Url = "EncodersDecoders/Base64TextEncoderDecoder",
+                        Url = "EncodersDecoders/Base64",
                         Key = "Key4" ,
                     },
                     new BitNavLinkItem
                     {
                         Name = "Base32 Text",
-                        Url = "EncodersDecoders/Base32TextEncoderDecoder",
+                        Url = "EncodersDecoders/Base32",
                         Key = "Key5" ,
                     },
                     new BitNavLinkItem
