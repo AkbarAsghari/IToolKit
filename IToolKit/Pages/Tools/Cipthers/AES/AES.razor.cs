@@ -58,9 +58,16 @@ partial class AES
             return;
         }
 
-        _AESResult = await _JSRuntime.InvokeAsync<string>($"IToolKit.Cipher.AES.{CipherType}", _InputValue, _SecurityValue);
+        try
+        {
+            _AESResult = await _JSRuntime.InvokeAsync<string>($"IToolKit.Cipher.AES.{CipherType}", _InputValue, _SecurityValue);
+        }
+        catch (Exception)
+        {
+            _AESResult = String.Empty;
+        }
 
-        await this.InvokeAsync(() => StateHasChanged());  
+        await this.InvokeAsync(() => StateHasChanged());
     }
 }
 
