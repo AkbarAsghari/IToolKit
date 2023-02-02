@@ -79,21 +79,6 @@ namespace IToolKit.Shared
             },
             new BitNavLinkItem
             {
-                Name = "Graphics",
-                Key = "Key8",
-                IconName = BitIconName.PictureStretch,
-                Links = new List<BitNavLinkItem>
-                {
-                    new BitNavLinkItem
-                    {
-                        Name = "Color Picker",
-                        Url = "Graphics/ColorPicker",
-                        Key = "Key9" ,
-                    },
-                }
-            },
-            new BitNavLinkItem
-            {
                 Name = "Generators",
                 Key = "Key2",
                 IconName = BitIconName.Generate,
@@ -110,6 +95,36 @@ namespace IToolKit.Shared
                         Name = "UUID",
                         Url = "Generators/UUID",
                         Key = "Key11" ,
+                    },
+                }
+            },
+            new BitNavLinkItem
+            {
+                Name = "Ciphers",
+                Key = "Key14",
+                IconName = BitIconName.Permissions,
+                Links = new List<BitNavLinkItem>
+                {
+                    new BitNavLinkItem
+                    {
+                        Name = "AES",
+                        Url = "Ciphers/AES",
+                        Key = "Key15" ,
+                    }
+                }
+            },
+            new BitNavLinkItem
+            {
+                Name = "Graphics",
+                Key = "Key8",
+                IconName = BitIconName.PictureStretch,
+                Links = new List<BitNavLinkItem>
+                {
+                    new BitNavLinkItem
+                    {
+                        Name = "Color Picker",
+                        Url = "Graphics/ColorPicker",
+                        Key = "Key9" ,
                     },
                 }
             },
