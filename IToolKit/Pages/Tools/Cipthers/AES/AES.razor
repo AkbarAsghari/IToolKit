@@ -1,0 +1,18 @@
+﻿@page "/Cipher/AES"
+
+<h1>AES</h1>
+<BitDropDown Label="Encrypt/Decrypt" Items="@CipherTypes" DefaultValue="Encrypt" OnSelectItem="OnCipherTypeChange" />
+<BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." @bind-Value="@_InputValue" OnChange="OnChangeEvent" />
+<BitTextField Label="Security" Placeholder="Type Security here ..." @bind-Value="@_SecurityValue" OnChange="OnChangeEvent" />
+<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
+@if (_IsAutoUpdate == false)
+{
+    <BitButton Style="margin-top:5px"
+           ButtonType="BitButtonType.Button"
+           OnClick="()=> CalcHash()"
+           ButtonStyle="BitButtonStyle.Primary">
+        @CipherType.ToString()
+    </BitButton>
+}
+<hr />
+<BitTextField IsReadonly=true Label="@($"{CipherType.ToString()}ed Text")" @bind-Value="@_AESResult" />

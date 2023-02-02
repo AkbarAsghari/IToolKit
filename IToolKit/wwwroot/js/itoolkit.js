@@ -19,9 +19,11 @@
     },
 
     //HMAC
-    Ciphers: {
+    Cipher: {
         AES: {
             Encrypt: function (message, secret) {
+                console.log(message);
+                console.log(secret);
                 return CryptoJS.AES.encrypt(message, secret).toString();
             },
             Decrypt: function (encrypted, secret) {

@@ -30,7 +30,7 @@ namespace IToolKit.Pages.Tools.Generators.Hash
 
         async Task CalcHash()
         {
-            if (String.IsNullOrWhiteSpace(_CurrentValue))
+            if (String.IsNullOrEmpty(_CurrentValue))
             {
                 _MD5Result = _SHA1Result = _SHA256Result = _SHA384Result = _SHA512Result = String.Empty;
                 return;
