@@ -15,4 +15,4 @@
     </BitButton>
 }
 <hr />
-<BitTextField IsReadonly=true Label="@($"{CipherType.ToString()}ed Text")" @bind-Value="@_AESResult" />
+<BitTextField IsReadonly=true IsMultiline=true Label="@($"{CipherType.ToString()}ed Text")" @bind-Value="@_AESResult" />
