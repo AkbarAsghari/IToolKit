@@ -33,17 +33,24 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.URL
 
         void Calc(string value)
         {
-            switch (_EncodeDecodeType)
+            try
             {
-                case EncodeDecodeTypeEnum.Encode:
-                    _Result = EncoderDecoderTools.URLEncode(value);
-                    break;
-                case EncodeDecodeTypeEnum.Decode:
-                    _Result = EncoderDecoderTools.URLDecode(value);
-                    break;
-                default:
-                    _Result = "Type not found!";
-                    break;
+                switch (_EncodeDecodeType)
+                {
+                    case EncodeDecodeTypeEnum.Encode:
+                        _Result = EncoderDecoderTools.URLEncode(value);
+                        break;
+                    case EncodeDecodeTypeEnum.Decode:
+                        _Result = EncoderDecoderTools.URLDecode(value);
+                        break;
+                    default:
+                        _Result = "Type not found!";
+                        break;
+                }
+            }
+            catch(Exception) 
+            {
+                _Result = String.Empty;
             }
         }
 

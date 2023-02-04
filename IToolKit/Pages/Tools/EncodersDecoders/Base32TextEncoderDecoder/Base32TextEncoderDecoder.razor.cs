@@ -33,17 +33,24 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Base32TextEncoderDecoder
 
         void Calc(string value)
         {
-            switch (_EncodeDecodeType)
+            try
             {
-                case EncodeDecodeTypeEnum.Encode:
-                    _Result = EncoderDecoderTools.Base32Encode(value);
-                    break;
-                case EncodeDecodeTypeEnum.Decode:
-                    _Result = EncoderDecoderTools.Base32Decode(value);
-                    break;
-                default:
-                    _Result = "Type not found!";
-                    break;
+                switch (_EncodeDecodeType)
+                {
+                    case EncodeDecodeTypeEnum.Encode:
+                        _Result = EncoderDecoderTools.Base32Encode(value);
+                        break;
+                    case EncodeDecodeTypeEnum.Decode:
+                        _Result = EncoderDecoderTools.Base32Decode(value);
+                        break;
+                    default:
+                        _Result = "Type not found!";
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                _Result = string.Empty;
             }
         }
 

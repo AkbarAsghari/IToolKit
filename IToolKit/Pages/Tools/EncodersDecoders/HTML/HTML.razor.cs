@@ -33,17 +33,24 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.HTML
 
         void Calc(string value)
         {
-            switch (_EncodeDecodeType)
+            try
             {
-                case EncodeDecodeTypeEnum.Encode:
-                    _Result = EncoderDecoderTools.HTMLEncode(value);
-                    break;
-                case EncodeDecodeTypeEnum.Decode:
-                    _Result = EncoderDecoderTools.HTMLDecode(value);
-                    break;
-                default:
-                    _Result = "Type not found!";
-                    break;
+                switch (_EncodeDecodeType)
+                {
+                    case EncodeDecodeTypeEnum.Encode:
+                        _Result = EncoderDecoderTools.HTMLEncode(value);
+                        break;
+                    case EncodeDecodeTypeEnum.Decode:
+                        _Result = EncoderDecoderTools.HTMLDecode(value);
+                        break;
+                    default:
+                        _Result = "Type not found!";
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                _Result = String.Empty;
             }
         }
 
