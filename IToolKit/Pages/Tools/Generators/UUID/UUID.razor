@@ -2,12 +2,10 @@
 
 <h1>UUID</h1>
 
-<div class="btn-group">
-    <BitButton ButtonType="BitButtonType.Button" OnClick="GnerateUUID">Generate UUID(s)</BitButton>
-    <BitNumericTextField Min="1" Step="1" Arrows="true" Label=" x" @bind-Value=@_Count />
-</div>
+<BitNumericTextField Style="display:inline-block" Min="1" Step="1" ShowArrows="true" Label="Count" @bind-Value=@_Count />
+<BitButton ButtonType="BitButtonType.Button" OnClick="GnerateUUID">Generate UUID(s)</BitButton>
 <hr />
-<BitToggle Label="- Hyphens" IsInlineLabel=true @bind-Value=@_IsHyphens />
+<BitToggle Label="- Hyphens" Style="white-space: nowrap;" IsInlineLabel=true @bind-Value=@_IsHyphens />
 <BitToggle Label="Uppercase" IsInlineLabel=true @bind-Value=@_IsUpperCase />
 <BitDropDown Items="Versions" Label="Version" DefaultValue="@DefaultVersion" @bind-Value=_UuidVersion />
 <hr />

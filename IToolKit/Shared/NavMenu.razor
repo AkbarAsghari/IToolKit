@@ -9,9 +9,11 @@
 
 <div class="@NavMenuCssClass">
     <BitSearchBox Placeholder="Search tools" IsUnderlined="true" OnChange="onChange" OnClear="onClearSearch"></BitSearchBox>
-    <BitNav
-        AriaLabel="Nav basic example"
-        Mode="BitNavMode.Manual"
-        NavLinkItems="BasicNoToolTipNavLinks">
-    </BitNav>
+    <BitNavList TextFieldSelector="x=>x.Text"
+                UrlFieldSelector="x=>x.Url"
+                IsEnabledFieldSelector="x=>x.IsEnabled"
+                ItemsFieldSelector="x=>x.Links"
+                Mode="BitNavMode.Manual"
+                Items="AllNavLinks">
+    </BitNavList>
 </div>

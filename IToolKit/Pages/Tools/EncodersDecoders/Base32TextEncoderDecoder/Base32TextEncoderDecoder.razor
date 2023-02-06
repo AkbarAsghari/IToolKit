@@ -3,7 +3,7 @@
 <h1>Base32 Text Encoder/Decoder</h1>
 <BitDropDown Label="Encode/Decode" Items="GetEncodeDecodes()" DefaultValue="Encode" OnSelectItem="OnHashTypeChange" />
 <BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." OnChange="OnChangeEvent" />
-<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
+<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate" Label="Auto Update"/>
 @if (_IsAutoUpdate == false)
 {
     <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> Calc(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">@_EncodeDecodeType</BitButton>

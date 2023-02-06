@@ -11,3 +11,7 @@
     background-color: #FFFFFF;
     height: inherit;
 }
+
+li > div > a {
+    text-decoration: none;
+}

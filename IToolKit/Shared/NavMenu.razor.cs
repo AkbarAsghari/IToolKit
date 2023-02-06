@@ -5,19 +5,28 @@ namespace IToolKit.Shared
 {
     partial class NavMenu
     {
+        public class IToolKitMenu
+        {
+            public string Text { get; set; } = string.Empty;
+            public string Url { get; set; }
+            public bool IsEnabled { get; set; } = true;
+            public BitIconName Icon { get; set; }
+            public List<IToolKitMenu> Links { get; set; } = new();
+        }
 
         public NavMenu()
         {
         }
+
         private void onClearSearch()
         {
-            BasicNoToolTipNavLinks = AllNavLinks;
+            IToolKitNavMenu = AllNavLinks;
         }
         private void onChange(string value)
         {
-            BasicNoToolTipNavLinks = AllNavLinks.Where(x =>
-           x.Name.ToLower().Contains(value.ToLower()) ||
-           x.Links.Any(l => l.Name.ToLower().Contains(value.ToLower()))).ToList();
+            IToolKitNavMenu = AllNavLinks.Where(x =>
+           x.Text.ToLower().Contains(value.ToLower()) ||
+           x.Links.Any(l => l.Text.ToLower().Contains(value.ToLower()))).ToList();
         }
 
         private bool collapseNavMenu = true;
@@ -30,129 +39,110 @@ namespace IToolKit.Shared
             await this.InvokeAsync(() => StateHasChanged());
         }
 
-        private List<BitNavLinkItem> BasicNoToolTipNavLinks = new List<BitNavLinkItem>();
+        private List<IToolKitMenu> IToolKitNavMenu = new List<IToolKitMenu>();
 
-        private readonly List<BitNavLinkItem> AllNavLinks = new()
+        private readonly List<IToolKitMenu> AllNavLinks = new()
         {
-            new BitNavLinkItem
+            new IToolKitMenu
             {
-                Name = "Home",
+                Text = "Home",
                 Url = "/",
-                Title = "",
-                Key = "Key1",
-                CollapseAriaLabel = "Collapse Home section",
-                ExpandAriaLabel = "Expand Home section",
-                IconName = BitIconName.Home,
+                Icon = BitIconName.Home,
             },
-            new BitNavLinkItem
+            new IToolKitMenu
             {
-                Name = "Encode/Decode",
-                Key = "Key3" ,
-                IconName = BitIconName.ChangeEntitlements,
-                Links = new List<BitNavLinkItem>
+                Text = "Encode/Decode",
+                Icon = BitIconName.ChangeEntitlements,
+                Links = new List<IToolKitMenu>
                 {
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "Base64 Text",
+                        Text = "Base64 Text",
                         Url = "EncodersDecoders/Base64",
-                        Key = "Key4" ,
                     },
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "Base32 Text",
+                        Text = "Base32 Text",
                         Url = "EncodersDecoders/Base32",
-                        Key = "Key5" ,
                     },
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "URL",
+                        Text = "URL",
                         Url = "EncodersDecoders/URL",
-                        Key = "Key6" ,
                     },
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "HTML",
+                        Text = "HTML",
                         Url = "EncodersDecoders/HTML",
-                        Key = "Key7" ,
                     }
                 }
             },
-            new BitNavLinkItem
+            new IToolKitMenu
             {
-                Name = "Generators",
-                Key = "Key2",
-                IconName = BitIconName.Generate,
-                Links = new List<BitNavLinkItem>
+                Text = "Generators",
+                Icon = BitIconName.Generate,
+                Links = new List<IToolKitMenu>
                 {
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "Hash",
+                        Text = "Hash",
                         Url = "Generators/Hash",
-                        Key = "Key10" ,
                     },
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "UUID",
+                        Text = "UUID",
                         Url = "Generators/UUID",
-                        Key = "Key11" ,
                     },
                 }
             },
-            new BitNavLinkItem
+            new IToolKitMenu
             {
-                Name = "Ciphers",
-                Key = "Key14",
-                IconName = BitIconName.Permissions,
-                Links = new List<BitNavLinkItem>
+                Text = "Ciphers",
+                Icon = BitIconName.Permissions,
+                Links = new List<IToolKitMenu>
                 {
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "AES",
-                        Url = "Ciphers/AES",
-                        Key = "Key15" ,
+                        Text = "AES",
+                        Url = "Ciphers/AES" ,
                     }
                 }
             },
-            new BitNavLinkItem
+            new IToolKitMenu
             {
-                Name = "Graphics",
-                Key = "Key8",
-                IconName = BitIconName.PictureStretch,
-                Links = new List<BitNavLinkItem>
+                Text = "Graphics",
+                Icon = BitIconName.PictureStretch,
+                Links = new List<IToolKitMenu>
                 {
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "Color Picker",
+                        Text = "Color Picker",
                         Url = "Graphics/ColorPicker",
-                        Key = "Key9" ,
                     },
                 }
             },
-            new BitNavLinkItem
+            new IToolKitMenu
             {
-                Name = "Text",
-                Key = "Key12",
-                IconName = BitIconName.InsertTextBox,
-                Links = new List<BitNavLinkItem>
+                Text = "Text",
+                Icon = BitIconName.InsertTextBox,
+                Links = new List<IToolKitMenu>
                 {
-                    new BitNavLinkItem
+                    new IToolKitMenu
                     {
-                        Name = "Inspector And CaseConverter",
+                        Text = "Inspector And CaseConverter",
                         Url = "Text/TextInspectorAndCaseConverter",
-                        Key = "Key13" ,
                     }
                 }
             },
-            new BitNavLinkItem
+            new IToolKitMenu
             {
-                Name = "Repository",
-                Key = "Key999",
-                IconName = BitIconName.OpenSource,
+                Text = "Repository",
+                Icon = BitIconName.OpenSource,
                 Url = "https://github.com/AkbarAsghari/IToolKit"
             }
         };
 
-        async void ToggleNavMenu(BitNavLinkItem item)
+        async void ToggleNavMenu(BitNavItem item)
         {
             await ToggleNavMenu();
         }
@@ -161,10 +151,10 @@ namespace IToolKit.Shared
         {
             if (firstRender)
             {
-                AllNavLinks.ForEach(x => x.Links.ToList().ForEach(i => i.OnClick += ToggleNavMenu));
-                AllNavLinks.Where(x => x.Links.Count() == 0).ToList().ForEach(x => x.OnClick += ToggleNavMenu);
+                //AllNavLinks.ForEach(x => x.Items.ToList().ForEach(i => i.OnClick += ToggleNavMenu));
+                //AllNavLinks.Where(x => x.Items.Count() == 0).ToList().ForEach(x => x.OnClick += ToggleNavMenu);
 
-                BasicNoToolTipNavLinks = AllNavLinks;
+                IToolKitNavMenu = AllNavLinks;
                 await this.InvokeAsync(() => this.StateHasChanged());
             }
         }

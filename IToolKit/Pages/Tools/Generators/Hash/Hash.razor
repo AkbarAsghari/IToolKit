@@ -3,7 +3,7 @@
 <h1>Hash</h1>
 
 <BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." OnChange="OnChangeEvent" />
-<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate">Auto Update</BitCheckbox>
+<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate" Label="Auto Update"/>
 @if (_IsAutoUpdate == false)
 {
     <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> CalcHash()" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
