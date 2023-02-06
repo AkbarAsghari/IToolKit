@@ -19,6 +19,21 @@
     },
 
     //HMAC
+    HMAC: {
+        MD5: function (message, secret) {
+            return CryptoJS.HmacMD5(message, secret).toString();
+        },
+        SHA1: function (message, secret) {
+            return CryptoJS.HmacSHA1(message, secret).toString();
+        },
+        SHA256: function (message, secret) {
+            return CryptoJS.HmacSHA256(message, secret).toString();
+        },
+        SHA512: function (message, secret) {
+            return CryptoJS.HmacSHA512(message, secret).toString();
+        }
+    },
+    //Cipher
     Cipher: {
         AES: {
             Encrypt: function (message, secret) {
