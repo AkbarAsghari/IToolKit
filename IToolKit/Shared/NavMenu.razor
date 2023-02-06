@@ -14,6 +14,9 @@
                 IsEnabledFieldSelector="x=>x.IsEnabled"
                 ItemsFieldSelector="x=>x.Links"
                 Mode="BitNavMode.Manual"
-                Items="AllNavLinks">
+                OnItemClick="(IToolKitMenu x)=> ToggleNavMenu()"
+                Items="AllNavLinks.Where(x =>
+           x.Text.ToLower().Contains(searchedText.ToLower()) ||
+           x.Links.Any(l => l.Text.ToLower().Contains(searchedText.ToLower()))).ToList()">
     </BitNavList>
 </div>

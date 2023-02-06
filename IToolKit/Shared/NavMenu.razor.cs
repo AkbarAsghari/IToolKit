@@ -8,7 +8,7 @@ namespace IToolKit.Shared
         public class IToolKitMenu
         {
             public string Text { get; set; } = string.Empty;
-            public string Url { get; set; }
+            public string Url { get; set; } = string.Empty;
             public bool IsEnabled { get; set; } = true;
             public BitIconName Icon { get; set; }
             public List<IToolKitMenu> Links { get; set; } = new();
@@ -20,15 +20,13 @@ namespace IToolKit.Shared
 
         private void onClearSearch()
         {
-            IToolKitNavMenu = AllNavLinks;
+            searchedText = String.Empty;
         }
         private void onChange(string value)
         {
-            IToolKitNavMenu = AllNavLinks.Where(x =>
-           x.Text.ToLower().Contains(value.ToLower()) ||
-           x.Links.Any(l => l.Text.ToLower().Contains(value.ToLower()))).ToList();
+            searchedText = value;
         }
-
+        private string searchedText = String.Empty;
         private bool collapseNavMenu = true;
 
         private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -38,8 +36,6 @@ namespace IToolKit.Shared
             collapseNavMenu = !collapseNavMenu;
             await this.InvokeAsync(() => StateHasChanged());
         }
-
-        private List<IToolKitMenu> IToolKitNavMenu = new List<IToolKitMenu>();
 
         private readonly List<IToolKitMenu> AllNavLinks = new()
         {
@@ -141,22 +137,5 @@ namespace IToolKit.Shared
                 Url = "https://github.com/AkbarAsghari/IToolKit"
             }
         };
-
-        async void ToggleNavMenu(BitNavItem item)
-        {
-            await ToggleNavMenu();
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                //AllNavLinks.ForEach(x => x.Items.ToList().ForEach(i => i.OnClick += ToggleNavMenu));
-                //AllNavLinks.Where(x => x.Items.Count() == 0).ToList().ForEach(x => x.OnClick += ToggleNavMenu);
-
-                IToolKitNavMenu = AllNavLinks;
-                await this.InvokeAsync(() => this.StateHasChanged());
-            }
-        }
     }
 }
