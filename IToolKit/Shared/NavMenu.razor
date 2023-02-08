@@ -13,8 +13,9 @@
                 UrlFieldSelector="x=>x.Url"
                 IsEnabledFieldSelector="x=>x.IsEnabled"
                 ItemsFieldSelector="x=>x.Links"
+                IconNameFieldSelector="x=>x.Icon"
                 Mode="BitNavMode.Manual"
-                OnItemClick="(IToolKitMenu x)=> ToggleNavMenu()"
+                OnItemClick="(IToolKitMenu x)=> ToggleNavMenu(x.Links.Count == 0)"
                 Items="AllNavLinks.Where(x =>
            x.Text.ToLower().Contains(searchedText.ToLower()) ||
            x.Links.Any(l => l.Text.ToLower().Contains(searchedText.ToLower()))).ToList()">

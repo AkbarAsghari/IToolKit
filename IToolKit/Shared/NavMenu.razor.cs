@@ -37,6 +37,14 @@ namespace IToolKit.Shared
             await this.InvokeAsync(() => StateHasChanged());
         }
 
+        private async Task ToggleNavMenu(bool toggle)
+        {
+            if (toggle)
+            {
+                await ToggleNavMenu();
+            }
+        }
+
         private readonly List<IToolKitMenu> AllNavLinks = new()
         {
             new IToolKitMenu
