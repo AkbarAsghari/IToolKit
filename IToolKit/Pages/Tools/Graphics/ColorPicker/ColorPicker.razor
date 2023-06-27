@@ -1,20 +1,35 @@
 ﻿@page "/Graphics/ColorPicker"
 
-<div class="row">
-    <div class="col-lg-6">
-        <BitColorPicker ShowPreview="true"
-                        @ref="colorPicker"
-                        @bind-Color="@color"
-                        ShowAlphaSlider="false">
-        </BitColorPicker>
-    </div>
-    <div class="col-lg-6">
-        <BitTextField Label="Hex Code" Value="@color"></BitTextField>
-    <BitTextField Label="RGB" Value="@(colorPicker?.Rgb ?? "rgb(255,255,255)")"></BitTextField>
-    </div>
-</div>
-
+<MudGrid>
+    <MudItem md="8" xs="12" Class="d-flex justify-center">
+        <MudColorPicker DisableToolbar="DisableToolbar" DisableAlpha="DisableAlpha" DisableColorField="DisableColorField" DisablePreview="DisablePreview" DisableSliders="DisableSliders" DisableInputs="DisableInputs" DisableModeSwitch="DisableModeSwitch" ColorPickerMode="ColorPickerMode" PickerVariant="PickerVariant.Static" />
+    </MudItem>
+    <MudItem md="4" xs="12">
+        <MudPaper Height="400px" Class="px-4 pt-2 pb-4">
+            <MudText Typo="Typo.h6">Options</MudText>
+            <MudCheckBox @bind-Checked="@DisableToolbar" Label="Disable Toolbar" Color="Color.Primary" Dense="true" />
+            <MudCheckBox @bind-Checked="@DisableAlpha" Label="Disable Alpha" Color="Color.Primary" Dense="true" />
+            <MudCheckBox @bind-Checked="@DisableColorField" Label="Disable Color Field" Color="Color.Primary" Dense="true" />
+            <MudCheckBox @bind-Checked="@DisablePreview" Label="Disable Preview" Color="Color.Primary" Dense="true" />
+            <MudCheckBox @bind-Checked="@DisableSliders" Label="Disable Sliders" Color="Color.Primary" Dense="true" />
+            <MudCheckBox @bind-Checked="@DisableInputs" Label="Disable Inputs" Color="Color.Primary" Dense="true" />
+            <MudCheckBox @bind-Checked="@DisableModeSwitch" Label="Disable Mode Switch" Color="Color.Primary" Dense="true" />
+            <MudSelect Label="Color Picker Mode" T="ColorPickerMode" Variant="Variant.Outlined" Dense="true" Margin="Margin.Dense" @bind-Value="ColorPickerMode" Class="mt-4">
+                <MudSelectItem Value="ColorPickerMode.RGB">RGB</MudSelectItem>
+                <MudSelectItem Value="ColorPickerMode.HSL">HSL</MudSelectItem>
+                <MudSelectItem Value="ColorPickerMode.HEX">HEX</MudSelectItem>
+            </MudSelect>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
 @code {
-    private BitColorPicker colorPicker;
-    private string color = "#FFFFFF";
+    public bool DisableToolbar { get; set; }
+    public bool DisableAlpha { get; set; }
+    public bool DisableColorField { get; set; }
+    public bool DisablePreview { get; set; }
+    public bool DisableSliders { get; set; }
+    public bool DisableInputs { get; set; }
+    public bool DisableModeSwitch { get; set; }
+
+    public ColorPickerMode ColorPickerMode { get; set; }
 }
