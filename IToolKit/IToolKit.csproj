@@ -10,16 +10,12 @@
 	<ItemGroup>
 	  <Compile Remove="Pages\Tools\Converters\**" />
 	  <Compile Remove="Pages\Tools\EncodersDecoders\**" />
-	  <Compile Remove="Pages\Tools\Text\**" />
 	  <Content Remove="Pages\Tools\Converters\**" />
 	  <Content Remove="Pages\Tools\EncodersDecoders\**" />
-	  <Content Remove="Pages\Tools\Text\**" />
 	  <EmbeddedResource Remove="Pages\Tools\Converters\**" />
 	  <EmbeddedResource Remove="Pages\Tools\EncodersDecoders\**" />
-	  <EmbeddedResource Remove="Pages\Tools\Text\**" />
 	  <None Remove="Pages\Tools\Converters\**" />
 	  <None Remove="Pages\Tools\EncodersDecoders\**" />
-	  <None Remove="Pages\Tools\Text\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -28,6 +24,7 @@
 	  <None Include="Pages\Tools\Generators\Hash\Hash.razor" />
 	  <None Include="Pages\Tools\Generators\UUID\UUID.razor" />
 	  <None Include="Pages\Tools\Graphics\ColorPicker\ColorPicker.razor" />
+	  <None Include="Pages\Tools\Text\TextInspectorAndCaseConverter\TextInspectorAndCaseConverter.razor" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,38 +1,30 @@
 ﻿@page "/Text/TextInspectorAndCaseConverter"
 
-<h1>Text Case Converter and Inspector</h1>
+<MudText Typo="Typo.h1">Text Case Converter and Inspector</MudText>
 
-<BitLabel>Convert</BitLabel>
-<BitButton Style="margin-top:5px" IsEnabled=@_IsEdited OnClick="ToOrginal">Orginal Text</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToSentence">Sentence Case</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToLower">lower Case</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToUpper">UPPER CASE</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToTitleCase">Title Case</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToCamelCase">camelCase</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToPascalCase">PascalCase</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToSnakeCase">snake_case</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToConstantCase">CONSTANT_CASE</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToKebabCase">kebab-case</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToCobolCase">COBOL-CASE</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToTrainCase">Train-Case</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToAlternatingCase">aLtErNaTiNg cAsE</BitButton>
-<BitButton Style="margin-top:5px" OnClick="ToInverseCase">InVeRsE CaSe</BitButton>
+<MudText>Convert</MudText>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled=@(!_IsEdited) OnClick="ToOrginal">Orginal Text</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToSentence">Sentence Case</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToLower">lower Case</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToUpper">UPPER CASE</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToTitleCase">Title Case</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToCamelCase">camelCase</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToPascalCase">PascalCase</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToSnakeCase">snake_case</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToConstantCase">CONSTANT_CASE</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToKebabCase">kebab-case</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToCobolCase">COBOL-CASE</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToTrainCase">Train-Case</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToAlternatingCase">aLtErNaTiNg cAsE</MudButton>
+<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToInverseCase">InVeRsE CaSe</MudButton>
 
-<div class="bit-txt bit-txt-fluent bit-txt-enabled-fluent bit-txt-multiline-fluent">
-    <div class="bit-txt-wrapper" style="margin-top:5px">
-        <label class="bit-lbl bit-lbl-fluent bit-lbl-enabled-fluent">String</label>
-        <div class="bit-txt-field-grp">
-            <textarea value="@_Result" rows="15" class="txt-field" @oninput="(i)=>OnTextChange(i.Value!.ToString()!)"></textarea>
-        </div>
-    </div>
-</div>
+<MudTextField T="string" Lines="15" Label="String" Immediate @bind-Text=@_Result Variant="Variant.Outlined"></MudTextField>
 
-<BitLabel>Statics</BitLabel>
-<hr />
-<BitLabel>Line : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length - _Result.Replace(Environment.NewLine, string.Empty).Length)</BitLabel>
-<BitLabel>Column : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Length)</BitLabel>
-<BitLabel>Position : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Length)</BitLabel>
-<BitLabel>Characters : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length)</BitLabel>
-<BitLabel>Words : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new char[] {' ', '\r', '\n' },StringSplitOptions.RemoveEmptyEntries).Distinct().Count())</BitLabel>
-<BitLabel>Sentences : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.TrimEnd('.').Split('.').Length)</BitLabel>
-<BitLabel>Paragraphs : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new [] { Environment.NewLine + Environment.NewLine },StringSplitOptions.RemoveEmptyEntries).Count())</BitLabel>
+<MudText>Statics</MudText>
+<MudText>Line : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length - _Result.Replace(Environment.NewLine, string.Empty).Length)</MudText>
+    <MudText>Column : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length)</MudText>
+    <MudText>Position : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length)</MudText>
+    <MudText>Characters : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length)</MudText>
+    <MudText>Words : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Distinct().Count())</MudText>
+    <MudText>Sentences : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.TrimEnd('.').Split('.').Length)</MudText>
+    <MudText>Paragraphs : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { Environment.NewLine + Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).Count())</MudText>
