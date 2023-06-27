@@ -1,11 +1,15 @@
 ﻿@page "/EncodersDecoders/Base32"
+@using IToolKit.API.Enums.Tools.EncodersDecoders;
 
-<h1>Base32 Text Encoder/Decoder</h1>
-<BitDropDown Label="Encode/Decode" Items="GetEncodeDecodes()" DefaultValue="Encode" OnSelectItem="OnHashTypeChange" />
-<BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." OnChange="OnChangeEvent" />
-<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate" Label="Auto Update"/>
+<MudText Typo="Typo.h1">Base32 Text Encoder/Decoder</MudText>
+<MudSelect T="EncodeDecodeTypeEnum" Label="Encode/Decode" ValueChanged="OnHashTypeChange">
+    <MudSelectItem Value="EncodeDecodeTypeEnum.Encode" />
+    <MudSelectItem Value="EncodeDecodeTypeEnum.Decode" />
+</MudSelect>
+<MudTextField T="string" Label="Input" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Type here ..." TextChanged="OnChangeEvent" />
+<MudCheckBox Color="Color.Primary" T="bool" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
 @if (_IsAutoUpdate == false)
 {
-    <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> Calc(_CurrentValue)" ButtonStyle="BitButtonStyle.Primary">@_EncodeDecodeType</BitButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Outlined" OnClick="()=> Calc(_CurrentValue)">@_EncodeDecodeType</MudButton>
 }
-<BitTextField Label="Result" @bind-Value="@_Result" />
+<MudTextField Variant="Variant.Outlined" Label="Result" @bind-Value="@_Result" ReadOnly />
