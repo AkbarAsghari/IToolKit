@@ -1,18 +1,17 @@
 ﻿@page "/Generators/Hash"
 
-<h1>Hash</h1>
+<MudText Typo="Typo.h1">Hash</MudText>
 
-<BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." OnChange="OnChangeEvent" />
-<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate" Label="Auto Update"/>
+<MudTextField Label="Input" Variant="Variant.Outlined" Lines=5 T="string" Immediate="true" TextChanged="OnChangeEvent" />
+
+<MudCheckBox T="bool" @bind-Checked="@_IsAutoUpdate" Color="Color.Primary" Label="Auto Update"></MudCheckBox>
 @if (_IsAutoUpdate == false)
 {
-    <BitButton Style="margin-top:5px" ButtonType="BitButtonType.Button" OnClick="()=> CalcHash()" ButtonStyle="BitButtonStyle.Primary">Hash</BitButton>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> CalcHash()">Hash</MudButton>
 }
-<hr />
-<BitToggle Label="Uppercase" IsInlineLabel=true @bind-Value="@_IsUpperCase" OnChange="ChangeTextCase" />
-<hr />
-<BitTextField IsReadonly=true Label="MD5" @bind-Value="@_MD5Result" />
-<BitTextField IsReadonly=true Label="SHA1" @bind-Value="@_SHA1Result" />
-<BitTextField IsReadonly=true Label="SHA256" @bind-Value="@_SHA256Result" />
-<BitTextField IsReadonly=true Label="SHA384" @bind-Value="@_SHA384Result" />
-<BitTextField IsReadonly=true Label="SHA512" @bind-Value="@_SHA512Result" />
+<MudSwitch Color="Color.Primary" T="bool" CheckedChanged="ChangeTextCase" Label="Uppercase"></MudSwitch>
+<MudTextField ReadOnly=true Label="MD5" @bind-Value="@_MD5Result" />
+<MudTextField ReadOnly=true Label="SHA1" @bind-Value="@_SHA1Result" />
+<MudTextField ReadOnly=true Label="SHA256" @bind-Value="@_SHA256Result" />
+<MudTextField ReadOnly=true Label="SHA384" @bind-Value="@_SHA384Result" />
+<MudTextField ReadOnly=true Label="SHA512" @bind-Value="@_SHA512Result" />

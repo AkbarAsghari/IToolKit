@@ -1,6 +1,4 @@
-﻿using Bit.BlazorUI;
-using IToolKit.API.Enums.Tools.Hashings;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace IToolKit.Pages.Tools.Generators.Hash
@@ -20,7 +18,7 @@ namespace IToolKit.Pages.Tools.Generators.Hash
         bool _IsAutoUpdate = true;
         bool _IsUpperCase = true;
 
-        private async void OnChangeEvent(string value)
+        async void OnChangeEvent(string value)
         {
             _CurrentValue = value;
 

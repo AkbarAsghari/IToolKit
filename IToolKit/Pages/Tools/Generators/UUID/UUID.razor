@@ -1,12 +1,17 @@
 ﻿@page "/Generators/UUID"
 
-<h1>UUID</h1>
+<MudText Typo="Typo.h1">UUID</MudText>
 
-<BitNumericTextField Style="display:inline-block" Min="1" Step="1" ShowArrows="true" Label="Count" @bind-Value=@_Count />
-<BitButton ButtonType="BitButtonType.Button" OnClick="GnerateUUID">Generate UUID(s)</BitButton>
-<hr />
-<BitToggle Label="- Hyphens" Style="white-space: nowrap;" IsInlineLabel=true @bind-Value=@_IsHyphens />
-<BitToggle Label="Uppercase" IsInlineLabel=true @bind-Value=@_IsUpperCase />
-<BitDropDown Items="Versions" Label="Version" DefaultValue="@DefaultVersion" @bind-Value=_UuidVersion />
-<hr />
-<BitTextField IsMultiline=true Label="Result" Rows="23" @bind-Value=@_Result />
+<MudNumericField Min="1" Step="1" Label="Count" @bind-Value=@_Count />
+<MudSwitch Color="Color.Primary" T="bool" Label="- Hyphens" @bind-Checked=@_IsHyphens />
+<MudSwitch Color="Color.Primary" T="bool" Label="Uppercase" @bind-Checked=@_IsUpperCase />
+<MudSelect Label="Version" T="string" @bind-Value=@_UuidVersion>
+    <MudSelectItem Value="@("One")">
+        Version-1 (TimeBased) UUID
+    </MudSelectItem>
+    <MudSelectItem Value="@("Four")">
+        Version-4 (Random) UUID
+    </MudSelectItem>
+</MudSelect>
+<MudButton Color="Color.Primary" OnClick="GnerateUUID" Variant="Variant.Filled">Generate UUID(s)</MudButton>
+<MudTextField Lines="12" Label="Result" @bind-Value=@_Result ReadOnly />

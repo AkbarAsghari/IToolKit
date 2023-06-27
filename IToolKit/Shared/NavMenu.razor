@@ -1,23 +1,15 @@
-﻿<div class="top-row ps-3 navbar navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">IToolKit</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
-
-<div class="@NavMenuCssClass">
-    <BitSearchBox Placeholder="Search tools" IsUnderlined="true" OnChange="onChange" OnClear="onClearSearch"></BitSearchBox>
-    <BitNavList TextFieldSelector="x=>x.Text"
-                UrlFieldSelector="x=>x.Url"
-                IsEnabledFieldSelector="x=>x.IsEnabled"
-                ItemsFieldSelector="x=>x.Links"
-                IconNameFieldSelector="x=>x.Icon"
-                Mode="BitNavMode.Manual"
-                OnItemClick="(IToolKitMenu x)=> ToggleNavMenu(x.Links.Count == 0)"
-                Items="AllNavLinks.Where(x =>
-           x.Text.ToLower().Contains(searchedText.ToLower()) ||
-           x.Links.Any(l => l.Text.ToLower().Contains(searchedText.ToLower()))).ToList()">
-    </BitNavList>
-</div>
+﻿<MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
+    <MudNavLink Href="/servers" Match="NavLinkMatch.Prefix">Servers</MudNavLink>
+    <MudNavGroup Title="Encode/Decode" Expanded="true">
+        <MudNavLink Href="/EncodersDecoders/Base64" Match="NavLinkMatch.Prefix">Base64 Text</MudNavLink>
+        <MudNavLink Href="/EncodersDecoders/Base32" Match="NavLinkMatch.Prefix">Base32 Text</MudNavLink>
+        <MudNavLink Href="/EncodersDecoders/URL" Match="NavLinkMatch.Prefix">URL</MudNavLink>
+        <MudNavLink Href="/EncodersDecoders/HTML" Match="NavLinkMatch.Prefix">HTML</MudNavLink>
+    </MudNavGroup>
+    <MudNavGroup Title="Generators" Expanded="true">
+        <MudNavLink Href="/Generators/Hash" Match="NavLinkMatch.Prefix">HASH</MudNavLink>
+        <MudNavLink Href="/Generators/UUID" Match="NavLinkMatch.Prefix">UUID</MudNavLink>
+    </MudNavGroup>
+    <MudNavLink Href="/about" Match="NavLinkMatch.Prefix">About</MudNavLink>
+</MudNavMenu>

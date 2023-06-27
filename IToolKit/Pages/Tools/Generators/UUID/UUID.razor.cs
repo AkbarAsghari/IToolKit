@@ -1,5 +1,4 @@
-﻿using Bit.BlazorUI;
-using System.Text;
+﻿using System.Text;
 
 namespace IToolKit.Pages.Tools.Generators.UUID
 {
@@ -8,25 +7,9 @@ namespace IToolKit.Pages.Tools.Generators.UUID
         string _Result = String.Empty;
         int _Count = 5;
 
-
-        private static readonly List<BitDropDownItem> Versions = new List<BitDropDownItem>
-        {
-            new BitDropDownItem
-            {
-                Text = "Version-1 (TimeBased) UUID",
-                Value = "One",
-            },
-            new BitDropDownItem
-            {
-                Text = "Version-4 (Random) UUID",
-                Value = "Four",
-            }
-        };
-
-
         bool _IsHyphens = true;
         bool _IsUpperCase = false;
-        string _UuidVersion = String.Empty;
+        string _UuidVersion = "Four";
 
         private static readonly DateTimeOffset GregorianCalendarStart = new(1582, 10, 15, 0, 0, 0, TimeSpan.Zero);
         private const int VariantByte = 8;
@@ -39,7 +22,6 @@ namespace IToolKit.Pages.Tools.Generators.UUID
         private const byte TimestampByte = 0;
         private const byte NodeByte = 10;
         private const byte GuidClockSequenceByte = 8;
-        private const string DefaultVersion = "Four";
         internal const string VersionOne = "One";
         private static readonly Random Random = new();
 

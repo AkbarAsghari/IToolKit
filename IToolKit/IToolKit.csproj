@@ -8,9 +8,38 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Bit.BlazorUI" Version="4.9.4" />
+	  <Compile Remove="Pages\Tools\Cipthers\**" />
+	  <Compile Remove="Pages\Tools\Converters\**" />
+	  <Compile Remove="Pages\Tools\EncodersDecoders\**" />
+	  <Compile Remove="Pages\Tools\Graphics\**" />
+	  <Compile Remove="Pages\Tools\Text\**" />
+	  <Content Remove="Pages\Tools\Cipthers\**" />
+	  <Content Remove="Pages\Tools\Converters\**" />
+	  <Content Remove="Pages\Tools\EncodersDecoders\**" />
+	  <Content Remove="Pages\Tools\Graphics\**" />
+	  <Content Remove="Pages\Tools\Text\**" />
+	  <EmbeddedResource Remove="Pages\Tools\Cipthers\**" />
+	  <EmbeddedResource Remove="Pages\Tools\Converters\**" />
+	  <EmbeddedResource Remove="Pages\Tools\EncodersDecoders\**" />
+	  <EmbeddedResource Remove="Pages\Tools\Graphics\**" />
+	  <EmbeddedResource Remove="Pages\Tools\Text\**" />
+	  <None Remove="Pages\Tools\Cipthers\**" />
+	  <None Remove="Pages\Tools\Converters\**" />
+	  <None Remove="Pages\Tools\EncodersDecoders\**" />
+	  <None Remove="Pages\Tools\Graphics\**" />
+	  <None Remove="Pages\Tools\Text\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Pages\Index.razor" />
+	  <None Include="Pages\Tools\Generators\Hash\Hash.razor" />
+	  <None Include="Pages\Tools\Generators\UUID\UUID.razor" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0" PrivateAssets="all" />
+		<PackageReference Include="MudBlazor" Version="6.4.1" />
 	</ItemGroup>
 
 	<ItemGroup>
