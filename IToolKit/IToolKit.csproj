@@ -9,27 +9,18 @@
 
 	<ItemGroup>
 	  <Compile Remove="Pages\Tools\Converters\**" />
-	  <Compile Remove="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\**" />
-	  <Compile Remove="Pages\Tools\EncodersDecoders\HTML\**" />
-	  <Compile Remove="Pages\Tools\EncodersDecoders\URL\**" />
 	  <Content Remove="Pages\Tools\Converters\**" />
-	  <Content Remove="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\**" />
-	  <Content Remove="Pages\Tools\EncodersDecoders\HTML\**" />
-	  <Content Remove="Pages\Tools\EncodersDecoders\URL\**" />
 	  <EmbeddedResource Remove="Pages\Tools\Converters\**" />
-	  <EmbeddedResource Remove="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\**" />
-	  <EmbeddedResource Remove="Pages\Tools\EncodersDecoders\HTML\**" />
-	  <EmbeddedResource Remove="Pages\Tools\EncodersDecoders\URL\**" />
 	  <None Remove="Pages\Tools\Converters\**" />
-	  <None Remove="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\**" />
-	  <None Remove="Pages\Tools\EncodersDecoders\HTML\**" />
-	  <None Remove="Pages\Tools\EncodersDecoders\URL\**" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Include="Pages\Index.razor" />
 	  <None Include="Pages\Tools\Cipthers\AES\AES.razor" />
 	  <None Include="Pages\Tools\EncodersDecoders\Base32TextEncoderDecoder\Base32TextEncoderDecoder.razor" />
+	  <None Include="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\Base64TextEncoderDecoder.razor" />
+	  <None Include="Pages\Tools\EncodersDecoders\HTML\HTML.razor" />
+	  <None Include="Pages\Tools\EncodersDecoders\URL\URL.razor" />
 	  <None Include="Pages\Tools\Generators\Hash\Hash.razor" />
 	  <None Include="Pages\Tools\Generators\UUID\UUID.razor" />
 	  <None Include="Pages\Tools\Graphics\ColorPicker\ColorPicker.razor" />

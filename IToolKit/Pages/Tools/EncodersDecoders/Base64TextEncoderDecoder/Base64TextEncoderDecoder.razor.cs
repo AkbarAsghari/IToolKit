@@ -1,23 +1,18 @@
-﻿using Bit.BlazorUI;
-using IToolKit.API.Enums.Tools.EncodersDecoders;
+﻿using IToolKit.API.Enums.Tools.EncodersDecoders;
 using IToolKit.API.Tools.EncodersDecoders;
 
 namespace IToolKit.Pages.Tools.EncodersDecoders.Base64TextEncoderDecoder
 {
     public partial class Base64TextEncoderDecoder
     {
-        EncodeDecodeTypeEnum _EncodeDecodeType;
+        EncodeDecodeTypeEnum _EncodeDecodeType = EncodeDecodeTypeEnum.Encode;
         string _CurrentValue;
         string _Result;
         bool _IsAutoUpdate = true;
 
-        private void OnHashTypeChange(BitDropDownItem hashType)
+        private void OnHashTypeChange(EncodeDecodeTypeEnum hashType)
         {
-            if (Enum.TryParse(hashType.Value, true, out EncodeDecodeTypeEnum type))
-            {
-                _EncodeDecodeType = type;
-            }
-
+            _EncodeDecodeType = hashType;
             OnChangeEvent(_CurrentValue);
         }
 
@@ -52,25 +47,6 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Base64TextEncoderDecoder
             {
                 _Result = String.Empty;
             }
-        }
-
-        private List<BitDropDownItem> GetEncodeDecodes()
-        {
-            return new()
-            {
-                new BitDropDownItem()
-                {
-                    ItemType = BitDropDownItemType.Normal,
-                    Text = "Encode",
-                    Value = "Encode"
-                },
-                new BitDropDownItem()
-                {
-                    ItemType = BitDropDownItemType.Normal,
-                    Text = "Decode",
-                    Value = "Decode"
-                },
-            };
         }
     }
 }

@@ -16,7 +16,7 @@ namespace IToolKit.Pages.Tools.Generators.Hash
         string _SHA512Result;
 
         bool _IsAutoUpdate = true;
-        bool _IsUpperCase = true;
+        bool _IsUpperCase = false;
 
         async void OnChangeEvent(string value)
         {
