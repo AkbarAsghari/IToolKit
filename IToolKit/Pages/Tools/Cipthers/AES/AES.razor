@@ -1,18 +1,20 @@
 ﻿@page "/Ciphers/AES"
+@using IToolKit.API.Enums.Tools.Ciphers;
 
-<h1>AES</h1>
-<BitDropDown Label="Encrypt/Decrypt" Items="@CipherTypes" DefaultValue="Encrypt" OnSelectItem="OnCipherTypeChange" />
-<BitTextField Label="Input" IsMultiline=true Placeholder="Type here ..." @bind-Value="@_InputValue" OnChange="OnChangeEvent" />
-<BitTextField Label="Security" Placeholder="Type Security here ..." @bind-Value="@_SecurityValue" OnChange=OnChangeEvent />
-<BitCheckbox Style="margin-top:5px" @bind-Value="_IsAutoUpdate" Label="Auto Update"/>
+<MudText Typo="Typo.h1">AES</MudText>
+<MudSelect Label="Encrypt/Decrypt" T="CipherTypesEnum" ValueChanged="OnCipherTypeChangeAsync">
+    <MudSelectItem Value="@(CipherTypesEnum.Encrypt)">
+        Encrypt
+    </MudSelectItem>
+    <MudSelectItem Value="@(CipherTypesEnum.Decrypt)">
+        Decrypt
+    </MudSelectItem>
+</MudSelect>
+<MudTextField T="string" Immediate Label="Input" Lines="5" Variant="Variant.Outlined" Placeholder="Type here ..." TextChanged="OnInputChange" />
+<MudTextField T="string" Immediate Label="Security" Placeholder="Type Security here ..." TextChanged=OnSecurityValueChange />
+<MudCheckBox T="bool" Color="Color.Primary" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
 @if (_IsAutoUpdate == false)
 {
-    <BitButton Style="margin-top:5px"
-           ButtonType="BitButtonType.Button"
-           OnClick="()=> CalcHash()"
-           ButtonStyle="BitButtonStyle.Primary">
-        @CipherType.ToString()
-    </BitButton>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> CalcHash()">@CipherType</MudButton>
 }
-<hr />
-<BitTextField IsReadonly=true IsMultiline=true Label="@($"{CipherType.ToString()}ed Text")" @bind-Value="@_AESResult" />
+<MudTextField Lines="12" Variant="Variant.Outlined" Label="@($"{CipherType.ToString()}ed Text")" @bind-Value="@_AESResult" ReadOnly />

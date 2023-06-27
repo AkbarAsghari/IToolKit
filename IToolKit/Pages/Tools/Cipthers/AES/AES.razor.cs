@@ -1,5 +1,4 @@
-﻿using Bit.BlazorUI;
-using IToolKit.API.Enums.Tools.Ciphers;
+﻿using IToolKit.API.Enums.Tools.Ciphers;
 using IToolKit.API.Enums.Tools.EncodersDecoders;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
@@ -18,34 +17,23 @@ partial class AES
     bool _IsAutoUpdate = true;
 
 
-    List<BitDropDownItem> CipherTypes = new List<BitDropDownItem>()
+    private async Task OnCipherTypeChangeAsync(CipherTypesEnum cipherType)
     {
-        new BitDropDownItem()
-        {
-            ItemType = BitDropDownItemType.Normal,
-            Text = "Encrypt",
-            Value = "Encrypt"
-        },
-        new BitDropDownItem()
-        {
-            ItemType = BitDropDownItemType.Normal,
-            Text = "Decrypt",
-            Value = "Decrypt"
-        }
-    };
-
-    private void OnCipherTypeChange(BitDropDownItem cipherType)
-    {
-        if (Enum.TryParse(cipherType.Value, true, out CipherTypesEnum type))
-        {
-            CipherType = type;
-        }
-
-        OnChangeEvent(String.Empty);
+        CipherType = cipherType;
+        if (_IsAutoUpdate)
+            await CalcHash();
     }
 
-    private async void OnChangeEvent(string value)
+    private async void OnInputChange(string value)
     {
+        _InputValue = value;
+        if (_IsAutoUpdate)
+            await CalcHash();
+    }
+
+    private async void OnSecurityValueChange(string value)
+    {
+        _SecurityValue = value;
         if (_IsAutoUpdate)
             await CalcHash();
     }
