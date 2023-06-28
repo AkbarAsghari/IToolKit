@@ -1,10 +1,12 @@
-﻿@inherits LayoutComponentBase
+﻿@using Toolbelt.Blazor.PWA.Updater
+
+@inherits LayoutComponentBase
 
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-<UpdateAvailableDetector />
+<PWAUpdater />
 
 <MudLayout>
     <MudAppBar>
