@@ -1,0 +1,6 @@
+﻿@page "/Formatters/Json"
+
+<MudText Typo="Typo.h1">Json</MudText>
+<MudTextField T="string" Immediate Label="Input" Lines="5" Variant="Variant.Outlined" Placeholder="Type here ..." @bind-Value="@_InputValue" />
+<MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> Format()">Format</MudButton>
+<MudTextField Lines="12" Variant="Variant.Outlined" Label="Result" @bind-Value="@_JsonFormatedResult" ReadOnly />
