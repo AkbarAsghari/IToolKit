@@ -1,6 +1,19 @@
 ﻿@page "/Formatters/Json"
+@using IToolKit.API.Enums.Tools.Formatters;
 
 <MudText Typo="Typo.h1">Json</MudText>
 <MudTextField T="string" Immediate Label="Input" Lines="5" Variant="Variant.Outlined" Placeholder="Type here ..." @bind-Value="@_InputValue" />
-<MudButton Class="my-2" Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> Format()">Format</MudButton>
+<MudGrid Class="my-2 d-flex align-center flex-grow-1">
+    <MudItem xs="12" md="3">
+        <MudSelect Variant="Variant.Outlined" T="JsonFormatterSpacesEnum" Label="Spaces" ValueChanged="OnJsonFormatterSpacesChange">
+            <MudSelectItem Value="JsonFormatterSpacesEnum.TwoSpaces">Two Spaces</MudSelectItem>
+            <MudSelectItem Value="JsonFormatterSpacesEnum.FourSpaces">Four Spaces</MudSelectItem>
+            <MudSelectItem Value="JsonFormatterSpacesEnum.Tab">Tab</MudSelectItem>
+        </MudSelect>
+    </MudItem>
+    <MudItem>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> Format()">Format</MudButton>
+    </MudItem>
+</MudGrid>
+
 <MudTextField Lines="12" Variant="Variant.Outlined" Label="Result" @bind-Value="@_JsonFormatedResult" ReadOnly />

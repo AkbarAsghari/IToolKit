@@ -1,10 +1,18 @@
-﻿using System.Text;
+﻿using IToolKit.API.Enums.Tools.Formatters;
+using System.Text;
 
 namespace IToolKit.Pages.Tools.Formatters.Json;
 partial class Json
 {
     string _InputValue;
     string _JsonFormatedResult;
+    JsonFormatterSpacesEnum _SpacesEnum;
+
+    private async Task OnJsonFormatterSpacesChange(JsonFormatterSpacesEnum spacesEnum)
+    {
+        _SpacesEnum = spacesEnum;
+        await Format();
+    }
 
     async Task Format()
     {
@@ -16,14 +24,12 @@ partial class Json
 
         try
         {
-          _JsonFormatedResult = JsonFormatterTools.FormatJson(_InputValue);
-        
+            _JsonFormatedResult = JsonFormatterTools.FormatJson(_InputValue, _SpacesEnum);
+
         }
         catch (Exception)
         {
             _JsonFormatedResult = String.Empty;
         }
-
-        await this.InvokeAsync(() => StateHasChanged());
     }
 }

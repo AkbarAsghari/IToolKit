@@ -1,10 +1,25 @@
 using System.Text;
+using IToolKit.API.Enums.Tools.Formatters;
 using IToolKit.Extensions;
 
 public static class JsonFormatterTools{
-    private const string INDENT_STRING = "    ";
-    public static string FormatJson(string str)
+    public static string FormatJson(string str , JsonFormatterSpacesEnum spacesEnum = JsonFormatterSpacesEnum.FourSpaces)
     {
+        string INDENT_STRING = String.Empty;
+
+        switch (spacesEnum)
+        {
+            case JsonFormatterSpacesEnum.TwoSpaces:
+                INDENT_STRING = "  ";
+                break;
+            case JsonFormatterSpacesEnum.FourSpaces:
+                INDENT_STRING = "    ";
+                break;
+            case JsonFormatterSpacesEnum.Tab:
+                INDENT_STRING = "   ";
+                break;
+        }
+
         var indent = 0;
         var quoted = false;
         var sb = new StringBuilder();

@@ -6,28 +6,37 @@ namespace IToolKit.Pages.Tools.Generators.Password
     {
         string _Result = String.Empty;
 
-        protected override async Task OnInitializedAsync()
+        int _CharactersLength = 14;
+        bool _CapitalLetters = true;
+        bool _LowerCaseLetters = false;
+        bool _Numbers = false;
+        bool _Symbuls = false;
+
+        void GeneratePassword()
         {
-            for (int i = 0; i < 7; i++)
+            string valid = String.Empty;
+            if (_CapitalLetters)
             {
-                _Result = CreatePassword(16);
-                _Result += $"\n{CreatePassword(16)}\n";
-                _Result += $"{CreatePassword(16)}\n";
-                _Result += $"{CreatePassword(16)}\n";
-                _Result += $"{CreatePassword(16)}\n";
-                _Result += $"{CreatePassword(16)}\n";
-                _Result += $"{CreatePassword(16)}\n";
-                _Result += $"{CreatePassword(16)}\n";
-                _Result += $"{CreatePassword(16)}\n";
-                _Result += $"{CreatePassword(16)}\n";
-                StateHasChanged();
-                await Task.Delay(100);
+                valid += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             }
+            if (_LowerCaseLetters)
+            {
+                valid += "abcdefghijklmnopqrstuvwxyz";
+            }
+            if (_Numbers)
+            {
+                valid += "1234567890";
+            }
+            if (_Symbuls)
+            {
+                valid += "!@#$%^&*";
+            }
+
+            _Result = CreatePassword(valid ,_CharactersLength);
         }
 
-        public string CreatePassword(int length)
+        public string CreatePassword(string valid, int length)
         {
-            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_";
             StringBuilder res = new StringBuilder();
             Random rnd = new Random();
             while (0 < length--)
