@@ -2,7 +2,7 @@ using System.Text;
 using IToolKit.Extensions;
 
 public static class JsonFormatterTools{
-    private const string INDENT_STRING = "  ";
+    private const string INDENT_STRING = "    ";
     public static string FormatJson(string str)
     {
         var indent = 0;

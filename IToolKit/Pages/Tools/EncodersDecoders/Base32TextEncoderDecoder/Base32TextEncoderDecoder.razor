@@ -2,14 +2,24 @@
 @using IToolKit.API.Enums.Tools.EncodersDecoders;
 
 <MudText Typo="Typo.h1">Base32 Text Encoder / Decoder</MudText>
-<MudSelect T="EncodeDecodeTypeEnum" Label="Encode/Decode" ValueChanged="OnHashTypeChange">
-    <MudSelectItem Value="EncodeDecodeTypeEnum.Encode" />
-    <MudSelectItem Value="EncodeDecodeTypeEnum.Decode" />
-</MudSelect>
 <MudTextField T="string" Label="Input" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Type here ..." TextChanged="OnChangeEvent" />
-<MudCheckBox Color="Color.Primary" T="bool" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
-@if (_IsAutoUpdate == false)
-{
-    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="()=> Calc(_CurrentValue)">@_EncodeDecodeType</MudButton>
-}
-<MudTextField Variant="Variant.Outlined" Label="Result" @bind-Value="@_Result" ReadOnly />
+<MudGrid Class="my-2 d-flex align-center flex-grow-1">
+     <MudItem>
+         <MudSelect Variant="Variant.Outlined" T="EncodeDecodeTypeEnum" Label="Encode/Decode" ValueChanged="OnHashTypeChange">
+             <MudSelectItem Value="EncodeDecodeTypeEnum.Encode" />
+             <MudSelectItem Value="EncodeDecodeTypeEnum.Decode" />
+         </MudSelect>
+     </MudItem>
+     <MudItem>
+         <MudCheckBox Color="Color.Primary" T="bool" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
+     </MudItem>
+     <MudItem>
+         @if (_IsAutoUpdate == false)
+        {
+            <MudButton Class="mb-2" Color="Color.Primary" Variant="Variant.Filled" OnClick="()=> Calc(_CurrentValue)">
+                @_EncodeDecodeType
+            </MudButton>
+        }
+    </MudItem>
+</MudGrid>
+<MudTextField Variant="Variant.Outlined" Lines="5" Label="Result" @bind-Value="@_Result" ReadOnly />
