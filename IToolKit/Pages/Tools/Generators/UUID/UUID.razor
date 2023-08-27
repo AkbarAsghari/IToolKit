@@ -2,16 +2,27 @@
 
 <MudText Typo="Typo.h1">UUID</MudText>
 
-<MudNumericField Min="1" Step="1" Label="Count" @bind-Value=@_Count />
-<MudSwitch Color="Color.Primary" T="bool" Label="- Hyphens" @bind-Checked=@_IsHyphens />
-<MudSwitch Color="Color.Primary" T="bool" Label="Uppercase" @bind-Checked=@_IsUpperCase />
-<MudSelect Label="Version" T="string" @bind-Value=@_UuidVersion>
-    <MudSelectItem Value="@("One")">
-        Version-1 (TimeBased) UUID
-    </MudSelectItem>
-    <MudSelectItem Value="@("Four")">
-        Version-4 (Random) UUID
-    </MudSelectItem>
-</MudSelect>
-<MudButton Color="Color.Primary" OnClick="GnerateUUID" Variant="Variant.Filled">Generate UUID(s)</MudButton>
+<MudGrid Class="my-2 d-flex align-center flex-grow-1">
+    <MudItem>
+        <MudNumericField Variant="Variant.Outlined" Min="1" Step="1" Label="Count" @bind-Value=@_Count />
+    </MudItem>
+    <MudItem>
+        <MudSwitch Color="Color.Primary" T="bool" Label="- Hyphens" @bind-Checked=@_IsHyphens />
+    </MudItem>
+    <MudItem>
+        <MudSwitch Color="Color.Primary" T="bool" Label="Uppercase" @bind-Checked=@_IsUpperCase />
+    </MudItem>
+</MudGrid>
+<MudItem Class="mt-2" xs="12" md="3">
+    <MudSelect Variant="Variant.Outlined" Label="Version" T="string" @bind-Value=@_UuidVersion>
+        <MudSelectItem Value="@("One")">
+            Version-1 (TimeBased) UUID
+        </MudSelectItem>
+        <MudSelectItem Value="@("Four")">
+            Version-4 (Random) UUID
+        </MudSelectItem>
+    </MudSelect>
+</MudItem>
+
+<MudButton Class="my-2" Color="Color.Primary" OnClick="GnerateUUID" Variant="Variant.Filled">Generate UUID(s)</MudButton>
 <MudTextField Lines="12" Label="Result" Variant="Variant.Outlined" @bind-Value=@_Result ReadOnly />
