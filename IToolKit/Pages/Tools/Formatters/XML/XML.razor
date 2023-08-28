@@ -1,0 +1,7 @@
+﻿@page "/Formatters/XML"
+@using IToolKit.API.Enums.Tools.Formatters;
+
+<MudText Typo="Typo.h1">XML Fromatter</MudText>
+<MudTextField T="string" Immediate Label="Input" Lines="5" Variant="Variant.Outlined" Placeholder="Type here ..." @bind-Value="@_InputValue" />
+<MudButton Class="my-2" Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> Format()">Format</MudButton>
+<MudTextField Lines="12" Variant="Variant.Outlined" Label="Result" @bind-Value="@_XMLFormatedResult" ReadOnly />
