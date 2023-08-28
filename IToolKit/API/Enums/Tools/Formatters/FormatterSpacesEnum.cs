@@ -1,6 +1,6 @@
 ﻿namespace IToolKit.API.Enums.Tools.Formatters
 {
-    public enum JsonFormatterSpacesEnum
+    public enum FormatterSpacesEnum
     {
         TwoSpaces,
         FourSpaces,

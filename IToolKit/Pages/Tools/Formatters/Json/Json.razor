@@ -5,10 +5,10 @@
 <MudTextField T="string" Immediate Label="Input" Lines="5" Variant="Variant.Outlined" Placeholder="Type here ..." @bind-Value="@_InputValue" />
 <MudGrid Class="my-2 d-flex align-center flex-grow-1">
     <MudItem xs="12" sm="3">
-        <MudSelect Variant="Variant.Outlined" T="JsonFormatterSpacesEnum" Label="Spaces" ValueChanged="OnJsonFormatterSpacesChange">
-            <MudSelectItem Value="JsonFormatterSpacesEnum.TwoSpaces">Two Spaces</MudSelectItem>
-            <MudSelectItem Value="JsonFormatterSpacesEnum.FourSpaces">Four Spaces</MudSelectItem>
-            <MudSelectItem Value="JsonFormatterSpacesEnum.Tab">Tab</MudSelectItem>
+        <MudSelect Variant="Variant.Outlined" T="FormatterSpacesEnum" Label="Spaces" ValueChanged="OnJsonFormatterSpacesChange">
+            <MudSelectItem Value="FormatterSpacesEnum.TwoSpaces">Two Spaces</MudSelectItem>
+            <MudSelectItem Value="FormatterSpacesEnum.FourSpaces">Four Spaces</MudSelectItem>
+            <MudSelectItem Value="FormatterSpacesEnum.Tab">Tab</MudSelectItem>
         </MudSelect>
     </MudItem>
     <MudItem>

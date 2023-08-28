@@ -1,13 +1,18 @@
 ﻿using IToolKit.API.Enums.Tools.Formatters;
-using System.Text;
-using System.Xml;
-using System.Xml.Linq;
+using IToolKit.API.Tools.Formatters;
 
 namespace IToolKit.Pages.Tools.Formatters.XML;
 partial class XML
 {
     string _InputValue;
     string _XMLFormatedResult;
+    FormatterSpacesEnum _SpacesEnum;
+
+    private async Task OnJsonFormatterSpacesChange(FormatterSpacesEnum spacesEnum)
+    {
+        _SpacesEnum = spacesEnum;
+        await Format();
+    }
 
     async Task Format()
     {
@@ -19,21 +24,7 @@ partial class XML
 
         try
         {
-            var stringBuilder = new StringBuilder();
-
-            var element = XElement.Parse(_InputValue);
-
-            var settings = new XmlWriterSettings();
-            settings.OmitXmlDeclaration = true;
-            settings.Indent = true;
-            settings.NewLineOnAttributes = true;
-
-            using (var xmlWriter = XmlWriter.Create(stringBuilder, settings))
-            {
-                element.Save(xmlWriter);
-            }
-
-            _XMLFormatedResult = stringBuilder.ToString();
+            _XMLFormatedResult = FormatterTools.FormatXML(_InputValue, _SpacesEnum);
         }
         catch (Exception)
         {
