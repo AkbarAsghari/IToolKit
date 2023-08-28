@@ -2,29 +2,32 @@
 
 <MudText Typo="Typo.h1">Text Case Converter and Inspector</MudText>
 
-<MudText>Convert</MudText>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled=@(!_IsEdited) OnClick="ToOrginal">Orginal Text</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToSentence">Sentence Case</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToLower">lower Case</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToUpper">UPPER CASE</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToTitleCase">Title Case</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToCamelCase">camelCase</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToPascalCase">PascalCase</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToSnakeCase">snake_case</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToConstantCase">CONSTANT_CASE</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToKebabCase">kebab-case</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToCobolCase">COBOL-CASE</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToTrainCase">Train-Case</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToAlternatingCase">aLtErNaTiNg cAsE</MudButton>
-<MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToInverseCase">InVeRsE CaSe</MudButton>
+<MudPaper Class="my-2 pa-2 d-flex flex-wrap gap-2 rounded">
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled=@(!_IsEdited) OnClick="ToOrginal">Orginal Text</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToSentence">Sentence Case</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToLower">lower Case</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToUpper">UPPER CASE</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToTitleCase">Title Case</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToCamelCase">camelCase</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToPascalCase">PascalCase</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToSnakeCase">snake_case</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToConstantCase">CONSTANT_CASE</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToKebabCase">kebab-case</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToCobolCase">COBOL-CASE</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToTrainCase">Train-Case</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToAlternatingCase">aLtErNaTiNg cAsE</MudButton>
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="ToInverseCase">InVeRsE CaSe</MudButton>
+</MudPaper>
+
 
 <MudTextField T="string" Lines="15" Label="String" Immediate @bind-Text=@_Result Variant="Variant.Outlined"></MudTextField>
-
-<MudText>Statics</MudText>
-<MudText>Line : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length - _Result.Replace(Environment.NewLine, string.Empty).Length)</MudText>
-    <MudText>Column : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length)</MudText>
-    <MudText>Position : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length)</MudText>
-    <MudText>Characters : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length)</MudText>
-    <MudText>Words : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Distinct().Count())</MudText>
-    <MudText>Sentences : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.TrimEnd('.').Split('.').Length)</MudText>
-    <MudText>Paragraphs : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { Environment.NewLine + Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).Count())</MudText>
+<MudText Typo="Typo.h6">Statics</MudText>
+<MudPaper Class="my-2 pa-2 d-flex flex-wrap gap-2 rounded">
+    <MudText>Line : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length - _Result.Replace(Environment.NewLine, string.Empty).Length)</MudText>
+        <MudText> | Column : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length)</MudText>
+        <MudText> | Position : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length)</MudText>
+        <MudText> | Characters : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length)</MudText>
+        <MudText> | Words : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Distinct().Count())</MudText>
+        <MudText> | Sentences : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.TrimEnd('.').Split('.').Length)</MudText>
+        <MudText> | Paragraphs : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Split(new[] { Environment.NewLine + Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).Count())</MudText>
+    </MudPaper>

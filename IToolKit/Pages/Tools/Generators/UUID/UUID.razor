@@ -2,10 +2,10 @@
 
 <MudText Typo="Typo.h1">UUID</MudText>
 
+<MudItem xs="12" sm="6" md="4">
+    <MudNumericField Variant="Variant.Outlined" Min="1" Step="1" Label="Count" @bind-Value=@_Count />
+</MudItem>
 <MudGrid Class="my-2 d-flex align-center flex-grow-1">
-    <MudItem>
-        <MudNumericField Variant="Variant.Outlined" Min="1" Step="1" Label="Count" @bind-Value=@_Count />
-    </MudItem>
     <MudItem>
         <MudSwitch Color="Color.Primary" T="bool" Label="- Hyphens" @bind-Checked=@_IsHyphens />
     </MudItem>
@@ -13,7 +13,7 @@
         <MudSwitch Color="Color.Primary" T="bool" Label="Uppercase" @bind-Checked=@_IsUpperCase />
     </MudItem>
 </MudGrid>
-<MudItem Class="mt-2" xs="12" md="3">
+<MudItem Class="mt-2" xs="12" sm="6" md="4">
     <MudSelect Variant="Variant.Outlined" Label="Version" T="string" @bind-Value=@_UuidVersion>
         <MudSelectItem Value="@("One")">
             Version-1 (TimeBased) UUID
