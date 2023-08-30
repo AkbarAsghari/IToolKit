@@ -1,6 +1,7 @@
 ﻿
 using IToolKit.API.Tools.Formatters;
 using System.IdentityModel.Tokens.Jwt;
+using System.Text.RegularExpressions;
 
 namespace IToolKit.Pages.Tools.EncodersDecoders.JWT;
 public partial class JWT
@@ -24,8 +25,7 @@ public partial class JWT
         try
         {
             _TokenValues.Clear();
-
-            var token = new JwtSecurityTokenHandler().ReadJwtToken(_Token);
+            var token = new JwtSecurityTokenHandler().ReadJwtToken(Regex.Replace(_Token, @"\s+", string.Empty));
             _Header = FormatterTools.FormatJson(token.Header.SerializeToJson());
             _Payload = FormatterTools.FormatJson(token.Payload.SerializeToJson());
 
