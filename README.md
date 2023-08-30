@@ -6,8 +6,11 @@ tools list
 # Encode/Decode
 Base64 , Base32 , HTML , URL
 
+# Formatters
+Json , XML
+
 # Generator
-Hash , UUID
+Hash , UUID , Password
 
 # Cipthers
 AES
