@@ -15,6 +15,10 @@ namespace IToolKit.Pages.Tools.Generators.Password
         void GeneratePassword()
         {
             string valid = String.Empty;
+
+            if (!_CapitalLetters && !_LowerCaseLetters && !_Numbers && !_Symbuls)
+                _CapitalLetters = true;
+
             if (_CapitalLetters)
             {
                 valid += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -32,7 +36,7 @@ namespace IToolKit.Pages.Tools.Generators.Password
                 valid += "!@#$%^&*";
             }
 
-            _Result = CreatePassword(valid ,_CharactersLength);
+            _Result = CreatePassword(valid, _CharactersLength);
         }
 
         public string CreatePassword(string valid, int length)
