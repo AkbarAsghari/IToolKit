@@ -1,0 +1,16 @@
+﻿@page "/Text/RegexTester"
+
+<MudText Typo="Typo.h1">Regex Tester</MudText>
+
+<MudTextField Label="Regular expression" Variant="Variant.Outlined" T="string" @bind-Value="@_Pattern" Immediate TextChanged="RegularExpressionOnChange"></MudTextField>
+<MudTextField Label="Text" Variant="Variant.Outlined" @bind-Value="_Text" Lines="12" Immediate TextChanged="RegularExpressionOnChange">
+
+</MudTextField>
+
+<MudCard Class="mt-2">
+    <MudCardContent>
+        <MudText Style="white-space: break-spaces;">
+            @((MarkupString)@_Result)
+        </MudText>
+    </MudCardContent>
+</MudCard>

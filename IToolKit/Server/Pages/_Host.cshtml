@@ -1,0 +1,12 @@
+﻿
+@page "/"
+@namespace IToolKit.Server.Pages
+@using IToolKit.Client
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+@*
+<link href="BlazorWebAssemblyPreRendered.Client.styles.css" rel="stylesheet" />
+<link href="css/app.css" rel="stylesheet" />*@
+<component type="typeof(App)" render-mode="WebAssemblyPrerendered" />
