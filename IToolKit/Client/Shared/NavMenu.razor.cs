@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace IToolKit.Client.Client.Shared
+namespace IToolKit.Client.Shared
 {
     partial class NavMenu
     {

@@ -7,23 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\Tools\Cipthers\AES\AES.razor.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Pages\Index.razor" />
-    <Content Remove="Pages\Tools\Cipthers\AES\AES.razor" />
-    <Content Remove="Pages\Tools\EncodersDecoders\Base32TextEncoderDecoder\Base32TextEncoderDecoder.razor" />
-    <Content Remove="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\Base64TextEncoderDecoder.razor" />
-    <Content Remove="Pages\Tools\EncodersDecoders\HTML\HTML.razor" />
-    <Content Remove="Pages\Tools\EncodersDecoders\URL\URL.razor" />
-    <Content Remove="Pages\Tools\Generators\Hash\Hash.razor" />
-    <Content Remove="Pages\Tools\Generators\UUID\UUID.razor" />
-    <Content Remove="Pages\Tools\Graphics\ColorPicker\ColorPicker.razor" />
-    <Content Remove="Pages\Tools\Text\TextInspectorAndCaseConverter\TextInspectorAndCaseConverter.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.15" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.15" PrivateAssets="all" />
     <PackageReference Include="MudBlazor" Version="6.9.0" />
@@ -46,71 +29,6 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Index.razor" />
     <_ContentIncludedByDefault Remove="Pages\Tools\Cipthers\AES\AES.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\EncodersDecoders\Base32TextEncoderDecoder\Base32TextEncoderDecoder.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\Base64TextEncoderDecoder.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\EncodersDecoders\HTML\HTML.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\EncodersDecoders\JWT\JWT.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\EncodersDecoders\URL\URL.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Formatters\Json\Json.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Formatters\XML\XML.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Generators\Hash\Hash.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Generators\Password\Password.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Generators\UUID\UUID.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Graphics\ColorPicker\ColorPicker.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Text\RegexTester\RegexTester.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Text\TextInspectorAndCaseConverter\TextInspectorAndCaseConverter.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\EncodersDecoders\Base32TextEncoderDecoder\Base32TextEncoderDecoder.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\Base64TextEncoderDecoder.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\EncodersDecoders\HTML\HTML.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\EncodersDecoders\JWT\JWT.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\EncodersDecoders\URL\URL.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Formatters\Json\Json.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Formatters\XML\XML.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Generators\Hash\Hash.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Generators\Password\Password.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Generators\UUID\UUID.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Graphics\ColorPicker\ColorPicker.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Text\RegexTester\RegexTester.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Text\TextInspectorAndCaseConverter\TextInspectorAndCaseConverter.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -118,19 +36,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\Index.razor" />
     <None Include="Pages\Tools\EncodersDecoders\Base32TextEncoderDecoder\Base32TextEncoderDecoder.razor" />
     <None Include="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\Base64TextEncoderDecoder.razor" />
     <None Include="Pages\Tools\EncodersDecoders\HTML\HTML.razor" />
+    <None Include="Pages\Tools\EncodersDecoders\JWT\JWT.razor" />
     <None Include="Pages\Tools\EncodersDecoders\URL\URL.razor" />
+    <None Include="Pages\Tools\Formatters\Json\Json.razor" />
+    <None Include="Pages\Tools\Formatters\XML\XML.razor" />
     <None Include="Pages\Tools\Generators\Hash\Hash.razor" />
+    <None Include="Pages\Tools\Generators\Password\Password.razor" />
     <None Include="Pages\Tools\Generators\UUID\UUID.razor" />
     <None Include="Pages\Tools\Graphics\ColorPicker\ColorPicker.razor" />
+    <None Include="Pages\Tools\Text\RegexTester\RegexTester.razor" />
     <None Include="Pages\Tools\Text\TextInspectorAndCaseConverter\TextInspectorAndCaseConverter.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\Tools\Cipthers\AES\" />
   </ItemGroup>
 
 </Project>

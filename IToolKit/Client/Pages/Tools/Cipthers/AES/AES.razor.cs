@@ -47,7 +47,7 @@ partial class AES
 
         try
         {
-            _AESResult = await _JSRuntime.InvokeAsync<string>($"IToolKit.Client.Cipher.AES.{CipherType}", _InputValue, _SecurityValue);
+            _AESResult = await _JSRuntime.InvokeAsync<string>($"IToolKit.Cipher.AES.{CipherType}", _InputValue, _SecurityValue);
         }
         catch (Exception)
         {
