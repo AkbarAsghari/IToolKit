@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IToolKit", "IToolKit.csproj", "{B0928634-DF57-403B-9730-59D509CFC537}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IToolKit.Server", "..\IToolKit\Server\IToolKit.Server.csproj", "{729B98CD-7D30-4FF5-9819-D11371E5B668}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IToolKit.Client", "..\IToolKit\Client\IToolKit.Client.csproj", "{F019AB3C-D073-4CEB-930F-0B504A45AC1C}"
