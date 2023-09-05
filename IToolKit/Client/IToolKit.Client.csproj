@@ -12,43 +12,4 @@
     <PackageReference Include="MudBlazor" Version="6.9.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.32.2" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Shared\MainLayout.razor">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </Content>
-    <Content Update="Shared\NavMenu.razor">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Tools\Cipthers\AES\AES.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Index.razor" />
-    <_ContentIncludedByDefault Remove="Pages\Tools\Cipthers\AES\AES.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Index.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Pages\Tools\EncodersDecoders\Base32TextEncoderDecoder\Base32TextEncoderDecoder.razor" />
-    <None Include="Pages\Tools\EncodersDecoders\Base64TextEncoderDecoder\Base64TextEncoderDecoder.razor" />
-    <None Include="Pages\Tools\EncodersDecoders\HTML\HTML.razor" />
-    <None Include="Pages\Tools\EncodersDecoders\JWT\JWT.razor" />
-    <None Include="Pages\Tools\EncodersDecoders\URL\URL.razor" />
-    <None Include="Pages\Tools\Formatters\Json\Json.razor" />
-    <None Include="Pages\Tools\Formatters\XML\XML.razor" />
-    <None Include="Pages\Tools\Generators\Hash\Hash.razor" />
-    <None Include="Pages\Tools\Generators\Password\Password.razor" />
-    <None Include="Pages\Tools\Generators\UUID\UUID.razor" />
-    <None Include="Pages\Tools\Graphics\ColorPicker\ColorPicker.razor" />
-    <None Include="Pages\Tools\Text\RegexTester\RegexTester.razor" />
-    <None Include="Pages\Tools\Text\TextInspectorAndCaseConverter\TextInspectorAndCaseConverter.razor" />
-  </ItemGroup>
-
 </Project>
