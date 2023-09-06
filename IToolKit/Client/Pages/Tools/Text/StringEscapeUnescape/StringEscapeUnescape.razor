@@ -1,0 +1,28 @@
+﻿@page "/Text/StringEscapeUnescape"
+@using IToolKit.Client.API.Enums.Tools.Text;
+
+
+<MudText Typo="Typo.h1">Text Escape / Unescape</MudText>
+<MudTextField T="string" Label="Input" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Type here ..."
+              TextChanged="OnChangeEvent" />
+<MudGrid Class="my-2 d-flex align-center flex-grow-1">
+    <MudItem xs="12" sm="3">
+        <MudSelect Variant="Variant.Outlined" T="EscapeUnescapeTypeEnum" Label="Escape/Unescape" ValueChanged="OnEscapeTypeChange">
+            <MudSelectItem Value="EscapeUnescapeTypeEnum.Escape" />
+            <MudSelectItem Value="EscapeUnescapeTypeEnum.Unescape" />
+        </MudSelect>
+    </MudItem>
+    <MudItem>
+        <MudCheckBox Color="Color.Primary" T="bool" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
+    </MudItem>
+    <MudItem>
+        @if (_IsAutoUpdate == false)
+        {
+            <MudButton Class="mb-2" Color="Color.Primary" Variant="Variant.Filled" OnClick="()=> Calc(_CurrentValue)">
+                @_EscapeUnscapeType
+            </MudButton>
+        }
+    </MudItem>
+</MudGrid>
+
+<MudTextField Variant="Variant.Outlined" Lines="5" Label="Result" @bind-Value="@_Result" ReadOnly />
