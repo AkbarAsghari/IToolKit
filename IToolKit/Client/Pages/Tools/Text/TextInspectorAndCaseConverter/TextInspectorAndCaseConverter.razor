@@ -20,7 +20,7 @@
 </MudPaper>
 
 
-<MudTextField T="string" Lines="15" Label="String" Immediate @bind-Text=@_Result Variant="Variant.Outlined"></MudTextField>
+<CustomTextField Lines="15" Label="String" Immediate @bind-Text=@_Result Variant="Variant.Outlined"></CustomTextField>
 <MudText Typo="Typo.h6">Statics</MudText>
 <MudPaper Class="my-2 pa-2 d-flex flex-wrap gap-2 rounded">
     <MudText>Line : @(String.IsNullOrEmpty(_Result) ? "0" : _Result.Length - _Result.Replace(Environment.NewLine, string.Empty).Length)</MudText>

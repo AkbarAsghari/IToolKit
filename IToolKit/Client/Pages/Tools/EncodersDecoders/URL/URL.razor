@@ -2,7 +2,7 @@
 @using IToolKit.Client.API.Enums.Tools.EncodersDecoders;
 
 <MudText Typo="Typo.h1">URL Encoder / Decoder</MudText>
-<MudTextField T="string" Label="Input" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Type here ..." TextChanged="OnChangeEvent" />
+<CustomTextField Label="Input" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Type here ..." TextChanged="OnChangeEvent" />
 <MudGrid Class="my-2 d-flex align-center flex-grow-1">
     <MudItem xs="12" sm="3">
          <MudSelect Variant="Variant.Outlined" T="EncodeDecodeTypeEnum" Label="Encode/Decode" ValueChanged="OnHashTypeChange">
@@ -22,4 +22,4 @@
         }
     </MudItem>
 </MudGrid>
-<MudTextField Variant="Variant.Outlined" Lines="5" Label="Result" @bind-Value="@_Result" ReadOnly />
+<CustomTextField Variant="Variant.Outlined" Lines="5" Label="Result" @bind-Value="@_Result" ReadOnly />

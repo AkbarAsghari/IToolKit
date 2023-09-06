@@ -2,7 +2,7 @@
 
 <MudText Typo="Typo.h1">Hash</MudText>
 
-<MudTextField Label="Input" Variant="Variant.Outlined" Lines=5 T="string" Immediate="true" TextChanged="OnChangeEvent" />
+<CustomTextField Label="Input" Variant="Variant.Outlined" Lines=5 Immediate="true" TextChanged="OnChangeEvent" />
 
 <MudCheckBox T="bool" @bind-Checked="@_IsAutoUpdate" Color="Color.Primary" Label="Auto Update"></MudCheckBox>
 @if (_IsAutoUpdate == false)
@@ -10,8 +10,8 @@
     <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> CalcHash()">Hash</MudButton>
 }
 <MudSwitch Color="Color.Primary" T="bool" CheckedChanged="ChangeTextCase" Label="Uppercase"></MudSwitch>
-<MudTextField ReadOnly=true Label="MD5" @bind-Value="@_MD5Result" />
-<MudTextField ReadOnly=true Label="SHA1" @bind-Value="@_SHA1Result" />
-<MudTextField ReadOnly=true Label="SHA256" @bind-Value="@_SHA256Result" />
-<MudTextField ReadOnly=true Label="SHA384" @bind-Value="@_SHA384Result" />
-<MudTextField ReadOnly=true Label="SHA512" @bind-Value="@_SHA512Result" />
+<CustomTextField ReadOnly=true Label="MD5" @bind-Value="@_MD5Result" />
+<CustomTextField ReadOnly=true Label="SHA1" @bind-Value="@_SHA1Result" />
+<CustomTextField ReadOnly=true Label="SHA256" @bind-Value="@_SHA256Result" />
+<CustomTextField ReadOnly=true Label="SHA384" @bind-Value="@_SHA384Result" />
+<CustomTextField ReadOnly=true Label="SHA512" @bind-Value="@_SHA512Result" />
