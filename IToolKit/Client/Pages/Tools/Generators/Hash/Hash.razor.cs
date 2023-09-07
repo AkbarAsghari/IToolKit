@@ -46,6 +46,7 @@ namespace IToolKit.Client.Pages.Tools.Generators.Hash
 
         void ChangeTextCase(bool value)
         {
+            _IsUpperCase = value;
             if (!value)
             {
                 _MD5Result = _MD5Result.ToLower();
