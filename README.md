@@ -20,7 +20,7 @@ Many tools are available.
   - JSON
   - XML
 - Generators
-  - Hash (MD5, SHA1, SHA256, SHA512)
+  - Hash (MD5, SHA1, SHA256, SHA384, SHA512)
   - UUID 1 and 4
   - Password
 - Text
