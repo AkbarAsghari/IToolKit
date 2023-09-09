@@ -18,7 +18,7 @@ namespace IToolKit.Client.Pages.Tools.Generators.Hash
         bool _IsAutoUpdate = true;
         bool _IsUpperCase = false;
 
-        async void OnChangeEvent(string value)
+        async Task OnChangeEvent(string value)
         {
             _CurrentValue = value;
 

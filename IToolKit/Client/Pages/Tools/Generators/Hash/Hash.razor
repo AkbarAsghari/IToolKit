@@ -2,7 +2,7 @@
 
 <MudText Typo="Typo.h1">Hash</MudText>
 
-<CustomTextField Label="Input" Variant="Variant.Outlined" Lines=5 Immediate="true" TextChanged="OnChangeEvent" />
+<CustomTextField Label="Input" Variant="Variant.Outlined" Lines=5 Immediate TextChanged="OnChangeEvent" />
 
 <MudCheckBox T="bool" @bind-Checked="@_IsAutoUpdate" Color="Color.Primary" Label="Auto Update"></MudCheckBox>
 @if (_IsAutoUpdate == false)
