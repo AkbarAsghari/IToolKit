@@ -1,22 +1,31 @@
 # IToolKit
 free online tools for developers with offline usable
 
-tools list
+## Introduction
 
-# Encode/Decode
-Base64 , Base32 , HTML , URL
+DevToys helps with daily development tasks like formatting JSON, Encode and decodes, and testing RegExp. No need to use many untrustworthy websites to do simple tasks with your data. iToolKit can work offline after first load.
 
-# Formatters
-Json , XML
+Many tools are available.
 
-# Generator
-Hash , UUID , Password
-
-# Cipthers
-AES
-
-# Graphic
-Color Picker
-
-# Text
-Text Case Converter and Inspector
+- Encoders / Decoders
+  - HTML
+  - URL
+  - Base64 Text
+  - Base32 Text
+  - Unicode
+  - JWT Decoder
+- Ciphers
+  - AES
+- Formatters
+  - JSON
+  - XML
+- Generators
+  - Hash (MD5, SHA1, SHA256, SHA512)
+  - UUID 1 and 4
+  - Password
+- Text
+  - Escape / Unescape
+  - Inspector & Case Converter
+  - Regex Tester
+- Graphic
+  - Color Picker
