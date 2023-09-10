@@ -21,7 +21,10 @@ partial class StringEscapeUnescape
         _CurrentValue = value;
 
         if (String.IsNullOrWhiteSpace(value) || !_IsAutoUpdate)
+        {
+            _Result = String.Empty;
             return;
+        }
 
         Calc(value);
     }

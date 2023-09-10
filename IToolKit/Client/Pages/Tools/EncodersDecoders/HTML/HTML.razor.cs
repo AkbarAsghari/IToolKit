@@ -20,7 +20,10 @@ public partial class HTML
         _CurrentValue = value;
 
         if (String.IsNullOrWhiteSpace(value) || !_IsAutoUpdate)
+        {
+            _Result = String.Empty;
             return;
+        }
 
         Calc(value);
     }
