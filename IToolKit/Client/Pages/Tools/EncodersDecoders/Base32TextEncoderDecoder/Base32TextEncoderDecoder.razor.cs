@@ -21,7 +21,10 @@ namespace IToolKit.Client.Pages.Tools.EncodersDecoders.Base32TextEncoderDecoder
             _CurrentValue = value;
 
             if (String.IsNullOrWhiteSpace(value) || !_IsAutoUpdate)
+            {
+                _Result = string.Empty;
                 return;
+            }
 
             Calc(value);
         }
