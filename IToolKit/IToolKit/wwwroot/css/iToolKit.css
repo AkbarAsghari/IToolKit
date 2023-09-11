@@ -1,0 +1,13 @@
+﻿.tool-provider-grid-item {
+}
+
+    .tool-provider-grid-item .card {
+        width: 157px;
+        height: 20rem;
+    }
+
+    .tool-provider-grid-item .icon {
+        width: 100%;
+        height: 100%;
+        font-weight:bolder
+    }
