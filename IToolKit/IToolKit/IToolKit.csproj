@@ -8,16 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages\Tools\EncodersDecoders\JWT\**" />
-    <Content Remove="Pages\Tools\EncodersDecoders\JWT\**" />
-    <EmbeddedResource Remove="Pages\Tools\EncodersDecoders\JWT\**" />
-    <None Remove="Pages\Tools\EncodersDecoders\JWT\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.15" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.15" PrivateAssets="all" />
     <PackageReference Include="MudBlazor" Version="6.9.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
