@@ -21,8 +21,13 @@
 
 <body>
     <div id="app">
-        Loading resources for offline use
-        <p id="fileNames"></p>
+        <div style="position:absolute; top:30vh; width:100%; text-align:center">
+            <div style="display:flex; gap:10px; justify-content:center; align-items:center">
+                <h1>iToolKit</h1>
+                <img src="images/spinner/Spinner.svg" style="max-height: 4rem;" />
+            </div>
+            <p id="fileName"></p>.
+        </div>
     </div>
 
     <div id="blazor-error-ui">
@@ -31,7 +36,7 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js" autostart="false"></script>
-    <script>
+    <!--<script>
         var i = 0;
         var allResourcesBeingLoaded = [];
         Blazor.start({ // start manually with loadBootResource
@@ -50,7 +55,7 @@
                 fetchResources.then((r) => {
                     i++;
                     var total = allResourcesBeingLoaded.length;
-                    var pElement = document.getElementById('fileNames');
+                    var pElement = document.getElementById('fileName');
                     var value = parseInt((i * 100.0) / total);
                     var pct = value + '%';
                     pElement.innerHTML = name;
@@ -59,7 +64,7 @@
                 return fetchResources;
             }
         });
-    </script>
+    </script>-->
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 </body>
 
