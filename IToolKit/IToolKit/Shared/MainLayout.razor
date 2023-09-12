@@ -1,5 +1,4 @@
-﻿
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
 
 <MudThemeProvider Theme="MyCustomTheme" @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" />
 <MudDialogProvider />
@@ -11,7 +10,7 @@
     <MudAppBar Dense Elevation="1">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         iToolKit
-        <MudSpacer/>
+        <MudSpacer />
         <MudIconButton Href="https://github.com/AkbarAsghari/IToolKit"
                        Icon="@Icons.Custom.Brands.GitHub" Title="GitHub" Color="Color.Inherit" />
     </MudAppBar>
@@ -23,8 +22,8 @@
             @Body
         </MudContainer>
     </MudMainContent>
-</MudLayout>
-@code {
+    </MudLayout>
+    @code {
     bool _drawerOpen = true;
 
     void DrawerToggle()
@@ -57,21 +56,26 @@
             {
                 Default = new Default()
                 {
+                    FontFamily = new string[] { "opensans-medium" }
                 },
                 H1 = new H1
                 {
-                    FontSize = "xxx-large"
+                    FontFamily = new string[] { "opensans-bold" },
+                    FontSize = "xx-large"
                 },
                 H2 = new H2
                 {
-                    FontSize = "xx-large"
+                    FontFamily = new string[] { "opensans-bold" },
+                    FontSize = "x-large"
                 },
                 H3 = new H3
                 {
-                    FontSize = "x-large"
+                    FontFamily = new string[] { "opensans-bold" },
+                    FontSize = "larger"
                 },
                 H4 = new H4
                 {
+                    FontFamily = new string[] { "opensans-bold" },
                     FontSize = "large"
                 },
                 Subtitle1 = new Subtitle1
@@ -81,5 +85,6 @@
                 }
             }
         };
+
 
 }
