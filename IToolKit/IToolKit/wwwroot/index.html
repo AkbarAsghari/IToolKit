@@ -22,7 +22,8 @@
     <div id="app">
         <div style="position:absolute; top:30vh; width:100%; text-align:center">
             <h1 style="font-family:opensans-bold;font-size:xxx-large;">iToolKit</h1>
-            <p  style="font-family:opensans-medium;" id="fileName"></p>
+            <p style="font-family:opensans-medium;" id="fileName"></p>
+            <p style="font-family:opensans-medium;" id="pct"></p>
             <img src="images/spinner/Spinner.svg" style="max-height: 10rem;" />
         </div>
     </div>
@@ -51,12 +52,13 @@
                 allResourcesBeingLoaded.push(fetchResources);
                 fetchResources.then((r) => {
                     i++;
+                    var fileName = document.getElementById('fileName');
+                    fileName.innerHTML = name;
                     var total = allResourcesBeingLoaded.length;
-                    var pElement = document.getElementById('fileName');
                     var value = parseInt((i * 100.0) / total);
                     var pct = value + '%';
-                    pElement.innerHTML = name;
-                    console.info(i + '/' + total + ' (' + pct + ') ' + name);
+                    var pctP = document.getElementById('pct');
+                    pctP.innerHTML = i + '/' + total + ' (' + pct + ') ';
                 });
                 return fetchResources;
             }
