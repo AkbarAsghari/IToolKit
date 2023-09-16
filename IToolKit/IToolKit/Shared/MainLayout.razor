@@ -11,6 +11,7 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         iToolKit
         <MudSpacer />
+        <MudText Class="mr-2">Version : 0.16.11</MudText>
         <MudIconButton Href="https://github.com/AkbarAsghari/IToolKit"
                        Icon="@Icons.Custom.Brands.GitHub" Title="GitHub" Color="Color.Inherit" />
     </MudAppBar>
@@ -23,6 +24,9 @@
         </MudContainer>
     </MudMainContent>
     </MudLayout>
+
+    <UpdateAvailableDetector />
+
     @code {
     bool _drawerOpen = true;
 
