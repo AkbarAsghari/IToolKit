@@ -9,8 +9,16 @@
     .tool-provider-grid-item .icon {
         width: 100%;
         height: 100%;
-        font-weight:bolder
+        font-weight: bolder
     }
+
+
+
+/*Fonts*/
+
+.font-monospace {
+    font-family: monospace;
+}
 
 @font-face {
     font-family: 'opensans-bold';
