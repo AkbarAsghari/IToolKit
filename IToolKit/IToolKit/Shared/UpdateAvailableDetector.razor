@@ -1,15 +1,13 @@
 ﻿@inject IJSRuntime _jsRuntime
 
-@if (_newVersionAvailable)
+@if (_applicationUpdateNotificationShow)
 {
-    <button type="button" class="btn btn-warning shadow floating-update-button" onclick="window.location.reload()">
-        A new version of the application is available. Click here to reload.
-    </button>
+    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => _applicationUpdateNotificationShow = false)">iToolKit updated to new version</MudAlert>
 }
 
 @code {
 
-    private bool _newVersionAvailable = false;
+    private bool _applicationUpdateNotificationShow = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -27,7 +25,7 @@
     [JSInvokable(nameof(OnUpdateAvailable))]
     public Task OnUpdateAvailable()
     {
-        _newVersionAvailable = true;
+        _applicationUpdateNotificationShow = true;
 
         StateHasChanged();
 
