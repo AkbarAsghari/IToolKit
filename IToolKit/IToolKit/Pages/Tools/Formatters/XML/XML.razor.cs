@@ -31,5 +31,7 @@ partial class XML
             // Handle and throw if fatal exception here; don't just ignore them
             _XMLFormatedResult = String.Empty;
         }
+
+        await Task.CompletedTask;
     }
 }

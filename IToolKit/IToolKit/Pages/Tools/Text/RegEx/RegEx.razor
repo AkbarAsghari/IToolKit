@@ -2,8 +2,8 @@
 
 <MudText Typo="Typo.h1">RegEx Tester</MudText>
 
-<MudExpansionPanels>
-    <MudExpansionPanel Icon="@Icons.Material.Filled.Settings" >
+<MudExpansionPanels Class="py-2">
+    <MudExpansionPanel Icon="@Icons.Material.Filled.Settings">
         <TitleContent>
             <MudText Typo="Typo.h3">Options</MudText>
         </TitleContent>
@@ -91,36 +91,42 @@
     </MudExpansionPanel>
 </MudExpansionPanels>
 <CustomTextField Label="Regular expression" Variant="Variant.Outlined" @bind-Value="@_Pattern" Immediate TextChanged="RegularExpressionOnChange"></CustomTextField>
+@if (!String.IsNullOrEmpty(errorMsg))
+{
+    <MudText Color="Color.Error">@errorMsg</MudText>
+}
 <CustomTextField Label="Text" Variant="Variant.Outlined" @bind-Value="_Text" Lines="12" Immediate TextChanged="RegularExpressionOnChange" />
 
 @if (!String.IsNullOrEmpty(_Result))
 {
-    <MudCard Class="mt-2">
-        <MudCardHeader>
-            <MudText Typo="Typo.h3">Result</MudText>
-        </MudCardHeader>
-        <MudCardContent>
-            <MudText Style="white-space: break-spaces;">
-                @((MarkupString)@_Result)
-            </MudText>
-        </MudCardContent>
-    </MudCard>
-}
-
-@if (MatchesGroups != null && MatchesGroups.Count() > 0)
-{
-    <MudCard Class="mt-2">
-        <MudCardHeader>
-            <MudText Typo="Typo.h3">Matches</MudText>
-        </MudCardHeader>
-        <MudCardContent>
-            <MudDataGrid T="MatchDetails" Items="MatchesGroups" SortMode="SortMode.None" Filterable="false" Breakpoint="Breakpoint.None" Dense>
-            <Columns>
-                <PropertyColumn Property="x => x.Title" Title="" />
-                <PropertyColumn Property="x => x.Range" />
-                <PropertyColumn Property="x => x.Value" />
-            </Columns>
-        </MudDataGrid>
-    </MudCardContent>
-</MudCard>
+    <MudGrid Class="mt-2">
+        <MudItem xs="12" lg="6">
+            <MudCard>
+                <MudCardHeader>
+                    <MudText Typo="Typo.h3">Result</MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudText Style="white-space: break-spaces;">
+                        @((MarkupString)@_Result)
+                    </MudText>
+                </MudCardContent>
+            </MudCard>
+        </MudItem>
+        <MudItem xs="12" lg="6">
+            <MudCard>
+                <MudCardHeader>
+                    <MudText Typo="Typo.h3">Matches</MudText>
+                </MudCardHeader>
+                <MudCardContent>
+                    <MudDataGrid T="MatchDetails" Items="MatchesGroups" SortMode="SortMode.None" Filterable="false" Breakpoint="Breakpoint.None" Dense>
+                    <Columns>
+                        <PropertyColumn Property="x => x.Title" Title="" />
+                        <PropertyColumn Property="x => x.Range" />
+                        <PropertyColumn Property="x => x.Value" />
+                    </Columns>
+                </MudDataGrid>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
 }

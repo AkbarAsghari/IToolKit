@@ -20,8 +20,14 @@ partial class StringEscapeUnescape
     {
         _CurrentValue = value;
 
-        if (String.IsNullOrWhiteSpace(value) || !_IsAutoUpdate)
+        if (!_IsAutoUpdate)
             return;
+
+        if (String.IsNullOrEmpty(value))
+        {
+            _Result = value;
+            return;
+        }
 
         Calc(value);
     }

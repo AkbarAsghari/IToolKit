@@ -2,6 +2,7 @@
 using IToolKit.API.Tools.Formatters;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text.RegularExpressions;
+using static MudBlazor.Colors;
 
 namespace IToolKit.Pages.Tools.EncodersDecoders.JWT;
 public partial class JWT
@@ -22,6 +23,13 @@ public partial class JWT
     };
     void Calc()
     {
+        if (String.IsNullOrEmpty(_Token))
+        {
+            _Header = _Payload = String.Empty;
+            _TokenValues.Clear();
+            return;
+        }
+
         try
         {
             _TokenValues.Clear();

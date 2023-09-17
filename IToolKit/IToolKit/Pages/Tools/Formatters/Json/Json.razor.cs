@@ -32,5 +32,7 @@ partial class Json
         {
             _JsonFormatedResult = String.Empty;
         }
+
+        await Task.CompletedTask;
     }
 }

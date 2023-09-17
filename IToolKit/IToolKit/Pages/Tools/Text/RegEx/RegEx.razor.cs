@@ -7,6 +7,7 @@ partial class RegEx
     string _Pattern;
     string _Result;
     string errorMsg;
+    IEnumerable<MatchDetails>? MatchesGroups;
 
     bool _EcmaScript, _CultureInvariant, _IgnoreCase, _Singleline, _IgnoreWhitespace, _Multiline, _RightToLeft;
     bool EcmaScript
@@ -45,15 +46,17 @@ partial class RegEx
         set { _RightToLeft = value; RegularExpressionOnChange(); }
     }
 
-    IEnumerable<MatchDetails>? MatchesGroups;
-
     void RegularExpressionOnChange()
     {
+        errorMsg = String.Empty;
+
         if (String.IsNullOrEmpty(_Text) || String.IsNullOrEmpty(_Pattern))
         {
             _Result = String.Empty;
+            MatchesGroups = null;
             return;
         }
+
         try
         {
             MatchCollection? matches = null;
@@ -88,6 +91,8 @@ partial class RegEx
         }
         catch (Exception ex)
         {
+            _Result = String.Empty;
+            MatchesGroups = null;
             errorMsg = ex.Message;
         }
     }
