@@ -12,7 +12,14 @@ partial class CustomTextField
         base.Variant = Variant.Outlined;
         if (MonoSpace)
         {
-            Class += "";
+            if (String.IsNullOrEmpty(Class))
+            {
+                Class = "font-monospace";
+            }
+            else
+            {
+                Class += " font-monospace";
+            }
         }
     }
 
