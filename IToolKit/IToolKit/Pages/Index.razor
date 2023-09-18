@@ -62,7 +62,7 @@
 @code {
     protected override async Task OnInitializedAsync()
     {
-        GithubAPI githubAPI = new GithubAPI();
+        GitHubAPI githubAPI = new GitHubAPI();
          await githubAPI.GetLastReleaseVersion();
     }
 }

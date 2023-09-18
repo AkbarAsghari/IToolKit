@@ -1,6 +1,6 @@
 ﻿@using IToolKit.API.Github;
 @inherits LayoutComponentBase
-@inject IGithubAPI Github
+@inject IGitHubAPI Github
 
 <MudThemeProvider Theme="MyCustomTheme" @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" />
 <MudDialogProvider />
@@ -14,8 +14,11 @@
         iToolKit
         <MudSpacer />
         <MudButton Size="Size.Small" Class="mr-2">@GithubVersion</MudButton>
-        <MudIconButton Href="https://github.com/AkbarAsghari/IToolKit"
-                       Icon="@Icons.Custom.Brands.GitHub" Title="GitHub" Color="Color.Inherit" />
+        <MudButton Href="https://github.com/AkbarAsghari/IToolKit"
+                   StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit">
+            @GithubStars
+            <MudIcon Size="Size.Small" Icon="@Icons.Material.Outlined.Star"></MudIcon>
+        </MudButton>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu />
@@ -41,6 +44,7 @@
     private MudThemeProvider _mudThemeProvider;
 
     string GithubVersion { get; set; } = String.Empty;
+    int GithubStars { get; set; }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -49,6 +53,7 @@
             await _mudThemeProvider.WatchSystemPreference(OnSystemPreferenceChanged);
             StateHasChanged();
             GithubVersion = await Github.GetLastReleaseVersion();
+            GithubStars = await Github.GetStars();
             StateHasChanged();
         }
     }

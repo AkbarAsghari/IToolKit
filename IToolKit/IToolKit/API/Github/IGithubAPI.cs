@@ -1,7 +1,8 @@
 ﻿namespace IToolKit.API.Github
 {
-    public interface IGithubAPI
+    public interface IGitHubAPI
     {
         Task<string> GetLastReleaseVersion();
+        Task<int> GetStars();
     }
 }
