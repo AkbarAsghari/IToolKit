@@ -10,32 +10,24 @@ namespace IToolKit.API.Github
             _Client = new GitHubClient(new ProductHeaderValue("IToolKit"));
         }
 
-        public async Task<string> GetLastReleaseVersion()
+        public async Task<Release> GetLastReleaseVersion()
         {
             try
             {
-                var lastRelease = await _Client.Repository.Release.GetLatest("AkbarAsghari", "IToolKit");
-                if (lastRelease != null)
-                {
-                    return lastRelease.TagName;
-                }
+                return await _Client.Repository.Release.GetLatest("AkbarAsghari", "IToolKit");
             }
             catch { }
-            return String.Empty;
+            return null;
         }
 
-        public async Task<int> GetStars()
+        public async Task<Repository> GetStars()
         {
             try
             {
-                var repository = await _Client.Repository.Get("AkbarAsghari", "IToolKit");
-                if (repository != null)
-                {
-                    return repository.StargazersCount;
-                }
+                return await _Client.Repository.Get("AkbarAsghari", "IToolKit");
             }
             catch { }
-            return -1;
+            return null;
         }
     }
 }

@@ -1,8 +1,10 @@
-﻿namespace IToolKit.API.Github
+﻿using Octokit;
+
+namespace IToolKit.API.Github
 {
     public interface IGitHubAPI
     {
-        Task<string> GetLastReleaseVersion();
-        Task<int> GetStars();
+        Task<Release> GetLastReleaseVersion();
+        Task<Repository> GetStars();
     }
 }
