@@ -1,4 +1,6 @@
-﻿@inherits LayoutComponentBase
+﻿@using IToolKit.API.Github;
+@inherits LayoutComponentBase
+@inject IGithubAPI Github
 
 <MudThemeProvider Theme="MyCustomTheme" @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" />
 <MudDialogProvider />
@@ -11,7 +13,7 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         iToolKit
         <MudSpacer />
-        <MudButton Size="Size.Small" Class="mr-2">Version : 0.16.15</MudButton>
+        <MudButton Size="Size.Small" Class="mr-2">@GithubVersion</MudButton>
         <MudIconButton Href="https://github.com/AkbarAsghari/IToolKit"
                        Icon="@Icons.Custom.Brands.GitHub" Title="GitHub" Color="Color.Inherit" />
     </MudAppBar>
@@ -38,12 +40,15 @@
     bool _isDarkMode = false;
     private MudThemeProvider _mudThemeProvider;
 
+    string GithubVersion { get; set; } = String.Empty;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             _isDarkMode = await _mudThemeProvider.GetSystemPreference();
             await _mudThemeProvider.WatchSystemPreference(OnSystemPreferenceChanged);
+            StateHasChanged();
+            GithubVersion = await Github.GetLastReleaseVersion();
             StateHasChanged();
         }
     }
@@ -52,6 +57,7 @@
     {
         _isDarkMode = newValue;
         StateHasChanged();
+        await Task.CompletedTask;
     }
 
     MudTheme MyCustomTheme = new MudTheme()

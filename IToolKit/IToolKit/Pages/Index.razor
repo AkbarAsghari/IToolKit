@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using IToolKit.API.Github;
 
 <MudText Typo="Typo.h1" Style="outline: none; box-shadow: none;">Welcome To iToolKit</MudText>
 <MudText Typo="Typo.h2">All Tools</MudText>
@@ -58,3 +59,10 @@
     </MudItem>
 </MudGrid>
 
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        GithubAPI githubAPI = new GithubAPI();
+         await githubAPI.GetLastReleaseVersion();
+    }
+}
