@@ -59,7 +59,7 @@
                 GithubVersionLink = lastRelease.HtmlUrl;
                 GithubVersion = lastRelease.TagName;
             }
-            GithubStars = (await Github.GetStars()).StargazersCount;
+            GithubStars = (await Github.GetStars())!.StargazersCount;
             StateHasChanged();
         }
     }
