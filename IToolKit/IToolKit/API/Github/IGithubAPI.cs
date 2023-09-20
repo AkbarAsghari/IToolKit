@@ -5,6 +5,6 @@ namespace IToolKit.API.Github
     public interface IGitHubAPI
     {
         Task<Release> GetLastReleaseVersion();
-        Task<Repository> GetStars();
+        Task<Repository> GetRepository();
     }
 }

@@ -20,7 +20,7 @@ namespace IToolKit.API.Github
             return null;
         }
 
-        public async Task<Repository> GetStars()
+        public async Task<Repository> GetRepository()
         {
             try
             {

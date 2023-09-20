@@ -1,4 +1,5 @@
 ﻿@using IToolKit.API.Github;
+@using IToolKit.Shared.Components.GitHub
 @inherits LayoutComponentBase
 @inject IGitHubAPI Github
 
@@ -13,12 +14,7 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         iToolKit
         <MudSpacer />
-        <MudButton Size="Size.Small" Class="mr-2" Href="@GithubVersionLink">@GithubVersion</MudButton>
-        <MudButton Href="https://github.com/AkbarAsghari/IToolKit"
-                   StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit">
-            @GithubStars
-            <MudIcon Size="Size.Small" Icon="@Icons.Material.Filled.Star"></MudIcon>
-        </MudButton>
+        <GitHubStatus />
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu />
@@ -43,23 +39,12 @@
     bool _isDarkMode = false;
     private MudThemeProvider _mudThemeProvider;
 
-    string GithubVersion { get; set; } = String.Empty;
-    string GithubVersionLink { get; set; } = String.Empty;
-    int GithubStars { get; set; }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             _isDarkMode = await _mudThemeProvider.GetSystemPreference();
             await _mudThemeProvider.WatchSystemPreference(OnSystemPreferenceChanged);
-            StateHasChanged();
-            var lastRelease = await Github.GetLastReleaseVersion();
-            if (lastRelease!=null)
-            {
-                GithubVersionLink = lastRelease.HtmlUrl;
-                GithubVersion = lastRelease.TagName;
-            }
-            GithubStars = (await Github.GetStars())!.StargazersCount;
             StateHasChanged();
         }
     }

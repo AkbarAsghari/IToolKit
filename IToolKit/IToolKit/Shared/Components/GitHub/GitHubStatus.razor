@@ -1,0 +1,12 @@
+﻿@if (lastRelease != null)
+{
+    <MudButton Size="Size.Small" Class="mr-2" Href="@lastRelease.HtmlUrl">@lastRelease.TagName</MudButton>
+}
+<MudButton Href="https://github.com/AkbarAsghari/IToolKit"
+           StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit">
+    @if (repository != null)
+    {
+        @repository.StargazersCount
+    }
+    <MudIcon Size="Size.Small" Icon="@Icons.Material.Filled.Star"></MudIcon>
+</MudButton>
