@@ -1,6 +1,7 @@
-﻿@if (lastRelease != null)
+﻿@using API.Tools.MarkdownConverter
+@if (lastRelease != null)
 {
-    <MudButton Size="Size.Small" Class="mr-2" Href="@lastRelease.HtmlUrl">@lastRelease.TagName</MudButton>
+    <MudButton Size="Size.Small" Class="mr-2" OnClick="()=>showReleaseModal = true">@lastRelease.TagName</MudButton>
 }
 <MudButton Href="https://github.com/AkbarAsghari/IToolKit"
            StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit">
@@ -11,8 +12,20 @@
     <MudIcon Size="Size.Small" Icon="@Icons.Material.Filled.Star"></MudIcon>
 </MudButton>
 
-<MudDialog IsVisible>
-    <DialogContent>
+@if (lastRelease != null)
+{
+    <MudDialog @bind-IsVisible="@showReleaseModal" Options="new DialogOptions{CloseButton=true, DisableBackdropClick=true,FullWidth=true,MaxWidth=MaxWidth.Medium}">
 
-    </DialogContent>
-</MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h1">@lastRelease.TagName</MudText>
+            <MudText>create at : @lastRelease.CreatedAt.</MudText>
+        </TitleContent>
+        <DialogContent>
+            @((MarkupString)MarkdownConverter.ToHTML(lastRelease!.Body))
+        </DialogContent>
+        <DialogActions>
+            <MudButton Color="Color.Secondary" OnClick="()=>showReleaseModal=false">Cancel</MudButton>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Update">Update</MudButton>
+        </DialogActions>
+    </MudDialog>
+}

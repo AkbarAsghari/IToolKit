@@ -45,6 +45,21 @@
                 return CryptoJS.AES.decrypt(encrypted, secret).toString(CryptoJS.enc.Utf8);
             }
         }
+    },
+    //Cache
+    Cache: {
+        Clear: function () {
+            caches.keys().then(function (names) {
+                for (let name of names)
+                    caches.delete(name);
+            });
+        }
+    },
+    //Location
+    Location: {
+        Reload: function () {
+            location.reload();
+        }
     }
 }
 
