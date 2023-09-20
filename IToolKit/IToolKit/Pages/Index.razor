@@ -60,9 +60,4 @@
 </MudGrid>
 
 @code {
-    protected override async Task OnInitializedAsync()
-    {
-        GitHubAPI githubAPI = new GitHubAPI();
-         await githubAPI.GetLastReleaseVersion();
     }
-}

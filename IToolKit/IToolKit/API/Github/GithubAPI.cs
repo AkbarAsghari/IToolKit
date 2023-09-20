@@ -10,7 +10,7 @@ namespace IToolKit.API.Github
             _Client = new GitHubClient(new ProductHeaderValue("IToolKit"));
         }
 
-        public async Task<Release> GetLastReleaseVersion()
+        public async Task<Release> GetLastRelease()
         {
             try
             {

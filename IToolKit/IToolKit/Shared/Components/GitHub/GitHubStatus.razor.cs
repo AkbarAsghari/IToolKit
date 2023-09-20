@@ -15,7 +15,7 @@ partial class GitHubStatus
         if (firstRender)
         {
             repository = await _GitHubAPI.GetRepository();
-            lastRelease = await _GitHubAPI.GetLastReleaseVersion();
+            lastRelease = await _GitHubAPI.GetLastRelease();
             StateHasChanged();
         }
     }
