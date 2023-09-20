@@ -14,18 +14,19 @@
 
 @if (lastRelease != null)
 {
-    <MudDialog @bind-IsVisible="@showReleaseModal" Options="new DialogOptions{CloseButton=true, DisableBackdropClick=true,FullWidth=true,MaxWidth=MaxWidth.Medium}">
+    <MudDialog @bind-IsVisible="@showReleaseModal" Options="new DialogOptions{CloseButton=true, DisableBackdropClick=true,FullWidth=true,MaxWidth=MaxWidth.Small}">
 
         <TitleContent>
             <MudText Typo="Typo.h1">@lastRelease.TagName</MudText>
-            <MudText>create at : @lastRelease.CreatedAt.</MudText>
+            <MudText>Create at : @lastRelease.CreatedAt.</MudText>
         </TitleContent>
         <DialogContent>
+            <MudDivider/>
             @((MarkupString)MarkdownConverter.ToHTML(lastRelease!.Body))
         </DialogContent>
         <DialogActions>
             <MudButton Color="Color.Secondary" OnClick="()=>showReleaseModal=false">Cancel</MudButton>
-            <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Update">Re-download the latest version</MudButton>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Update">Download and launch the latest version</MudButton>
         </DialogActions>
     </MudDialog>
 }
