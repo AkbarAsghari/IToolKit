@@ -21,6 +21,8 @@
             </MudSelect>
         </MudPaper>
     </MudItem>
+    @if (DisableToolbar && DisableAlpha && DisableColorField && DisablePreview && DisableSliders && DisableInputs && DisableModeSwitch)
+        DisableToolbar = DisableAlpha = DisableColorField = DisablePreview = DisableSliders = DisableInputs = DisableModeSwitch = false;
 </MudGrid>
 @code {
     public bool DisableToolbar { get; set; }
