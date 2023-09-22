@@ -1,31 +1,8 @@
-﻿<MudButton Size="Size.Small" Class="mr-2" OnClick="()=>showReleaseModal = true" Color="@(isLastVersion ? Color.Inherit : Color.Warning)">@($"{currentVersion}{(isLastVersion ? String.Empty : " (New update is ready)")}")</MudButton>
-    <MudButton Href="https://github.com/AkbarAsghari/IToolKit"
+﻿<MudButton Href="https://github.com/AkbarAsghari/IToolKit"
            StartIcon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit">
-        @if (repository != null)
+    @if (repository != null)
     {
         @repository.StargazersCount
         <MudIcon Size="Size.Small" Icon="@Icons.Material.Filled.Star"></MudIcon>
     }
 </MudButton>
-
-@if (lastRelease != null)
-{
-    <MudDialog @bind-IsVisible="@showReleaseModal" Options="new DialogOptions{CloseButton=true, DisableBackdropClick=true,FullWidth=true,MaxWidth=MaxWidth.Small}">
-
-        <TitleContent>
-            <MudText Typo="Typo.h1">@lastRelease.TagName</MudText>
-            <MudText>Create at : @lastRelease.CreatedAt.</MudText>
-        </TitleContent>
-        <DialogContent>
-            <MudDivider />
-            <IToolKit.Shared.Components.Markdown.MarkdownViewer Markdown="@lastRelease!.Body" />
-        </DialogContent>
-        <DialogActions>
-            <MudButton Color="Color.Secondary" OnClick="()=>showReleaseModal=false">Close</MudButton>
-            @if (!isLastVersion)
-            {
-                <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="Update">Update</MudButton>
-            }
-        </DialogActions>
-    </MudDialog>
-}
