@@ -3,7 +3,7 @@
 
     .tool-provider-grid-item .card {
         width: 157px;
-        height: 20rem;
+        padding: 1rem;
     }
 
     .tool-provider-grid-item .icon {
