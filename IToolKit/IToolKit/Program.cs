@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using IToolKit;
 using IToolKit.API.Github;
 using Microsoft.AspNetCore.Components.Web;
@@ -9,6 +10,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddMudServices();
+builder.Services.AddBlazoredLocalStorageAsSingleton();
 
 builder.Services.AddSingleton<IGitHubAPI, GitHubAPI>();
 
