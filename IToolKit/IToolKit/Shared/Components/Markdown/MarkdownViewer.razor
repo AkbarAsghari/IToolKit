@@ -1,0 +1,6 @@
+﻿<HeadContent>
+    <link href="@($"css/githubmarkdowncss/github-markdown{(String.IsNullOrEmpty(Theme) ? String.Empty : $"-{Theme}")}.css")" rel="stylesheet" />
+</HeadContent>
+<MudPaper Height="@Height" Class="pa-3 mt-2 markdown-body overflow-auto">
+    @((MarkupString)HTML)
+</MudPaper>
