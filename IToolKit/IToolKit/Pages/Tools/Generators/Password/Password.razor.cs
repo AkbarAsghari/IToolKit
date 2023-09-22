@@ -6,6 +6,7 @@ namespace IToolKit.Pages.Tools.Generators.Password
     {
         string _Result = String.Empty;
 
+        int _Count = 3;
         int _CharactersLength = 14;
         bool _CapitalLetters = true;
         bool _LowerCaseLetters = false;
@@ -36,7 +37,12 @@ namespace IToolKit.Pages.Tools.Generators.Password
                 valid += "!@#$%^&*";
             }
 
-            _Result = CreatePassword(valid, _CharactersLength);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < _Count; i++)
+            {
+                sb.AppendLine(CreatePassword(valid, _CharactersLength));
+            }
+            _Result = sb.ToString();
         }
 
         public string CreatePassword(string valid, int length)
