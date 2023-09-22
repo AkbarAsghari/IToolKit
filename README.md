@@ -27,5 +27,6 @@ Many tools are available.
   - Escape / Unescape
   - Inspector & Case Converter
   - Regex Tester
+  - Markdown Preview
 - Graphic
   - Color Picker
