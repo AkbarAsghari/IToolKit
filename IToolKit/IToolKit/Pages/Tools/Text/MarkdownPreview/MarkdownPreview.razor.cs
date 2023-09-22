@@ -1,6 +1,4 @@
-﻿using IToolKit.API.Tools.MarkdownConverter;
-
-namespace IToolKit.Pages.Tools.Text.MarkdownPreview;
+﻿namespace IToolKit.Pages.Tools.Text.MarkdownPreview;
 partial class MarkdownPreview
 {
     string _Markdown;

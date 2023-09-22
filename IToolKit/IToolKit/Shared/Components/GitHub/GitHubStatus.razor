@@ -1,5 +1,4 @@
-﻿@using API.Tools.MarkdownConverter
-@if (lastRelease != null)
+﻿@if (lastRelease != null)
 {
     <MudButton Size="Size.Small" Class="mr-2" OnClick="()=>showReleaseModal = true">@lastRelease.TagName</MudButton>
 }
@@ -22,7 +21,7 @@
         </TitleContent>
         <DialogContent>
             <MudDivider/>
-            @((MarkupString)MarkdownConverter.ToHTML(lastRelease!.Body))
+            <IToolKit.Shared.Components.Markdown.MarkdownViewer Markdown="@lastRelease!.Body" />
         </DialogContent>
         <DialogActions>
             <MudButton Color="Color.Secondary" OnClick="()=>showReleaseModal=false">Cancel</MudButton>
