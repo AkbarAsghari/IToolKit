@@ -1,0 +1,9 @@
+﻿@page "/Settings"
+
+<MudText Typo="Typo.h1">Settings</MudText>
+<MudDivider Class="my-3" />
+<MudText Typo="Typo.h2">Cache</MudText>
+<MudAlert Severity="Severity.Info" Class="my-2">
+    <MudText>In this section, you can reload the site (in some cases, due to the lack of automatic updates, you can use this section)</MudText>
+</MudAlert>
+<MudButton StartIcon="@Icons.Material.Filled.Delete" Variant="Variant.Filled" Color="Color.Error" OnClick="ClearCacheAndReDownload">Clear Cache and Re-Download</MudButton>
