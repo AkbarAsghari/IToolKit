@@ -14,6 +14,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.15" PrivateAssets="all" />
     <PackageReference Include="MudBlazor" Version="6.9.0" />
     <PackageReference Include="Octokit" Version="7.1.0" />
+    <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="showdownjs" Version="2.0.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.0" />
   </ItemGroup>

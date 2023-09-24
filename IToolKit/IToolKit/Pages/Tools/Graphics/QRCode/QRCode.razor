@@ -1,0 +1,29 @@
+﻿@page "/Graphics/QRCode"
+
+<MudText Typo="Typo.h1" Class="mb-2">QR Code</MudText>
+
+<MudGrid>
+    <MudItem xs="12" md="6">
+        <CustomTextField Lines="5" Label="Text" OnDebounceIntervalElapsed="OnTextChange" DebounceInterval="500" />
+    </MudItem>
+    <MudItem xs="12" md="6">
+        <MudGrid>
+            <MudItem xs="12">
+                <MudGrid>
+                    <MudItem xs="6">
+                        <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" Label="Light" @bind-Value="_LightColor" PickerClosed="OnColorsChange" />
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" Label="Dark" @bind-Value="_DarkColor" PickerClosed="OnColorsChange" />
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem Class="pa-10">
+                @if (!String.IsNullOrEmpty(_Base64Image))
+                {
+                    <MudImage Src="@($"data:image/jpeg;base64,{_Base64Image}")" ObjectFit="ObjectFit.Fill" Fluid="true" Elevation="25" Class="rounded-lg" />
+                }
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
