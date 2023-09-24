@@ -30,3 +30,4 @@ Many tools are available.
   - Markdown Preview
 - Graphic
   - Color Picker
+  - QR Code
