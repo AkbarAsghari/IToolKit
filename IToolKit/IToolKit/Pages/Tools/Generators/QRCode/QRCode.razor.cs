@@ -1,7 +1,7 @@
 ﻿using MudBlazor.Utilities;
 using QRCoder;
 
-namespace IToolKit.Pages.Tools.Graphics.QRCode;
+namespace IToolKit.Pages.Tools.Generators.QRCode;
 
 partial class QRCode
 {
