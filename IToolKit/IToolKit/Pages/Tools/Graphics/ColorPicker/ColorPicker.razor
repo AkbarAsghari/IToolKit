@@ -1,5 +1,13 @@
 ﻿@page "/Graphics/ColorPicker"
 
-<MudItem Class="d-flex justify-center">
-    <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" PickerVariant="PickerVariant.Static" />
-</MudItem>
+<MudGrid>
+    <MudItem Class="d-flex justify-center">
+        <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" PickerVariant="PickerVariant.Static" />
+    </MudItem>
+    <MudItem Class="d-flex justify-center">
+        <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" PickerVariant="PickerVariant.Static" ColorPickerView="ColorPickerView.Palette" />
+    </MudItem>
+    <MudItem Class="d-flex justify-center">
+        <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" PickerVariant="PickerVariant.Static" ColorPickerView="ColorPickerView.Grid"/>
+    </MudItem>
+</MudGrid>
