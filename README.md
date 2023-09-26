@@ -23,6 +23,7 @@ Many tools are available.
   - Hash (MD5, SHA1, SHA256, SHA384, SHA512)
   - UUID 1 and 4
   - Password
+  - QR Code
 - Text
   - Escape / Unescape
   - Inspector & Case Converter
@@ -30,4 +31,3 @@ Many tools are available.
   - Markdown Preview
 - Graphic
   - Color Picker
-  - QR Code
