@@ -10,16 +10,5 @@
              <MudSelectItem Value="EncodeDecodeTypeEnum.Decode" />
          </MudSelect>
      </MudItem>
-     <MudItem>
-         <MudCheckBox Color="Color.Primary" T="bool" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
-     </MudItem>
-     <MudItem>
-         @if (_IsAutoUpdate == false)
-        {
-            <MudButton Class="mb-2" Color="Color.Primary" Variant="Variant.Filled" OnClick="()=> Calc(_CurrentValue)">
-                @_EncodeDecodeType
-            </MudButton>
-        }
-    </MudItem>
 </MudGrid>
 <CustomTextField Variant="Variant.Outlined" Lines="5" Label="Result" @bind-Value="@_Result" ReadOnly />

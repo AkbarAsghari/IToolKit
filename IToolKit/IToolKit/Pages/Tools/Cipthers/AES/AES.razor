@@ -11,14 +11,5 @@
             <MudSelectItem Value="CipherTypesEnum.Decrypt" />
         </MudSelect>
     </MudItem>
-    <MudItem>
-        <MudCheckBox T="bool" Color="Color.Primary" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
-    </MudItem>
-    <MudItem>
-        @if (_IsAutoUpdate == false)
-        {
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> CalcHash()">@CipherType</MudButton>
-        }
-    </MudItem>
 </MudGrid>
 <CustomTextField Lines="10" Variant="Variant.Outlined" Label="@($"{CipherType.ToString()}ed Text")" @bind-Value="@_AESResult" ReadOnly />

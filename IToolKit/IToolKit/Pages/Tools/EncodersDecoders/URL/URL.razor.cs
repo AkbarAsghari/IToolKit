@@ -8,7 +8,6 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.URL
         EncodeDecodeTypeEnum _EncodeDecodeType = EncodeDecodeTypeEnum.Encode;
         string _CurrentValue;
         string _Result;
-        bool _IsAutoUpdate = true;
 
         private void OnHashTypeChange(EncodeDecodeTypeEnum hashType)
         {
@@ -19,9 +18,6 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.URL
         private void OnChangeEvent(string value)
         {
             _CurrentValue = value;
-
-            if (!_IsAutoUpdate)
-                return;
 
             if (String.IsNullOrEmpty(value))
             {

@@ -1,12 +1,17 @@
 ﻿@inherits MudTextField<string>
 @inject IJSRuntime JSRuntime
 
-<div class="d-flex justify-end">
-    @if (ReadOnly)
-    {
-        <MudButton Class="mb-n1" StartIcon="@Icons.Material.Filled.ContentCopy" IconSize="Size.Small" Size="Size.Small" Variant="Variant.Filled" DisableElevation OnClick="Copy">Copy</MudButton>
-    }
-</div>
+@if (ReadOnly)
+{
+    <MudGrid Spacing="1" Class="d-flex justify-end">
+        @* <MudItem>
+    <MudButton Class="mb-n1" StartIcon="@Icons.Material.Filled.QrCode" IconSize="Size.Small" Size="Size.Small" Variant="Variant.Filled" DisableElevation OnClick="Copy">QR Code</MudButton>
+    </MudItem>*@
+        <MudItem>
+            <MudButton Class="mb-n1" StartIcon="@Icons.Material.Filled.ContentCopy" IconSize="Size.Small" Size="Size.Small" Variant="Variant.Filled" DisableElevation OnClick="Copy">Copy</MudButton>
+            </MudItem>
+            </MudGrid>
+}
 
 @{
     base.BuildRenderTree(__builder);

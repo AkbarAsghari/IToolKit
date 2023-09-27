@@ -13,28 +13,22 @@ partial class AES
 
     string _AESResult;
 
-    bool _IsAutoUpdate = true;
-
-
     private async Task OnCipherTypeChangeAsync(CipherTypesEnum cipherType)
     {
         CipherType = cipherType;
-        if (_IsAutoUpdate)
-            await CalcHash();
+        await CalcHash();
     }
 
     private async void OnInputChange(string value)
     {
         _InputValue = value;
-        if (_IsAutoUpdate)
             await CalcHash();
     }
 
     private async void OnSecurityValueChange(string value)
     {
         _SecurityValue = value;
-        if (_IsAutoUpdate)
-            await CalcHash();
+        await CalcHash();
     }
 
     async Task CalcHash()
