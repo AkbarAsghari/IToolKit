@@ -1,4 +1,5 @@
 ﻿@page "/Generators/QRCode"
+@using IToolKit.API.Enums.Components;
 
 <MudText Typo="Typo.h1" Class="mb-2">QR Code</MudText>
 
@@ -21,7 +22,7 @@
             <MudItem Class="pa-10">
                 @if (!String.IsNullOrEmpty(_Base64Image))
                 {
-                    <MudImage Src="@($"data:image/jpeg;base64,{_Base64Image}")" ObjectFit="ObjectFit.Fill" Fluid="true" Elevation="25" Class="rounded-lg" />
+                    <CustomImage Src="@_Base64Image" ImageType="ImageTypeEnum.Base64" ObjectFit="ObjectFit.Fill" Fluid="true" Elevation="25" Class="rounded-lg" />
                 }
             </MudItem>
         </MudGrid>
