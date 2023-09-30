@@ -1,4 +1,5 @@
-﻿using MudBlazor.Utilities;
+﻿using IToolKit.API.Tools.Generators;
+using MudBlazor.Utilities;
 using QRCoder;
 
 namespace IToolKit.Pages.Tools.Generators.QRCode;
@@ -20,11 +21,9 @@ partial class QRCode
     async Task OnTextChange(string value)
     {
         _Input = value;
-        QRCodeData qrCodeData = qrGenerator.CreateQrCode(value, QRCodeGenerator.ECCLevel.Q);
-        PngByteQRCode qrCode = new PngByteQRCode(qrCodeData);
-        _Base64Image = Convert.ToBase64String(qrCode.GetGraphic(pixelsPerModule: 20,
+        _Base64Image = QRCodeTools.TextToBase64(text: value,
             darkColorRgba: new byte[] { _DarkColor.R, _DarkColor.G, _DarkColor.B, _DarkColor.A },
-            lightColorRgba: new byte[] { _LightColor.R, _LightColor.G, _LightColor.B, _LightColor.A }));
+            lightColorRgba: new byte[] { _LightColor.R, _LightColor.G, _LightColor.B, _LightColor.A });
         await Task.CompletedTask;
     }
 }
