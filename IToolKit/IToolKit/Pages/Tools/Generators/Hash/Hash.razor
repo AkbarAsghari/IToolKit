@@ -4,11 +4,6 @@
 
 <CustomTextField Label="Input" Variant="Variant.Outlined" Lines=5 Immediate TextChanged="OnChangeEvent" />
 
-<MudCheckBox T="bool" @bind-Checked="@_IsAutoUpdate" Color="Color.Primary" Label="Auto Update"></MudCheckBox>
-@if (_IsAutoUpdate == false)
-{
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> CalcHash()">Hash</MudButton>
-}
 <MudSwitch Color="Color.Primary" T="bool" CheckedChanged="ChangeTextCase" Label="Uppercase"></MudSwitch>
 <CustomTextField ReadOnly=true Label="MD5" @bind-Value="@_MD5Result" MonoSpace />
 <CustomTextField ReadOnly=true Label="SHA1" @bind-Value="@_SHA1Result" MonoSpace />

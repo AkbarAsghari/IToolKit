@@ -15,15 +15,12 @@ namespace IToolKit.Pages.Tools.Generators.Hash
         string _SHA384Result;
         string _SHA512Result;
 
-        bool _IsAutoUpdate = true;
         bool _IsUpperCase = false;
 
         async Task OnChangeEvent(string value)
         {
             _CurrentValue = value;
-
-            if (_IsAutoUpdate)
-                await CalcHash();
+            await CalcHash();
         }
 
         async Task CalcHash()
