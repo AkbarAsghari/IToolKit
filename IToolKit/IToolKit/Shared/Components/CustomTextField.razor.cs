@@ -15,7 +15,11 @@ partial class CustomTextField
     protected override void OnInitialized()
     {
         base.OnInitialized();
+
+        Clearable = !ReadOnly;
+
         base.Variant = Variant.Outlined;
+
         if (MonoSpace)
         {
             if (String.IsNullOrEmpty(Class))
@@ -27,6 +31,7 @@ partial class CustomTextField
                 Class += " font-monospace";
             }
         }
+
     }
 
     private async Task Copy()
