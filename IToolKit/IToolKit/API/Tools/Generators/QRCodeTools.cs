@@ -8,9 +8,7 @@ namespace IToolKit.API.Tools.Generators
 
         public static string TextToBase64(string text)
         {
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(text, QRCodeGenerator.ECCLevel.Q);
-            PngByteQRCode qrCode = new PngByteQRCode(qrCodeData);
-            return Convert.ToBase64String(qrCode.GetGraphic(pixelsPerModule: 20));
+            return TextToBase64(text, new byte[] { 0, 0, 0 }, new byte[] { 255, 255, 255 });
         }
         public static string TextToBase64(string text, byte[] darkColorRgba, byte[] lightColorRgba)
         {
