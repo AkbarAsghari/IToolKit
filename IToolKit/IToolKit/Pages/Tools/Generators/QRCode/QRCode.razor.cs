@@ -1,29 +1,68 @@
-﻿using IToolKit.API.Tools.Generators;
+﻿using IToolKit.API.Enums.Tools.Generators;
+using IToolKit.API.Tools.Generators;
 using MudBlazor.Utilities;
-using QRCoder;
+using static IToolKit.API.Tools.Generators.QRCodeTools;
 
 namespace IToolKit.Pages.Tools.Generators.QRCode;
 
 partial class QRCode
 {
-    QRCodeGenerator qrGenerator = new QRCodeGenerator();
-
-    string _Input;
     string _Base64Image;
+
     MudColor _LightColor = new MudColor("#fffff1ff");
     MudColor _DarkColor = new MudColor("#000001ff");
 
-    async Task OnColorsChange()
-    {
-        await OnTextChange(_Input);
-    }
+    QRCodeTypeEnum QRCodeType = QRCodeTypeEnum.Text;
 
-    async Task OnTextChange(string value)
+    WifiPayload Wifi = new WifiPayload();
+    TextPayload Text = new TextPayload();
+    MailPayload Mail = new MailPayload();
+    SMSPayload SMS = new SMSPayload();
+    ContactDataPayload Contact = new ContactDataPayload();
+    CalendarEventPayload CalendarEvent = new CalendarEventPayload();
+
+    async Task Generate()
     {
-        _Input = value;
-        _Base64Image = QRCodeTools.TextToBase64(text: value,
-            darkColorRgba: new byte[] { _DarkColor.R, _DarkColor.G, _DarkColor.B, _DarkColor.A },
-            lightColorRgba: new byte[] { _LightColor.R, _LightColor.G, _LightColor.B, _LightColor.A });
+        byte[] darkColor = new byte[] { _DarkColor.R, _DarkColor.G, _DarkColor.B, _DarkColor.A };
+        byte[] lightColor = new byte[] { _LightColor.R, _LightColor.G, _LightColor.B, _LightColor.A };
+
+        switch (QRCodeType)
+        {
+            case QRCodeTypeEnum.Text:
+            case QRCodeTypeEnum.URL:
+                _Base64Image = QRCodeTools.ToBase64(Text,
+            darkColorRgba: darkColor,
+            lightColorRgba: lightColor);
+                break;
+            case QRCodeTypeEnum.VCard:
+                _Base64Image = QRCodeTools.ToBase64(Contact,
+           darkColorRgba: darkColor,
+           lightColorRgba: lightColor);
+                break;
+            case QRCodeTypeEnum.Email:
+                _Base64Image = QRCodeTools.ToBase64(Mail,
+           darkColorRgba: darkColor,
+           lightColorRgba: lightColor);
+                break;
+            case QRCodeTypeEnum.SMS:
+                _Base64Image = QRCodeTools.ToBase64(SMS,
+           darkColorRgba: darkColor,
+           lightColorRgba: lightColor);
+                break;
+            case QRCodeTypeEnum.Wifi:
+                _Base64Image = QRCodeTools.ToBase64(Wifi,
+            darkColorRgba: darkColor,
+            lightColorRgba: lightColor);
+                break;
+            case QRCodeTypeEnum.Event:
+                _Base64Image = QRCodeTools.ToBase64(CalendarEvent,
+            darkColorRgba: darkColor,
+            lightColorRgba: lightColor);
+                break;
+            default:
+                break;
+        }
+
         await Task.CompletedTask;
     }
 }
