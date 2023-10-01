@@ -36,6 +36,11 @@ partial class CustomTextField
 
     private async Task GenerateQRCode()
     {
+        if (String.IsNullOrEmpty(Text))
+        {
+            return;
+        }
+
         await DialogService.ShowAsync<CustomImage>(
              "QR Code",
              parameters: new DialogParameters<CustomImage> {
