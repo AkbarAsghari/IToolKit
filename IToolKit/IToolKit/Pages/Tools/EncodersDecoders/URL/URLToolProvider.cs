@@ -1,7 +1,9 @@
 ﻿using IToolKit.API.Interfaces;
+using IToolKit.API.Tools.Attributes;
 
 namespace IToolKit.Pages.Tools.EncodersDecoders.URL
 {
+    [Order(4)]
     internal sealed class URLToolProvider : IToolProvider
     {
         public string Header => "URL Encoder / Decoder";
