@@ -1,7 +1,7 @@
 ﻿@page "/EncodersDecoders/Unicode"
 @using IToolKit.API.Enums.Tools.EncodersDecoders;
 
-<ToolUI Header="Unicode Encode / Decode">
+<ToolUI T="UnicodeToolProvider">
     <CustomTextField Label="Input" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Type here ..." TextChanged="OnChangeEvent" />
     <MudItem Class="mt-2" xs="12" sm="3">
         <MudSelect Variant="Variant.Outlined" T="EncodeDecodeTypeEnum" Label="Encode/Decode" ValueChanged="OnEncodeDecodeTypeChange">

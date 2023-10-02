@@ -1,7 +1,7 @@
 ﻿@page "/Formatters/Json"
 @using IToolKit.API.Enums.Tools.Formatters;
 
-<ToolUI Header="Json Fromatter">
+<ToolUI T="JsonToolProvider">
     <CustomTextField Immediate Label="Input" Lines="5" Variant="Variant.Outlined" Placeholder="Type here ..." @bind-Value="@_InputValue" />
     <MudGrid Class="mt-2 d-flex align-center flex-grow-1">
         <MudItem xs="12" sm="3">

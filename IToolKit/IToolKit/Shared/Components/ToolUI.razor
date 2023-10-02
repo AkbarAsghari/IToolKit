@@ -1,4 +1,8 @@
-﻿<MudText Typo="Typo.h1" Class="mb-7">@Header</MudText>
+﻿@using IToolKit.API.Interfaces;
+
+@typeparam T where T : IToolProvider
+
+<MudText Typo="Typo.h1" Class="mb-7">@_ToolProvider.Header</MudText>
 <MudPaper Outlined Class="pa-2">
     @ChildContent
 </MudPaper>

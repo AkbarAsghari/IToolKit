@@ -1,7 +1,8 @@
 ﻿@page "/EncodersDecoders/Base32"
+
 @using IToolKit.API.Enums.Tools.EncodersDecoders;
 
-<ToolUI Header="Base32 Text Encoder / Decoder">
+<ToolUI T="Base32TextEncoderDecoderToolProvider">
     <CustomTextField Label="Input" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Type here ..." TextChanged="OnChangeEvent" />
     <MudItem Class="mt-2" xs="12" sm="3">
         <MudSelect Variant="Variant.Outlined" T="EncodeDecodeTypeEnum" Label="Encode/Decode" ValueChanged="OnHashTypeChange">
