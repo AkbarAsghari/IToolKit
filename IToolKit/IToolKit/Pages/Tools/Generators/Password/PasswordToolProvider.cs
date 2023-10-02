@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Generators.Password
         public string Header => "Password Generator";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

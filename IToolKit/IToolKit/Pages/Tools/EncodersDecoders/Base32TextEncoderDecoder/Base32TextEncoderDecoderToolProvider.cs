@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Base32TextEncoderDecoder
         public string Header => "Base32 Text Encoder / Decoder";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

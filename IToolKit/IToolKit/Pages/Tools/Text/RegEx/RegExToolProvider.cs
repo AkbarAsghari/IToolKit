@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Text.RegEx
         public string Header => "RegEx Tester";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

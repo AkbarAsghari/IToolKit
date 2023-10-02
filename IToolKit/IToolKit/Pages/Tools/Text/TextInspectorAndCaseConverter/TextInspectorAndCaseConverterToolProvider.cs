@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Text.TextInspectorAndCaseConverter
         public string Header => "Text Case Converter and Inspector";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

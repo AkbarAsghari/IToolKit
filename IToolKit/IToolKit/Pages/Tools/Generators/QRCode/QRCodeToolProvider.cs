@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Generators.QRCode
         public string Header => "QR Code";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Unicode
         public string Header => "Unicode Encode / Decode";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

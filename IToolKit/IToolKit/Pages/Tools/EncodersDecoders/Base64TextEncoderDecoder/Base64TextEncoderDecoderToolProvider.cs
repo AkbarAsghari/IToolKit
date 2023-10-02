@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Base64TextEncoderDecoder
         public string Header => "Base64 Text Encoder / Decoder";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

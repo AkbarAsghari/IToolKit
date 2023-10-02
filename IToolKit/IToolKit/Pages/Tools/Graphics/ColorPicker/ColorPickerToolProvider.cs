@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Graphics.ColorPicker
         public string Header => "Color Picker";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

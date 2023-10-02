@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Formatters.Json
         public string Header => "Json Fromatter";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

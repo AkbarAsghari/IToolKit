@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.URL
         public string Header => "URL Encoder / Decoder";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

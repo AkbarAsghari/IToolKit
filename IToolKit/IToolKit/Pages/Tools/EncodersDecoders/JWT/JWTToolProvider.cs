@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.JWT
         public string Header => "JWT Decoder";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Generators.UUID
         public string Header => "UUID";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Text.StringEscapeUnescape
         public string Header => "Text Escape / Unescape";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }

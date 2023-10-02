@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools.Formatters.XML
         public string Header => "XML Fromatter";
 
         public string Description => throw new NotImplementedException();
+
+        public string MenuDisplayName => throw new NotImplementedException();
     }
 }
