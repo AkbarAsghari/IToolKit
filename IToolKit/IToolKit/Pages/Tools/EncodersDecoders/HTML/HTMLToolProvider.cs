@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.EncodersDecoders.HTML
 {
-    public class HTMLToolProvider : IToolProvider
+    internal sealed class HTMLToolProvider : IToolProvider
     {
         public string Header => "HTML Encoder / Decoder";
 

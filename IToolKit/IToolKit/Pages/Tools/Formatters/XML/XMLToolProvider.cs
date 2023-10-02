@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Formatters.XML
 {
-    public class XMLToolProvider : IToolProvider
+    internal sealed class XMLToolProvider : IToolProvider
     {
         public string Header => "XML Fromatter";
 

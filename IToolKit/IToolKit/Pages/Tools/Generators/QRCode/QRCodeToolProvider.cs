@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Generators.QRCode
 {
-    public class QRCodeToolProvider : IToolProvider
+    internal sealed class QRCodeToolProvider : IToolProvider
     {
         public string Header => "QR Code";
 

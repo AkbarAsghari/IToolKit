@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Cipthers.AES
 {
-    internal class AESToolProvider : IToolProvider
+    internal sealed class AESToolProvider : IToolProvider
     {
         public string Header => "AES";
 

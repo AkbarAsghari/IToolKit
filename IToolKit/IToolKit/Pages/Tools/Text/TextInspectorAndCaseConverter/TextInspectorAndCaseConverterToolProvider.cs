@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Text.TextInspectorAndCaseConverter
 {
-    public class TextInspectorAndCaseConverterToolProvider : IToolProvider
+    internal sealed class TextInspectorAndCaseConverterToolProvider : IToolProvider
     {
         public string Header => "Text Case Converter and Inspector";
 

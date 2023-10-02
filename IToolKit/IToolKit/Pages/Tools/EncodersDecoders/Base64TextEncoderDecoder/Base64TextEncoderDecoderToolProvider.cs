@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.EncodersDecoders.Base64TextEncoderDecoder
 {
-    internal class Base64TextEncoderDecoderToolProvider : IToolProvider
+    internal sealed class Base64TextEncoderDecoderToolProvider : IToolProvider
     {
         public string Header => "Base64 Text Encoder / Decoder";
 

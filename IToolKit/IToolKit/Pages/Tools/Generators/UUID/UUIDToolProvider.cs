@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Generators.UUID
 {
-    public class UUIDToolProvider : IToolProvider
+    internal sealed class UUIDToolProvider : IToolProvider
     {
         public string Header => "UUID";
 

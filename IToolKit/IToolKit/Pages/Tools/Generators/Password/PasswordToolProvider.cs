@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Generators.Password
 {
-    public class PasswordToolProvider : IToolProvider
+    internal sealed class PasswordToolProvider : IToolProvider
     {
         public string Header => "Password Generator";
 

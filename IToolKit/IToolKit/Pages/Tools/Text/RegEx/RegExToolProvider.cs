@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Text.RegEx
 {
-    public class RegExToolProvider : IToolProvider
+    internal sealed class RegExToolProvider : IToolProvider
     {
         public string Header => "RegEx Tester";
 

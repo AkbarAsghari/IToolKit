@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Graphics.ColorPicker
 {
-    public class ColorPickerToolProvider : IToolProvider
+    internal sealed class ColorPickerToolProvider : IToolProvider
     {
         public string Header => "Color Picker";
 

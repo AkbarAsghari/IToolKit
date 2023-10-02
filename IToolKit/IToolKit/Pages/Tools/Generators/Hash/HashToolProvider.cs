@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Generators.Hash
 {
-    public class HashToolProvider : IToolProvider
+    internal sealed class HashToolProvider : IToolProvider
     {
         public string Header => "Hash";
 

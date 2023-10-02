@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Text.StringEscapeUnescape
 {
-    public class StringEscapeUnescapeToolProvider : IToolProvider
+    internal sealed class StringEscapeUnescapeToolProvider : IToolProvider
     {
         public string Header => "Text Escape / Unescape";
 

@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.EncodersDecoders.URL
 {
-    public class URLToolProvider : IToolProvider
+    internal sealed class URLToolProvider : IToolProvider
     {
         public string Header => "URL Encoder / Decoder";
 

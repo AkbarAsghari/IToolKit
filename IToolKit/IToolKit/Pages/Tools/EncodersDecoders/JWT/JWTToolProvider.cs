@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.EncodersDecoders.JWT
 {
-    public class JWTToolProvider : IToolProvider
+    internal sealed class JWTToolProvider : IToolProvider
     {
         public string Header => "JWT Decoder";
 

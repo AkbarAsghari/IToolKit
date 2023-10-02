@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Formatters.Json
 {
-    public class JsonToolProvider : IToolProvider
+    internal sealed class JsonToolProvider : IToolProvider
     {
         public string Header => "Json Fromatter";
 

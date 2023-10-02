@@ -2,7 +2,7 @@
 
 namespace IToolKit.Pages.Tools.Text.MarkdownPreview
 {
-    public class MarkdownPreviewToolProvider : IToolProvider
+    internal sealed class MarkdownPreviewToolProvider : IToolProvider
     {
         public string Header => "Markdown Preview";
 
