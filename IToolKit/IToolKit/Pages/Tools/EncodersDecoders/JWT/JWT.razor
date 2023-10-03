@@ -1,22 +1,23 @@
-﻿@page "/EncodersDecoders/JWT"
-<MudText Typo="Typo.h1">JWT Decoder</MudText>
-<CustomTextField Label="Input" @bind-Value="_Token" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Token" />
-<MudButton Class="my-2" Color="Color.Primary" Variant="Variant.Filled" OnClick="Calc">
-    Decode
-</MudButton>
-<MudGrid>
-    <MudItem xs="12" md="6">
-        <CustomTextField Variant="Variant.Outlined" Lines="4" Label="Header" @bind-Value="@_Header" ReadOnly />
-        <CustomTextField Variant="Variant.Outlined" Lines="10" Label="Payload" @bind-Value="@_Payload" ReadOnly />
-    </MudItem>
-    <MudItem xs="12" md="6">
-        <MudDataGrid T="Tuple<string,object,string>" Items="_TokenValues" SortMode="SortMode.None" Filterable="false" Breakpoint="Breakpoint.Xs" Dense>
-            <Columns>
-                <PropertyColumn Property="x => x.Item1" Title="Field" />
-                <PropertyColumn Property="x => x.Item2" Title="Value" />
-                <PropertyColumn Property="x => x.Item3" Title="Explanation" />
-            </Columns>
-        </MudDataGrid>
-    </MudItem>
-</MudGrid>
+﻿<ToolUI T="JWTToolProvider">
+    <CustomTextField Label="Input" @bind-Value="_Token" Lines="5" Variant="Variant.Outlined" Immediate Placeholder="Token" />
+    <MudButton Class="mt-2" Color="Color.Primary" Variant="Variant.Filled" OnClick="Calc">
+        Decode
+    </MudButton>
+    <MudGrid>
+        <MudItem xs="12" md="6">
+            <CustomTextField Variant="Variant.Outlined" Lines="4" Label="Header" @bind-Value="@_Header" ReadOnly />
+            <CustomTextField Variant="Variant.Outlined" Lines="10" Label="Payload" @bind-Value="@_Payload" ReadOnly />
+        </MudItem>
+        <MudItem xs="12" md="6">
+            <MudDataGrid T="Tuple<string,object,string>" Items="_TokenValues" SortMode="SortMode.None" Filterable="false" Breakpoint="Breakpoint.Xs" Dense>
+                <Columns>
+                    <PropertyColumn Property="x => x.Item1" Title="Field" />
+                    <PropertyColumn Property="x => x.Item2" Title="Value" />
+                    <PropertyColumn Property="x => x.Item3" Title="Explanation" />
+                </Columns>
+            </MudDataGrid>
+        </MudItem>
+    </MudGrid>
+</ToolUI>
+
 

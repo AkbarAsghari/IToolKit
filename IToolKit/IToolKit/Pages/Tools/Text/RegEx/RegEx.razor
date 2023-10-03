@@ -1,132 +1,130 @@
-﻿@page "/Text/RegEx"
+﻿<ToolUI T="RegExToolProvider">
+    <MudExpansionPanels Class="py-2">
+        <MudExpansionPanel Icon="@Icons.Material.Filled.Settings">
+            <TitleContent>
+                <MudText Typo="Typo.h3">Options</MudText>
+            </TitleContent>
+            <ChildContent>
+                <MudList>
+                    <MudListItem>
+                        <MudText Typo="Typo.h5">ECMA Script</MudText>
+                        <MudGrid>
+                            <MudItem xs="9" lg="10">
+                                <MudText>Enables ECMAScript-compliant behavior for the expression. This value can be used only in conjunction with the Culture Invariant, Ignore Case and Multiline options.</MudText>
+                            </MudItem>
+                            <MudItem xs="3" lg="2">
+                                <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="EcmaScript" Label="@(EcmaScript ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudListItem>
+                    <MudListItem>
+                        <MudText Typo="Typo.h5">Culture Invariant</MudText>
+                        <MudGrid>
+                            <MudItem xs="9" lg="10">
+                                <MudText>Specifies that cultural differences in language is ignored.</MudText>
+                            </MudItem>
+                            <MudItem xs="3" lg="2">
+                                <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="CultureInvariant" Label="@(CultureInvariant ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudListItem>
+                    <MudListItem>
+                        <MudText Typo="Typo.h5">Ignore Case</MudText>
+                        <MudGrid>
+                            <MudItem xs="9" lg="10">
+                                <MudText>Specifies case-insensitive matching.</MudText>
+                            </MudItem>
+                            <MudItem xs="3" lg="2">
+                                <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="IgnoreCase" Label="@(IgnoreCase ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudListItem>
+                    <MudListItem>
+                        <MudText Typo="Typo.h5">Ignore Whitespace</MudText>
+                        <MudGrid>
+                            <MudItem xs="9" lg="10">
+                                <MudText>Eliminates unescaped white space from the pattern and enables comments marked with #. However, this value does not affect or eliminate white space in character classes, numeric quantifiers, or tokens that mark the beginning of individual regular expression language elements.</MudText>
+                            </MudItem>
+                            <MudItem xs="3" lg="2">
+                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="IgnoreWhitespace" Label="@(IgnoreWhitespace ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudListItem>
+                    <MudListItem>
+                        <MudText Typo="Typo.h5">Singleline</MudText>
+                        <MudGrid>
+                            <MudItem xs="9" lg="10">
+                                <MudText>Changes the meaning of the dot (.) so it matches every character (instead of every character except \n).</MudText>
+                            </MudItem>
+                            <MudItem xs="3" lg="2">
+                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="Singleline" Label="@(Singleline ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudListItem>
+                    <MudListItem>
+                        <MudText Typo="Typo.h5">Multiline</MudText>
+                        <MudGrid>
+                            <MudItem xs="9" lg="10">
+                                <MudText>Changes the meaning of ^ and $ so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string.</MudText>
+                            </MudItem>
+                            <MudItem xs="3" lg="2">
+                                <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="Multiline" Label="@(Multiline ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudListItem>
+                    <MudListItem>
+                        <MudText Typo="Typo.h5">Right To Left</MudText>
+                        <MudGrid>
+                            <MudItem xs="9" lg="10">
+                                <MudText>Specifies that the search will be from right to left instead of from left to right.</MudText>
+                            </MudItem>
+                            <MudItem xs="3" lg="2">
+                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="RightToLeft" Label="@(RightToLeft ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                            </MudItem>
+                        </MudGrid>
+                    </MudListItem>
+                </MudList>
+            </ChildContent>
+        </MudExpansionPanel>
+    </MudExpansionPanels>
+    <CustomTextField Label="Regular expression" Variant="Variant.Outlined" @bind-Value="@_Pattern" Immediate TextChanged="RegularExpressionOnChange"></CustomTextField>
+    @if (!String.IsNullOrEmpty(errorMsg))
+    {
+        <MudText Color="Color.Error">@errorMsg</MudText>
+    }
+    <CustomTextField Label="Text" Variant="Variant.Outlined" @bind-Value="_Text" Lines="12" Immediate TextChanged="RegularExpressionOnChange" />
 
-<MudText Typo="Typo.h1">RegEx Tester</MudText>
-
-<MudExpansionPanels Class="py-2">
-    <MudExpansionPanel Icon="@Icons.Material.Filled.Settings">
-        <TitleContent>
-            <MudText Typo="Typo.h3">Options</MudText>
-        </TitleContent>
-        <ChildContent>
-            <MudList>
-                <MudListItem>
-                    <MudText Typo="Typo.h5">ECMA Script</MudText>
-                    <MudGrid>
-                        <MudItem xs="9" lg="10">
-                            <MudText>Enables ECMAScript-compliant behavior for the expression. This value can be used only in conjunction with the Culture Invariant, Ignore Case and Multiline options.</MudText>
-                        </MudItem>
-                        <MudItem xs="3" lg="2">
-                            <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="EcmaScript" Label="@(EcmaScript ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
-                        </MudItem>
-                    </MudGrid>
-                </MudListItem>
-                <MudListItem>
-                    <MudText Typo="Typo.h5">Culture Invariant</MudText>
-                    <MudGrid>
-                        <MudItem xs="9" lg="10">
-                            <MudText>Specifies that cultural differences in language is ignored.</MudText>
-                        </MudItem>
-                        <MudItem xs="3" lg="2">
-                            <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="CultureInvariant" Label="@(CultureInvariant ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
-                        </MudItem>
-                    </MudGrid>
-                </MudListItem>
-                <MudListItem>
-                    <MudText Typo="Typo.h5">Ignore Case</MudText>
-                    <MudGrid>
-                        <MudItem xs="9" lg="10">
-                            <MudText>Specifies case-insensitive matching.</MudText>
-                        </MudItem>
-                        <MudItem xs="3" lg="2">
-                            <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="IgnoreCase" Label="@(IgnoreCase ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
-                        </MudItem>
-                    </MudGrid>
-                </MudListItem>
-                <MudListItem>
-                    <MudText Typo="Typo.h5">Ignore Whitespace</MudText>
-                    <MudGrid>
-                        <MudItem xs="9" lg="10">
-                            <MudText>Eliminates unescaped white space from the pattern and enables comments marked with #. However, this value does not affect or eliminate white space in character classes, numeric quantifiers, or tokens that mark the beginning of individual regular expression language elements.</MudText>
-                        </MudItem>
-                        <MudItem xs="3" lg="2">
-                            <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="IgnoreWhitespace" Label="@(IgnoreWhitespace ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
-                        </MudItem>
-                    </MudGrid>
-                </MudListItem>
-                <MudListItem>
-                    <MudText Typo="Typo.h5">Singleline</MudText>
-                    <MudGrid>
-                        <MudItem xs="9" lg="10">
-                            <MudText>Changes the meaning of the dot (.) so it matches every character (instead of every character except \n).</MudText>
-                        </MudItem>
-                        <MudItem xs="3" lg="2">
-                            <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="Singleline" Label="@(Singleline ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
-                        </MudItem>
-                    </MudGrid>
-                </MudListItem>
-                <MudListItem>
-                    <MudText Typo="Typo.h5">Multiline</MudText>
-                    <MudGrid>
-                        <MudItem xs="9" lg="10">
-                            <MudText>Changes the meaning of ^ and $ so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string.</MudText>
-                        </MudItem>
-                        <MudItem xs="3" lg="2">
-                            <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="Multiline" Label="@(Multiline ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
-                        </MudItem>
-                    </MudGrid>
-                </MudListItem>
-                <MudListItem>
-                    <MudText Typo="Typo.h5">Right To Left</MudText>
-                    <MudGrid>
-                        <MudItem xs="9" lg="10">
-                            <MudText>Specifies that the search will be from right to left instead of from left to right.</MudText>
-                        </MudItem>
-                        <MudItem xs="3" lg="2">
-                            <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="RightToLeft" Label="@(RightToLeft ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
-                        </MudItem>
-                    </MudGrid>
-                </MudListItem>
-            </MudList>
-        </ChildContent>
-    </MudExpansionPanel>
-</MudExpansionPanels>
-<CustomTextField Label="Regular expression" Variant="Variant.Outlined" @bind-Value="@_Pattern" Immediate TextChanged="RegularExpressionOnChange"></CustomTextField>
-@if (!String.IsNullOrEmpty(errorMsg))
-{
-    <MudText Color="Color.Error">@errorMsg</MudText>
-}
-<CustomTextField Label="Text" Variant="Variant.Outlined" @bind-Value="_Text" Lines="12" Immediate TextChanged="RegularExpressionOnChange" />
-
-@if (!String.IsNullOrEmpty(_Result))
-{
-    <MudGrid Class="mt-2">
-        <MudItem xs="12" lg="6">
-            <MudCard>
-                <MudCardHeader>
-                    <MudText Typo="Typo.h3">Result</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudText Style="white-space: break-spaces;">
-                        @((MarkupString)@_Result)
-                    </MudText>
+    @if (!String.IsNullOrEmpty(_Result))
+    {
+        <MudGrid Class="mt-2">
+            <MudItem xs="12" lg="6">
+                <MudCard>
+                    <MudCardHeader>
+                        <MudText Typo="Typo.h3">Result</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Style="white-space: break-spaces;">
+                            @((MarkupString)@_Result)
+                        </MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="12" lg="6">
+                <MudCard>
+                    <MudCardHeader>
+                        <MudText Typo="Typo.h3">Matches</MudText>
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudDataGrid T="MatchDetails" Items="MatchesGroups" SortMode="SortMode.None" Filterable="false" Breakpoint="Breakpoint.None" Dense>
+                        <Columns>
+                            <PropertyColumn Property="x => x.Title" Title="" />
+                            <PropertyColumn Property="x => x.Range" />
+                            <PropertyColumn Property="x => x.Value" />
+                        </Columns>
+                    </MudDataGrid>
                 </MudCardContent>
             </MudCard>
         </MudItem>
-        <MudItem xs="12" lg="6">
-            <MudCard>
-                <MudCardHeader>
-                    <MudText Typo="Typo.h3">Matches</MudText>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudDataGrid T="MatchDetails" Items="MatchesGroups" SortMode="SortMode.None" Filterable="false" Breakpoint="Breakpoint.None" Dense>
-                    <Columns>
-                        <PropertyColumn Property="x => x.Title" Title="" />
-                        <PropertyColumn Property="x => x.Range" />
-                        <PropertyColumn Property="x => x.Value" />
-                    </Columns>
-                </MudDataGrid>
-            </MudCardContent>
-        </MudCard>
-    </MudItem>
-</MudGrid>
-}
+    </MudGrid>
+    }
+</ToolUI>

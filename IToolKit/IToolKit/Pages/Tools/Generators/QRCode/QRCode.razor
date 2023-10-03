@@ -1,22 +1,18 @@
-﻿@page "/Generators/QRCode"
-@using IToolKit.API.Enums.Components;
+﻿@using IToolKit.API.Enums.Components;
 @using IToolKit.API.Enums.Tools.Generators;
 
-<MudText Typo="Typo.h1">QR Code</MudText>
-
-<MudGrid>
-    <MudItem xs="12" md="6">
-        <MudPaper Outlined Class="my-2 pa-2 d-flex flex-wrap gap-2">
-            <MudButton Color="QRCodeType == QRCodeTypeEnum.URL ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.URL" Variant="Variant.Filled">URL</MudButton>
-            <MudButton Color="QRCodeType == QRCodeTypeEnum.VCard ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.VCard" Variant="Variant.Filled">VCARD</MudButton>
-            <MudButton Color="QRCodeType == QRCodeTypeEnum.Text ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Text" Variant="Variant.Filled">TEXT</MudButton>
-            <MudButton Color="QRCodeType == QRCodeTypeEnum.Email ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Email" Variant="Variant.Filled">EMAIL</MudButton>
-            <MudButton Color="QRCodeType == QRCodeTypeEnum.SMS ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.SMS" Variant="Variant.Filled">SMS</MudButton>
-            <MudButton Color="QRCodeType == QRCodeTypeEnum.Wifi ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Wifi" Variant="Variant.Filled">WIFI</MudButton>
-            <MudButton Color="QRCodeType == QRCodeTypeEnum.Event ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Event" Variant="Variant.Filled">EVENT</MudButton>
-        </MudPaper>
-
-        <MudPaper Outlined Class="pa-2">
+<ToolUI T="QRCodeToolProvider">
+    <MudGrid>
+        <MudItem xs="12" md="6">
+            <MudPaper Outlined Class="mb-5 pa-2 d-flex flex-wrap gap-2">
+                <MudButton Color="QRCodeType == QRCodeTypeEnum.URL ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.URL" Variant="Variant.Filled">URL</MudButton>
+                <MudButton Color="QRCodeType == QRCodeTypeEnum.VCard ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.VCard" Variant="Variant.Filled">VCARD</MudButton>
+                <MudButton Color="QRCodeType == QRCodeTypeEnum.Text ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Text" Variant="Variant.Filled">TEXT</MudButton>
+                <MudButton Color="QRCodeType == QRCodeTypeEnum.Email ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Email" Variant="Variant.Filled">EMAIL</MudButton>
+                <MudButton Color="QRCodeType == QRCodeTypeEnum.SMS ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.SMS" Variant="Variant.Filled">SMS</MudButton>
+                <MudButton Color="QRCodeType == QRCodeTypeEnum.Wifi ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Wifi" Variant="Variant.Filled">WIFI</MudButton>
+                <MudButton Color="QRCodeType == QRCodeTypeEnum.Event ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Event" Variant="Variant.Filled">EVENT</MudButton>
+            </MudPaper>
             @switch (QRCodeType)
             {
                 case QRCodeTypeEnum.Text:
@@ -108,9 +104,7 @@
                     </MudGrid>
                     break;
             }
-        </MudPaper>
-        <MudPaper Outlined Class="pa-2">
-            <MudGrid>
+            <MudGrid Class="mt-1">
                 <MudItem xs="6">
                     <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" Label="Light" Variant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" @bind-Value="_LightColor" />
                 </MudItem>
@@ -118,18 +112,17 @@
                     <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" Label="Dark" Variant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" @bind-Value="_DarkColor" />
                 </MudItem>
             </MudGrid>
-        </MudPaper>
-
-        <MudButton OnClick="Generate" Color="Color.Primary" Class="mt-2" Variant="Variant.Filled">Generate</MudButton>
+            <MudButton OnClick="Generate" Color="Color.Primary" Class="mt-2" Variant="Variant.Filled">Generate</MudButton>
         </MudItem>
         <MudItem xs="12" md="6">
-        <MudGrid>
-            <MudItem Class="pa-10">
-                @if (!String.IsNullOrEmpty(_Base64Image))
-                {
-                    <CustomImage Src="@_Base64Image" ImageType="ImageTypeEnum.Base64" ObjectFit="ObjectFit.Fill" Fluid="true" Elevation="25" Class="rounded-lg" />
-                }
-            </MudItem>
-        </MudGrid>
-    </MudItem>
-</MudGrid>
+            <MudGrid>
+                <MudItem Class="pa-10">
+                    @if (!String.IsNullOrEmpty(_Base64Image))
+                    {
+                        <CustomImage Src="@_Base64Image" ImageType="ImageTypeEnum.Base64" ObjectFit="ObjectFit.Fill" Fluid="true" Elevation="25" Class="rounded-lg" />
+                    }
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+    </MudGrid>
+</ToolUI>

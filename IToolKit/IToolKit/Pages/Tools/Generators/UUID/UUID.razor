@@ -1,28 +1,25 @@
-﻿@page "/Generators/UUID"
-
-<MudText Typo="Typo.h1">UUID</MudText>
-
-<MudItem xs="12" sm="6" md="4">
-    <MudNumericField Variant="Variant.Outlined" Min="1" Step="1" Label="Count" @bind-Value=@_Count />
-</MudItem>
-<MudGrid Class="my-2 d-flex align-center flex-grow-1">
-    <MudItem>
-        <MudSwitch Color="Color.Primary" T="bool" Label="- Hyphens" @bind-Checked=@_IsHyphens />
+﻿<ToolUI T="UUIDToolProvider">
+    <MudItem xs="12" sm="6" md="4">
+        <MudNumericField Variant="Variant.Outlined" Min="1" Step="1" Label="Count" @bind-Value=@_Count />
     </MudItem>
-    <MudItem>
-        <MudSwitch Color="Color.Primary" T="bool" Label="Uppercase" @bind-Checked=@_IsUpperCase />
+    <MudGrid Class="my-2 d-flex align-center flex-grow-1">
+        <MudItem>
+            <MudSwitch Color="Color.Primary" T="bool" Label="- Hyphens" @bind-Checked=@_IsHyphens />
+        </MudItem>
+        <MudItem>
+            <MudSwitch Color="Color.Primary" T="bool" Label="Uppercase" @bind-Checked=@_IsUpperCase />
+        </MudItem>
+    </MudGrid>
+    <MudItem Class="mt-2" xs="12" sm="6" md="4">
+        <MudSelect Variant="Variant.Outlined" Label="Version" T="string" @bind-Value=@_UuidVersion>
+            <MudSelectItem Value="@("One")">
+                Version-1 (TimeBased) UUID
+            </MudSelectItem>
+            <MudSelectItem Value="@("Four")">
+                Version-4 (Random) UUID
+            </MudSelectItem>
+        </MudSelect>
     </MudItem>
-</MudGrid>
-<MudItem Class="mt-2" xs="12" sm="6" md="4">
-    <MudSelect Variant="Variant.Outlined" Label="Version" T="string" @bind-Value=@_UuidVersion>
-        <MudSelectItem Value="@("One")">
-            Version-1 (TimeBased) UUID
-        </MudSelectItem>
-        <MudSelectItem Value="@("Four")">
-            Version-4 (Random) UUID
-        </MudSelectItem>
-    </MudSelect>
-</MudItem>
-
-<MudButton Class="my-2" Color="Color.Primary" OnClick="GnerateUUID" Variant="Variant.Filled">Generate UUID(s)</MudButton>
-<CustomTextField Lines="12" Label="Result" Variant="Variant.Outlined" @bind-Value=@_Result ReadOnly MonoSpace/>
+    <MudButton Class="my-2" Color="Color.Primary" OnClick="GnerateUUID" Variant="Variant.Filled">Generate UUID(s)</MudButton>
+    <CustomTextField Lines="12" Label="Result" Variant="Variant.Outlined" @bind-Value=@_Result ReadOnly MonoSpace />
+</ToolUI>

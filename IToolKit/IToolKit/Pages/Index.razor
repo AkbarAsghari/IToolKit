@@ -1,113 +1,24 @@
 ﻿@page "/"
+@using IToolKit.API.Assembly;
+@using IToolKit.API.Extensions;
 @using IToolKit.API.Github;
 
 <MudText Typo="Typo.h1" Style="outline: none; box-shadow: none;">Welcome To iToolKit</MudText>
 <MudGrid Class="mt-5">
-    <MudItem xs="12" md="3">
-        <MudText Typo="Typo.h2">Encode / Decode</MudText>
-    </MudItem>
-    <MudItem xs="12" md="9">
-        <MudGrid Spacing="1">
-            <MudItem>
-                <ToolProviderGridItem Link="/EncodersDecoders/Base64" Title="Base64" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/EncodersDecoders/Base32" Title="Base32" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/EncodersDecoders/Unicode" Title="Unicode" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/EncodersDecoders/URL" Title="URL" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/EncodersDecoders/HTML" Title="HTML" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/EncodersDecoders/JWT" Title="JWT" />
-            </MudItem>
-        </MudGrid>
-    </MudItem>
-
-</MudGrid>
-<MudGrid Class="mt-5">
-    <MudItem xs="12" md="3">
-        <MudText Typo="Typo.h2">Formatters</MudText>
-    </MudItem>
-    <MudItem xs="12" md="9">
-        <MudGrid Spacing="1">
-            <MudItem>
-                <ToolProviderGridItem Link="/Formatters/Json" Title="Json" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/Formatters/XML" Title="XML" />
-            </MudItem>
-        </MudGrid>
-    </MudItem>
-</MudGrid>
-<MudGrid Class="mt-5">
-    <MudItem xs="12" md="3">
-        <MudText Typo="Typo.h2">Ciphers</MudText>
-    </MudItem>
-    <MudItem xs="12" md="9">
-        <MudGrid Spacing="1">
-            <MudItem>
-                <ToolProviderGridItem Link="/Ciphers/AES" Title="AES" />
-            </MudItem>
-        </MudGrid>
-    </MudItem>
-</MudGrid>
-<MudGrid Class="mt-5">
-    <MudItem xs="12" md="3">
-        <MudText Typo="Typo.h2">Generators</MudText>
-    </MudItem>
-    <MudItem xs="12" md="9">
-        <MudGrid Spacing="1">
-            <MudItem>
-                <ToolProviderGridItem Link="/Generators/Hash" Title="Hash" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/Generators/UUID" Title="UUID" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/Generators/Password" Title="Password" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/Generators/QRCode" Title="QR Code" />
-            </MudItem>
-        </MudGrid>
-    </MudItem>
-</MudGrid>
-<MudGrid Class="mt-5">
-    <MudItem xs="12" md="3">
-        <MudText Typo="Typo.h2">Text</MudText>
-    </MudItem>
-    <MudItem xs="12" md="9">
-        <MudGrid Spacing="1">
-            <MudItem>
-                <ToolProviderGridItem Link="/Text/TextInspectorAndCaseConverter" Title="Text" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/Text/RegEx" Title="RegEx" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/Text/StringEscapeUnescape" Title="Text E/U" />
-            </MudItem>
-            <MudItem>
-                <ToolProviderGridItem Link="/Text/Markdown" Title="Markdown" />
-            </MudItem>
-        </MudGrid>
-    </MudItem>
-</MudGrid>
-<MudGrid Class="mt-5">
-    <MudItem xs="12" md="3">
-        <MudText Typo="Typo.h2">Graphics</MudText>
-    </MudItem>
-    <MudItem xs="12" md="9">
-        <MudGrid Spacing="1">
-            <MudItem>
-                <ToolProviderGridItem Link="/Graphics/ColorPicker" Title="Color" />
-            </MudItem>
-        </MudGrid>
-    </MudItem>
+    @foreach (var groupTool in AssemblyTools.GetGroupToolAndTools().SortByOrderAttribute())
+    {
+        <MudItem xs="12" md="3">
+            <MudText Typo="Typo.h2">@groupTool.Key.MenuDisplayName</MudText>
+        </MudItem>
+        <MudItem xs="12" md="9">
+            <MudGrid Spacing="1">
+                @foreach (var tool in groupTool.Value)
+                {
+                    <MudItem>
+                        <ToolProviderGridItem Link="@($"{groupTool.Key.Route}/{tool.Route}")" Title="@tool.MenuDisplayName" />
+                    </MudItem>
+                }
+            </MudGrid>
+        </MudItem>
+    }
 </MudGrid>
