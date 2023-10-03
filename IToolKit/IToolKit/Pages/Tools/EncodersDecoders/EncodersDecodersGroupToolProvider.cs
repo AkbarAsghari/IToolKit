@@ -9,5 +9,7 @@
         public override string MenuDisplayName => throw new NotImplementedException();
 
         public override string Description => throw new NotImplementedException();
+
+        public override string Route => "EncodersDecoders";
     }
 }

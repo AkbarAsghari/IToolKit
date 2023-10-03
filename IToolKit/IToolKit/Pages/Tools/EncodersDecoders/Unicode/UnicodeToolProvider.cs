@@ -12,5 +12,6 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Unicode
         public string Description => throw new NotImplementedException();
 
         public string MenuDisplayName => throw new NotImplementedException();
+        public string Route => "Unicode";
     }
 }

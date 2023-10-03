@@ -9,5 +9,6 @@ namespace IToolKit.Pages.Tools.Text.MarkdownPreview
         public string Description => throw new NotImplementedException();
 
         public string MenuDisplayName => throw new NotImplementedException();
+        public string Route => "Markdown";
     }
 }

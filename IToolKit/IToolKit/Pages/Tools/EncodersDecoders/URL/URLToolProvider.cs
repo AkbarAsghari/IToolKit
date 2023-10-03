@@ -11,5 +11,6 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.URL
         public string Description => throw new NotImplementedException();
 
         public string MenuDisplayName => throw new NotImplementedException();
+        public string Route => "URL";
     }
 }

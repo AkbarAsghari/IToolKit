@@ -11,5 +11,6 @@ namespace IToolKit.Pages.Tools.Generators.Hash
         public string Description => throw new NotImplementedException();
 
         public string MenuDisplayName => throw new NotImplementedException();
+        public string Route => "Hash";
     }
 }

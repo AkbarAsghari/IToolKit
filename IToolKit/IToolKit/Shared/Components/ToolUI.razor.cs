@@ -12,7 +12,6 @@ partial class ToolUI<T>
     protected override Task OnInitializedAsync()
     {
         _ToolProvider = (IToolProvider)Activator.CreateInstance(typeof(T))!;
-
         return base.OnInitializedAsync();
     }
 }

@@ -9,5 +9,7 @@ namespace IToolKit.Pages.Tools
         public abstract string MenuDisplayName { get; }
 
         public abstract string Description { get; }
+
+        public abstract string Route { get; }
     }
 }
