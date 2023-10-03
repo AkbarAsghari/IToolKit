@@ -3,6 +3,7 @@ using IToolKit.API.Attributes;
 
 namespace IToolKit.Pages.Tools.Text.TextInspectorAndCaseConverter
 {
+    [Parent(TextGroupToolProvider.InternalName)]
     [Order(1)]
     internal sealed class TextInspectorAndCaseConverterToolProvider : IToolProvider
     {
@@ -10,7 +11,7 @@ namespace IToolKit.Pages.Tools.Text.TextInspectorAndCaseConverter
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => Header;
         
         public string Route => "TextInspectorAndCaseConverter";
         

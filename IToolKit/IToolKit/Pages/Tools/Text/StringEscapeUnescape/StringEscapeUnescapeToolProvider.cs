@@ -4,6 +4,7 @@ using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Text.StringEscapeUnescape
 {
+    [Parent(TextGroupToolProvider.InternalName)]
     [Order(3)]
     internal sealed class StringEscapeUnescapeToolProvider : IToolProvider
     {
@@ -11,7 +12,7 @@ namespace IToolKit.Pages.Tools.Text.StringEscapeUnescape
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => Header;
         
         public string Route => "StringEscapeUnescape";
 

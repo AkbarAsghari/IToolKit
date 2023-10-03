@@ -4,6 +4,7 @@ using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Formatters.XML
 {
+    [Parent(FormattersGroupToolProvider.InternalName)]
     [Order(2)]
     internal sealed class XMLToolProvider : IToolProvider
     {
@@ -11,7 +12,7 @@ namespace IToolKit.Pages.Tools.Formatters.XML
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => "XML";
         
         public string Route => "XML";
 

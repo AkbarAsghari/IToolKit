@@ -4,6 +4,7 @@ using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Generators.Hash
 {
+    [Parent(GeneratorsGroupToolProvider.InternameName)]
     [Order(1)]
     internal sealed class HashToolProvider : IToolProvider
     {
@@ -11,7 +12,7 @@ namespace IToolKit.Pages.Tools.Generators.Hash
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => Header;
         
         public string Route => "Hash";
 

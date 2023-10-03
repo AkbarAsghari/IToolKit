@@ -4,6 +4,7 @@ using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Text.RegEx
 {
+    [Parent(TextGroupToolProvider.InternalName)]
     [Order(2)]
     internal sealed class RegExToolProvider : IToolProvider
     {
@@ -11,7 +12,7 @@ namespace IToolKit.Pages.Tools.Text.RegEx
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => Header;
         
         public string Route => "RegEx";
 

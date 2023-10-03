@@ -4,6 +4,7 @@ using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Graphics.ColorPicker
 {
+    [Parent(GraphicsGroupToolProvider.InternalName)]
     [Order(1)]
     internal sealed class ColorPickerToolProvider : IToolProvider
     {
@@ -11,7 +12,7 @@ namespace IToolKit.Pages.Tools.Graphics.ColorPicker
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => Header;
      
         public string Route => "ColorPicker";
 

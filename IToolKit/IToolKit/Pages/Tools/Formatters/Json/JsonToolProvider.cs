@@ -4,6 +4,7 @@ using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Formatters.Json
 {
+    [Parent(FormattersGroupToolProvider.InternalName)]
     [Order(1)]
     internal sealed class JsonToolProvider : IToolProvider
     {
@@ -11,7 +12,7 @@ namespace IToolKit.Pages.Tools.Formatters.Json
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => "Json";
        
         public string Route => "Json";
 
