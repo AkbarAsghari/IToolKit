@@ -2,11 +2,11 @@
 {
     internal sealed class EncodersDecodersGroupToolProvider : GroupToolProviderBase
     {
-        internal const string InternalName = "EncodersDecodersGroup";
+        internal const string InternalName = "EncodersDecoders";
 
-        public override string Header => throw new NotImplementedException();
+        public override string Header => "Encoders / Decoders";
 
-        public override string MenuDisplayName => throw new NotImplementedException();
+        public override string MenuDisplayName => "Encode / Decode";
 
         public override string Description => throw new NotImplementedException();
 
