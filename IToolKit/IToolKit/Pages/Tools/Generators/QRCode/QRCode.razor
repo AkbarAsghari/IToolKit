@@ -4,7 +4,7 @@
 <ToolUI T="QRCodeToolProvider">
     <MudGrid>
         <MudItem xs="12" md="6">
-            <MudPaper Outlined Class="mb-5 pa-2 d-flex flex-wrap gap-2">
+            <MudPaper Outlined Class="mb-2 pa-2 d-flex flex-wrap gap-2">
                 <MudButton Color="QRCodeType == QRCodeTypeEnum.URL ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.URL" Variant="Variant.Filled">URL</MudButton>
                 <MudButton Color="QRCodeType == QRCodeTypeEnum.VCard ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.VCard" Variant="Variant.Filled">VCARD</MudButton>
                 <MudButton Color="QRCodeType == QRCodeTypeEnum.Text ? Color.Secondary :Color.Inherit" OnClick="()=> QRCodeType = QRCodeTypeEnum.Text" Variant="Variant.Filled">TEXT</MudButton>
@@ -46,7 +46,7 @@
                     break;
                 case QRCodeTypeEnum.SMS:
                     <CustomTextField Label="Number" @bind-Value=SMS.Number />
-                    <CustomTextField Label="Subject" @bind-Value=SMS.Subject />
+                    <CustomTextField Label="Subject" Lines="5" @bind-Value=SMS.Subject />
                     break;
                 case QRCodeTypeEnum.Event:
                     <MudGrid Spacing="1">
@@ -112,7 +112,7 @@
                     <MudColorPicker ColorPickerMode="ColorPickerMode.HEX" Label="Dark" Variant="Variant.Outlined" PickerVariant="PickerVariant.Dialog" @bind-Value="_DarkColor" />
                 </MudItem>
             </MudGrid>
-            <MudButton OnClick="Generate" Color="Color.Primary" Class="mt-2" Variant="Variant.Filled">Generate</MudButton>
+            <MudButton OnClick="Generate" Disabled="!IsInputReady" Color="Color.Primary" Class="mt-2" Variant="Variant.Filled">Generate</MudButton>
         </MudItem>
         <MudItem xs="12" md="6">
             <MudGrid>

@@ -20,17 +20,21 @@ namespace IToolKit.API.Tools.Generators
             return Convert.ToBase64String(qrCode.GetGraphic(pixelsPerModule: 20, darkColorRgba, lightColorRgba));
         }
 
-        public class Payload
+        public abstract class Payload
         {
             public override string ToString()
             {
                 return String.Empty;
             }
+
+            public abstract bool IsReady { get; }
         }
 
         public class TextPayload : Payload
         {
             public string Text { get; set; }
+
+            public override bool IsReady => !String.IsNullOrEmpty(Text);
 
             public override string ToString()
             {
@@ -45,6 +49,8 @@ namespace IToolKit.API.Tools.Generators
             public WiFi.Authentication Authentication { get; set; }
             public bool IsHidden { get; set; } = false;
 
+            public override bool IsReady => !(String.IsNullOrEmpty(SSID) && String.IsNullOrEmpty(Pass));
+
             public override string ToString()
             {
                 return new WiFi(SSID, Pass, Authentication, IsHidden).ToString();
@@ -56,6 +62,9 @@ namespace IToolKit.API.Tools.Generators
             public string MailReciver { get; set; }
             public string Subject { get; set; }
             public string Message { get; set; }
+
+            public override bool IsReady => !(String.IsNullOrEmpty(MailReciver) && String.IsNullOrEmpty(Subject) && String.IsNullOrEmpty(Message));
+
             public override string ToString()
             {
                 return new Mail(MailReciver, Subject, Message).ToString();
@@ -65,6 +74,9 @@ namespace IToolKit.API.Tools.Generators
         {
             public string Number { get; set; }
             public string Subject { get; set; }
+
+            public override bool IsReady => !(String.IsNullOrEmpty(Number) && String.IsNullOrEmpty(Subject));
+
             public override string ToString()
             {
                 return new SMS(Number, Subject).ToString();
@@ -82,6 +94,14 @@ namespace IToolKit.API.Tools.Generators
             public string WorkPhone { get; set; }
             public string Email { get; set; }
 
+            public override bool IsReady => !(String.IsNullOrEmpty(FirstName) &&
+                String.IsNullOrEmpty(LastName) &&
+                String.IsNullOrEmpty(NickName) &&
+                String.IsNullOrEmpty(Phone) &&
+                String.IsNullOrEmpty(MobilePhone) &&
+                String.IsNullOrEmpty(WorkPhone) &&
+                String.IsNullOrEmpty(Email));
+
             public override string ToString()
             {
                 return new ContactData(ContactOutput, FirstName, LastName, NickName, Phone, MobilePhone, WorkPhone, Email).ToString();
@@ -96,6 +116,14 @@ namespace IToolKit.API.Tools.Generators
             public DateTime? Start { get; set; } = DateTime.Now;
             public DateTime? End { get; set; } = DateTime.Now;
             public bool AllDayEvent { get; set; }
+
+            public override bool IsReady => !(String.IsNullOrEmpty(Subject) &&
+                String.IsNullOrEmpty(Description) &&
+                String.IsNullOrEmpty(Subject) &&
+                String.IsNullOrEmpty(Location) &&
+                Start == null &&
+                End == null);
+
             public override string ToString()
             {
                 return new CalendarEvent(Subject, Description, Location, Start!.Value, End!.Value, AllDayEvent).ToString();
