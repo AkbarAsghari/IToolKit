@@ -21,6 +21,24 @@ partial class QRCode
     ContactDataPayload Contact = new ContactDataPayload();
     CalendarEventPayload CalendarEvent = new CalendarEventPayload();
 
+    bool IsInputReady
+    {
+        get
+        {
+            return QRCodeType switch
+            {
+                QRCodeTypeEnum.Text => Text.IsReady,
+                QRCodeTypeEnum.URL => Text.IsReady,
+                QRCodeTypeEnum.VCard => Contact.IsReady,
+                QRCodeTypeEnum.Email => Mail.IsReady,
+                QRCodeTypeEnum.SMS => SMS.IsReady,
+                QRCodeTypeEnum.Wifi => Wifi.IsReady,
+                QRCodeTypeEnum.Event => CalendarEvent.IsReady,
+                _ => false
+            };
+        }
+    }
+
     async Task Generate()
     {
         byte[] darkColor = new byte[] { _DarkColor.R, _DarkColor.G, _DarkColor.B, _DarkColor.A };
