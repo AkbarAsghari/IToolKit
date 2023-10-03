@@ -1,5 +1,5 @@
-﻿using IToolKit.API.Interfaces;
-using IToolKit.API.Tools.Attributes;
+﻿using IToolKit.API.Attributes;
+using IToolKit.API.Interfaces;
 using IToolKit.Extensions;
 
 namespace IToolKit.API.Assembly
@@ -10,17 +10,20 @@ namespace IToolKit.API.Assembly
         {
             Dictionary<string, Type> routeAndComponents = new Dictionary<string, Type>();
 
-            GetRouteAndToolProviders().ForEach(provider =>
+            GetGroupToolAndTools().ForEach(provider =>
             {
-                routeAndComponents.Add(provider.Key, provider.Value.Component);
+                foreach (var item in provider.Value)
+                {
+                    routeAndComponents.Add($"{provider.Key.Route}/{item.Route}".ToLower(), item.Component);
+                }
             });
 
             return routeAndComponents;
         }
 
-        public static Dictionary<string, IToolProvider> GetRouteAndToolProviders()
+        public static Dictionary<IToolProvider, IEnumerable<IToolProvider>> GetGroupToolAndTools()
         {
-            Dictionary<string, IToolProvider> routeAndComponents = new Dictionary<string, IToolProvider>();
+            Dictionary<IToolProvider, IEnumerable<IToolProvider>> GroupToolAndTools = new Dictionary<IToolProvider, IEnumerable<IToolProvider>>();
 
             var tools = System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
                     .Where(mytype => mytype.GetInterfaces().Contains(typeof(IToolProvider)) &&
@@ -30,20 +33,20 @@ namespace IToolKit.API.Assembly
             var groupedToolItems = tools.Where(x => Attribute.GetCustomAttribute(x, typeof(ParentAttribute)) is not null)
                     .GroupBy(x => ((ParentAttribute)Attribute.GetCustomAttribute(x, typeof(ParentAttribute))!).Parent);
 
+            var groupTool = tools.Where(x => Attribute.GetCustomAttribute(x, typeof(ParentAttribute)) is null &&
+                Attribute.GetCustomAttribute(x, typeof(NameAttribute)) is not null);
+
             foreach (var group in groupedToolItems)
             {
-                foreach (var tool in group)
-                {
-                    var _ToolProvider = (IToolProvider)Activator.CreateInstance(tool)!;
+                var parent = groupTool.FirstOrDefault(x => ((NameAttribute)Attribute.GetCustomAttribute(x, typeof(NameAttribute))!).Name == group.Key);
 
-                    if (Attribute.GetCustomAttribute(tool, typeof(ParentAttribute)) is not null)
-                    {
-                        routeAndComponents.Add($"{group.Key}/{_ToolProvider.Route}".ToLower(), _ToolProvider);
-                    }
+                if (parent != null)
+                {
+                    GroupToolAndTools.Add((IToolProvider)Activator.CreateInstance(parent)!, group.Select(x => (IToolProvider)Activator.CreateInstance(x)!));
                 }
             }
 
-            return routeAndComponents;
+            return GroupToolAndTools;
         }
     }
 }

@@ -1,5 +1,8 @@
-﻿namespace IToolKit.Pages.Tools.EncodersDecoders
+﻿using IToolKit.API.Attributes;
+
+namespace IToolKit.Pages.Tools.EncodersDecoders
 {
+    [Name(InternalName)]
     internal sealed class EncodersDecodersGroupToolProvider : GroupToolProviderBase
     {
         internal const string InternalName = "EncodersDecoders";

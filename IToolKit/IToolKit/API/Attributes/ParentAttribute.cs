@@ -1,4 +1,4 @@
-﻿namespace IToolKit.API.Tools.Attributes
+﻿namespace IToolKit.API.Attributes
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public sealed class ParentAttribute : Attribute

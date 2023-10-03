@@ -1,5 +1,5 @@
 ﻿using IToolKit.API.Interfaces;
-using IToolKit.API.Tools.Attributes;
+using IToolKit.API.Attributes;
 
 namespace IToolKit.Pages.Tools.Cipthers.AES
 {

@@ -1,5 +1,5 @@
 ﻿using IToolKit.API.Interfaces;
-using IToolKit.API.Tools.Attributes;
+using IToolKit.API.Attributes;
 using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Generators.UUID
