@@ -23,14 +23,24 @@
     </MudDrawer>
     <MudMainContent>
         <UpdateAvailableDetector />
-        <MudContainer MaxWidth="MaxWidth.Large" Class="mt-4 mb-4">
-            @Body
-        </MudContainer>
+        <ErrorBoundary @ref="_ErrorBoundary">
+            <ErrorContent>
+                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Start" Dense ShowCloseIcon="true" CloseIconClicked="()=>_ErrorBoundary?.Recover()">An unhandled error has occurred please click on close button to Recover!</MudAlert>
+            </ErrorContent>
+            <ChildContent>
+                <MudContainer MaxWidth="MaxWidth.Large" Class="mt-4 mb-4">
+                    @Body
+                </MudContainer>
+            </ChildContent>
+        </ErrorBoundary>
     </MudMainContent>
     </MudLayout>
 
 
     @code {
+
+    ErrorBoundary? _ErrorBoundary;
+
     bool _drawerOpen = true;
 
     void DrawerToggle()

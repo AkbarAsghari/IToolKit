@@ -2,7 +2,7 @@
 
 @if (_applicationUpdateNotificationShow)
 {
-    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => _applicationUpdateNotificationShow = false)">iToolKit updated to new version</MudAlert>
+    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Start" Dense ShowCloseIcon="true" CloseIconClicked="(() => _applicationUpdateNotificationShow = false)">iToolKit updated to new version</MudAlert>
 }
 
 @code {
