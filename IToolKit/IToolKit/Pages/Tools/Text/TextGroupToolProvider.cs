@@ -3,6 +3,7 @@
 namespace IToolKit.Pages.Tools.Text
 {
     [Name(InternalName)]
+    [Order(4)]
     internal sealed class TextGroupToolProvider : GroupToolProviderBase
     {
         internal const string InternalName = "Text";

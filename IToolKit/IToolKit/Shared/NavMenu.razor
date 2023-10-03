@@ -1,7 +1,10 @@
 ﻿@using IToolKit.API.Assembly;
+@using IToolKit.API.Extensions;
+
 <MudNavMenu>
     <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
-    @foreach (var groupTool in AssemblyTools.GetGroupToolAndTools())
+
+    @foreach (var groupTool in AssemblyTools.GetGroupToolAndTools().SortByOrderAttribute())
     {
         <MudNavGroup Title="@groupTool.Key.MenuDisplayName">
             @foreach (var tool in groupTool.Value)

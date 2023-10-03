@@ -3,6 +3,7 @@
 namespace IToolKit.Pages.Tools.EncodersDecoders
 {
     [Name(InternalName)]
+    [Order(0)]
     internal sealed class EncodersDecodersGroupToolProvider : GroupToolProviderBase
     {
         internal const string InternalName = "EncodersDecoders";

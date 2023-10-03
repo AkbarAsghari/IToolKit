@@ -3,6 +3,7 @@
 namespace IToolKit.Pages.Tools.Formatters
 {
     [Name(InternalName)]
+    [Order(1)]
     internal sealed class FormattersGroupToolProvider : GroupToolProviderBase
     {
         internal const string InternalName = "Formatters";

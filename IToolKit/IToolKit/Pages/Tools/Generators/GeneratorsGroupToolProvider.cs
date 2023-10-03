@@ -3,6 +3,7 @@
 namespace IToolKit.Pages.Tools.Generators
 {
     [Name(InternameName)]
+    [Order(3)]
     internal sealed class GeneratorsGroupToolProvider : GroupToolProviderBase
     {
         internal const string InternameName = "Generators";
