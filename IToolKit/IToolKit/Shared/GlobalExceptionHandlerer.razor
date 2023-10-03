@@ -1,0 +1,44 @@
+﻿<ErrorBoundary @ref="_ErrorBoundary">
+    <ErrorContent>
+        <MudPaper Outlined>
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Warning"
+                      ContentAlignment="HorizontalAlignment.Start"
+                        Dense ShowCloseIcon="true"
+                      CloseIconClicked="()=>_ErrorBoundary?.Recover()">
+                An unhandled error has occurred please click on close button to Recover!
+            </MudAlert>
+
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Warning"
+                      ContentAlignment="HorizontalAlignment.Start"
+                        Dense>
+                Exception : @context.Message
+            </MudAlert>
+
+            @if (context.InnerException != null)
+            {
+                <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Warning"
+                      ContentAlignment="HorizontalAlignment.Start"
+                            Dense>
+
+                <text>Inner Exception : @context.InnerException.Message</text>
+            </MudAlert>
+            }
+
+            <MudAlert Severity="Severity.Error" Variant="Variant.Filled" Icon="@Icons.Material.Filled.Warning"
+                      ContentAlignment="HorizontalAlignment.Start"
+                        Dense>
+                Stack Trace : @context.StackTrace
+            </MudAlert>
+        </MudPaper>
+
+    </ErrorContent>
+    <ChildContent>
+        @ChildContent
+    </ChildContent>
+</ErrorBoundary>
+
+@code {
+    ErrorBoundary? _ErrorBoundary;
+
+    [Parameter] public RenderFragment ChildContent { get; set; }
+}
