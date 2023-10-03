@@ -1,5 +1,6 @@
 ﻿using IToolKit.API.Interfaces;
 using IToolKit.API.Tools.Attributes;
+using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Formatters.XML
 {
@@ -11,6 +12,9 @@ namespace IToolKit.Pages.Tools.Formatters.XML
         public string Description => throw new NotImplementedException();
 
         public string MenuDisplayName => throw new NotImplementedException();
+        
         public string Route => "XML";
+
+        public Type Component => typeof(XML);
     }
 }

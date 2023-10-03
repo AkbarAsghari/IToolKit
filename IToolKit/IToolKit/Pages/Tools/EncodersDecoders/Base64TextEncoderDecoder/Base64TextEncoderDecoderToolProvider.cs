@@ -13,5 +13,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Base64TextEncoderDecoder
 
         public string MenuDisplayName => throw new NotImplementedException();
         public string Route => "Base64";
+
+        public Type Component => typeof(Base64TextEncoderDecoder);
     }
 }

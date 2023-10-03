@@ -13,5 +13,7 @@ namespace IToolKit.Pages.Tools.Cipthers.AES
         public string MenuDisplayName => throw new NotImplementedException();
 
         public string Route => "AES";
+
+        public Type Component => typeof(AES);
     }
 }

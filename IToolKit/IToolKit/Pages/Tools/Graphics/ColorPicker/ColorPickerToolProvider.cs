@@ -1,5 +1,6 @@
 ﻿using IToolKit.API.Interfaces;
 using IToolKit.API.Tools.Attributes;
+using IToolKit.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Pages.Tools.Graphics.ColorPicker
 {
@@ -11,6 +12,9 @@ namespace IToolKit.Pages.Tools.Graphics.ColorPicker
         public string Description => throw new NotImplementedException();
 
         public string MenuDisplayName => throw new NotImplementedException();
+     
         public string Route => "ColorPicker";
+
+        public Type Component => typeof(ColorPicker);
     }
 }

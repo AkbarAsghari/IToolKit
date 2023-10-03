@@ -14,5 +14,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Base32TextEncoderDecoder
         public string MenuDisplayName => "Base32";
 
         public string Route => "Base32";
+
+        public Type Component => typeof(Base32TextEncoderDecoder);
     }
 }

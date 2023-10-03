@@ -1,0 +1,45 @@
+﻿@page "/{*pageRoute}"
+@using IToolKit.API.Interfaces;
+@using IToolKit.API.Tools.Attributes;
+@using IToolKit.Pages.Tools.EncodersDecoders.Base32TextEncoderDecoder;
+
+@ChildContent
+
+@code {
+    [Parameter]
+    public string? PageRoute { get; set; }
+
+    RenderFragment ChildContent { get; set; }
+
+    static Dictionary<String, Type> RouteAndComponent = new Dictionary<string, Type>();
+
+    static RouteCatcher()
+    {
+        var Tools = System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
+            .Where(mytype => mytype.GetInterfaces().Contains(typeof(IToolProvider)) &&
+            mytype.IsClass &&
+            !mytype.IsAbstract);
+
+
+        foreach (var item in Tools)
+        {
+            var _ToolProvider = (IToolProvider)Activator.CreateInstance(item)!;
+
+            if (Attribute.GetCustomAttribute(item, typeof(ParentAttribute)) is not null)
+            {
+                RouteAndComponent.Add(_ToolProvider.Route.ToLower(), _ToolProvider.Component);
+            }
+
+        }
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+        if (RouteAndComponent.ContainsKey(PageRoute!.ToLower()))
+        {
+            ChildContent = (builder) => { builder.OpenComponent(0, RouteAndComponent[PageRoute.ToLower()]); builder.CloseComponent(); };
+        }
+
+        return base.OnParametersSetAsync();
+    }
+}

@@ -11,5 +11,7 @@ namespace IToolKit.Pages.Tools
         public abstract string Description { get; }
 
         public abstract string Route { get; }
+
+        public abstract Type Component { get; }
     }
 }
