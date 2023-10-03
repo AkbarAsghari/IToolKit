@@ -11,7 +11,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.JWT
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => "JWT";
 
         public string Route => "JWT";
 

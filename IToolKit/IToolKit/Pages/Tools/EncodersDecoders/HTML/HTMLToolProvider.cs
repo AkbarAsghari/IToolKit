@@ -11,7 +11,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.HTML
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => "HTML";
 
         public string Route => "HTML";
 

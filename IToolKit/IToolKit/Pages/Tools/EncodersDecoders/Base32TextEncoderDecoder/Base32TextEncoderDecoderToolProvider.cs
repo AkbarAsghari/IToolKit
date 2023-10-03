@@ -11,7 +11,7 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Base32TextEncoderDecoder
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => "Base32";
+        public string MenuDisplayName => "Base32 Text";
 
         public string Route => "Base32";
 

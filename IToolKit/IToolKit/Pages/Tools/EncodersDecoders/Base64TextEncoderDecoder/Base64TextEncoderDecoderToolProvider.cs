@@ -11,7 +11,8 @@ namespace IToolKit.Pages.Tools.EncodersDecoders.Base64TextEncoderDecoder
 
         public string Description => throw new NotImplementedException();
 
-        public string MenuDisplayName => throw new NotImplementedException();
+        public string MenuDisplayName => "Base64 Text";
+
         public string Route => "Base64";
 
         public Type Component => typeof(Base64TextEncoderDecoder);
