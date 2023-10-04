@@ -4,7 +4,7 @@
 <MudNavMenu>
     <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
 
-    @foreach (var groupTool in AssemblyTools.GetGroupToolAndTools().SortByOrderAttribute())
+    @foreach (var groupTool in _GroupAndTools)
     {
         <MudNavGroup Title="@groupTool.Key.MenuDisplayName">
             @foreach (var tool in groupTool.Value)
