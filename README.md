@@ -3,7 +3,7 @@ free online tools for developers with offline usable
 
 ## Introduction
 
-iToolkit helps with daily development tasks like formatting JSON, Encode and decodes, and testing RegExp. No need to use many untrustworthy websites to do simple tasks with your data. iToolKit can work offline after first load.
+iToolkit helps with daily development tasks like formatting JSON, Encode and decodes, and testing RegEx. No need to use many untrustworthy websites to do simple tasks with your data. iToolKit can work offline after first load.
 
 Many tools are available.
 
