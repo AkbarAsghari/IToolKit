@@ -1,4 +1,4 @@
-﻿using IToolKit.Extensions;
+﻿using IToolKit.API.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 

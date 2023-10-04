@@ -1,6 +1,6 @@
 ﻿using Microsoft.JSInterop;
 
-namespace IToolKit.Extensions
+namespace IToolKit.API.Extensions
 {
     public static class JSRuntimeExtensions
     {

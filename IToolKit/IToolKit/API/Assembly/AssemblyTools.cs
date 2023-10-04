@@ -1,6 +1,6 @@
 ﻿using IToolKit.API.Attributes;
+using IToolKit.API.Extensions;
 using IToolKit.API.Interfaces;
-using IToolKit.Extensions;
 
 namespace IToolKit.API.Assembly
 {
