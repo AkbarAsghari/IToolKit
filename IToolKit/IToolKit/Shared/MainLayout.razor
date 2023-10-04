@@ -1,5 +1,6 @@
 ﻿@using IToolKit.API.Github;
 @using IToolKit.Shared.Components.GitHub
+@using IToolKit.Shared.Components.Search
 @inherits LayoutComponentBase
 @inject IGitHubAPI Github
 
@@ -13,6 +14,8 @@
     <MudAppBar Dense Elevation="1">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudLink Underline="Underline.None" Href="/" Color="Color.Inherit"><MudText>iToolKit</MudText></MudLink>
+        <MudSpacer />
+        <ResponsiveSearchTools />
         <MudSpacer />
         <MudButton Href="http://www.coffeete.ir/iToolKit" StartIcon="@Icons.Material.Filled.Favorite" IconSize="Size.Large"
                    IconColor="Color.Error" Color="Color.Inherit">Donation</MudButton>

@@ -1,0 +1,21 @@
+﻿
+<MudDialog IsVisible="_ShowDialog"
+           IsVisibleChanged="DialogVisibleChange"
+           Options="new DialogOptions{ Position= DialogPosition.TopCenter,FullWidth= true}">
+    <DialogContent>
+        <SearchTools />
+    </DialogContent>
+</MudDialog>
+
+<SearchTools Class="d-none d-sm-flex" />
+
+<MudIconButton Class="d-flex d-sm-none" Icon="@Icons.Material.Filled.Search" OnClick="()=>_ShowDialog = true" />
+
+@code {
+    bool _ShowDialog = false;
+
+    void DialogVisibleChange(bool visible)
+    {
+        _ShowDialog = visible;
+    }
+}

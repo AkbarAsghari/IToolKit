@@ -21,6 +21,21 @@ namespace IToolKit.API.Assembly
             return routeAndComponents;
         }
 
+        public static IEnumerable<Tuple<string, IToolProvider>> GetRouteAndToolProviders()
+        {
+            List<Tuple<string, IToolProvider>> routeAndComponents = new List<Tuple<string, IToolProvider>>();
+
+            GetGroupToolAndTools().ForEach(provider =>
+            {
+                foreach (var item in provider.Value)
+                {
+                    routeAndComponents.Add(new Tuple<string, IToolProvider>($"{provider.Key.Route}/{item.Route}".ToLower(), item));
+                }
+            });
+
+            return routeAndComponents;
+        }
+
         public static Dictionary<IToolProvider, IEnumerable<IToolProvider>> GetGroupToolAndTools()
         {
             Dictionary<IToolProvider, IEnumerable<IToolProvider>> GroupToolAndTools = new Dictionary<IToolProvider, IEnumerable<IToolProvider>>();
