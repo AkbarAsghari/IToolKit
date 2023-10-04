@@ -7,9 +7,13 @@
     </DialogContent>
 </MudDialog>
 
-<SearchTools Class="d-none d-sm-flex" />
+<MudHidden Breakpoint="Breakpoint.Xs">
+    <SearchTools />
+</MudHidden>
+<MudHidden Invert Breakpoint="Breakpoint.Xs">
+    <MudIconButton Icon="@Icons.Material.Filled.Search" OnClick="()=>_ShowDialog = true" />
+</MudHidden>
 
-<MudIconButton Class="d-flex d-sm-none" Icon="@Icons.Material.Filled.Search" OnClick="()=>_ShowDialog = true" />
 
 @code {
     bool _ShowDialog = false;
