@@ -8,7 +8,7 @@ partial class XML
     string _XMLFormatedResult;
     FormatterSpacesEnum _SpacesEnum;
 
-    private async Task OnJsonFormatterSpacesChange(FormatterSpacesEnum spacesEnum)
+    private async Task OnXMLFormatterSpacesChange(FormatterSpacesEnum spacesEnum)
     {
         _SpacesEnum = spacesEnum;
         await Format();

@@ -5,10 +5,7 @@
                      TextChanged="OnChangeEvent" />
     <MudGrid Class="my-2 d-flex align-center flex-grow-1">
         <MudItem xs="12" sm="3">
-            <MudSelect Variant="Variant.Outlined" T="EscapeUnescapeTypeEnum" Label="Escape/Unescape" ValueChanged="OnEscapeTypeChange">
-                <MudSelectItem Value="EscapeUnescapeTypeEnum.Escape" />
-                <MudSelectItem Value="EscapeUnescapeTypeEnum.Unescape" />
-            </MudSelect>
+            <CustomEnumSelect T="EscapeUnescapeTypeEnum" Label="Escape/Unescape" ValueChanged="OnEscapeTypeChange" />
         </MudItem>
         <MudItem>
             <MudCheckBox Color="Color.Primary" T="bool" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
