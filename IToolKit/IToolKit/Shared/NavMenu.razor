@@ -9,7 +9,7 @@
         <MudNavGroup Title="@groupTool.Key.MenuDisplayName">
             @foreach (var tool in groupTool.Value)
             {
-                <MudNavLink Href="@($"{groupTool.Key.Route}/{tool.Route}")" Match="NavLinkMatch.Prefix">@tool.MenuDisplayName</MudNavLink>
+                <MudNavLink Href="@($"Tool/{groupTool.Key.Route}/{tool.Route}")" Match="NavLinkMatch.Prefix">@tool.MenuDisplayName</MudNavLink>
             }
         </MudNavGroup>
     }

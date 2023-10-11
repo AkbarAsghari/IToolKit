@@ -15,7 +15,7 @@
                 @foreach (var tool in groupTool.Value)
                 {
                     <MudItem>
-                        <ToolProviderGridItem Link="@($"{groupTool.Key.Route}/{tool.Route}")" Title="@tool.MenuDisplayName" />
+                        <ToolProviderGridItem Link="@($"Tool/{groupTool.Key.Route}/{tool.Route}")" Title="@tool.MenuDisplayName" />
                     </MudItem>
                 }
             </MudGrid>
