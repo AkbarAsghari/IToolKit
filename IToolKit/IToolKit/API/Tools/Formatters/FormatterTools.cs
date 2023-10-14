@@ -2,7 +2,7 @@ using System.Text;
 using System.Xml.Linq;
 using System.Xml;
 using IToolKit.API.Enums.Tools.Formatters;
-using IToolKit.Extensions;
+using IToolKit.API.Extensions;
 
 namespace IToolKit.API.Tools.Formatters;
 public static class FormatterTools

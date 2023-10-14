@@ -1,6 +1,5 @@
 ﻿using Blazored.LocalStorage;
 using IToolKit.API.Github;
-using IToolKit.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Octokit;

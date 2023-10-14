@@ -1,14 +1,11 @@
 ﻿@page "/Ciphers/AES"
 @using IToolKit.API.Enums.Tools.Ciphers;
 
-<ToolUI T="AESToolProvider">
+<ToolUI Header="AES">
     <CustomTextField Immediate Label="Input" Lines="5" Variant="Variant.Outlined" Placeholder="Type here ..." TextChanged="OnInputChange" />
     <CustomTextField Class="my-2" Immediate Label="Security" Variant="Variant.Outlined" Placeholder="Type Security here ..." TextChanged=OnSecurityValueChange />
     <MudItem xs="12" md="3">
-        <MudSelect Variant="Variant.Outlined" T="CipherTypesEnum" Label="Encrypt/Decrypt" ValueChanged="OnCipherTypeChangeAsync">
-            <MudSelectItem Value="CipherTypesEnum.Encrypt" />
-            <MudSelectItem Value="CipherTypesEnum.Decrypt" />
-        </MudSelect>
+        <CustomEnumSelect T="CipherTypesEnum" Label="Encrypt/Decrypt" ValueChanged="OnCipherTypeChangeAsync" />
     </MudItem>
     <CustomTextField Lines="10" Variant="Variant.Outlined" Label="@($"{CipherType.ToString()}ed Text")" @bind-Value="@_AESResult" ReadOnly />
 </ToolUI>

@@ -1,6 +1,6 @@
 ﻿using IToolKit.API.Attributes;
+using IToolKit.API.Extensions;
 using IToolKit.API.Interfaces;
-using IToolKit.Extensions;
 
 namespace IToolKit.API.Assembly
 {
@@ -14,7 +14,22 @@ namespace IToolKit.API.Assembly
             {
                 foreach (var item in provider.Value)
                 {
-                    routeAndComponents.Add($"{provider.Key.Route}/{item.Route}".ToLower(), item.Component);
+                    routeAndComponents.Add($"Tool/{provider.Key.Route}/{item.Route}".ToLower(), item.Component);
+                }
+            });
+
+            return routeAndComponents;
+        }
+
+        public static IEnumerable<Tuple<string, IToolProvider>> GetRouteAndToolProviders()
+        {
+            List<Tuple<string, IToolProvider>> routeAndComponents = new List<Tuple<string, IToolProvider>>();
+
+            GetGroupToolAndTools().ForEach(provider =>
+            {
+                foreach (var item in provider.Value)
+                {
+                    routeAndComponents.Add(new Tuple<string, IToolProvider>($"Tool/{provider.Key.Route}/{item.Route}".ToLower(), item));
                 }
             });
 

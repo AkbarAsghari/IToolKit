@@ -1,4 +1,4 @@
-﻿@page "/{*pageRoute}"
+﻿@page "/Tool/{*pageRoute}"
 @using IToolKit.API.Assembly;
 @using IToolKit.API.Interfaces;
 @using IToolKit.API.Attributes;
@@ -21,11 +21,11 @@
 
     protected override Task OnParametersSetAsync()
     {
-        if (RouteAndComponent.ContainsKey(PageRoute!.ToLower()))
+        if (RouteAndComponent.ContainsKey($"Tool/{PageRoute!}".ToLower()))
         {
             ChildContent = (builder) =>
             {
-                builder.OpenComponent(0, RouteAndComponent[PageRoute.ToLower()]);
+                builder.OpenComponent(0, RouteAndComponent[$"Tool/{PageRoute!}".ToLower()]);
                 builder.CloseComponent();
             };
         }

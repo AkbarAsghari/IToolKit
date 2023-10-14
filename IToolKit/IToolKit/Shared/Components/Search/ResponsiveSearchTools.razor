@@ -1,0 +1,23 @@
+﻿<MudHidden Breakpoint="Breakpoint.Xs">
+    <SearchTools />
+</MudHidden>
+<MudHidden Invert Breakpoint="Breakpoint.Xs">
+    <MudDialog IsVisible="_ShowDialog"
+               IsVisibleChanged="DialogVisibleChange"
+               Options="new DialogOptions{ Position= DialogPosition.TopCenter,FullWidth= true}">
+        <DialogContent>
+            <SearchTools />
+        </DialogContent>
+    </MudDialog>
+    <MudIconButton Icon="@Icons.Material.Filled.Search" OnClick="()=>_ShowDialog = true" />
+</MudHidden>
+
+
+@code {
+    bool _ShowDialog = false;
+
+    void DialogVisibleChange(bool visible)
+    {
+        _ShowDialog = visible;
+    }
+}
