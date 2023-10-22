@@ -8,8 +8,9 @@
                   Placeholder="Search"
                   Variant="Variant.Outlined"
                   Margin="Margin.Dense"
+                  Style="@($"background:{Theme.Palette.GrayLight };")"
                   @ref="SearchTextField"
-                  Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search"
+                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
                   DebounceInterval="500" OnDebounceIntervalElapsed="Search"
                   InputMode="InputMode.search"
                   OnBlur="OnBlur" />
@@ -31,6 +32,8 @@
 </MudItem>
 
 @code {
+    private MudTheme Theme = new MudTheme();
+
     [Parameter] public string Class { get; set; }
 
     MudTextField<string> SearchTextField;
