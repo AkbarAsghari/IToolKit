@@ -1,7 +1,7 @@
 <ToolUI Header="Number base converts">
-    <MudNumericField Label="Input" T="int" HideSpinButtons="true" Variant="Variant.Outlined" Immediate TextChanged="Convert" />
+    <MudNumericField Label="Input" T="int" HideSpinButtons="true" Variant="Variant.Outlined" Immediate TextChanged="GoConvert" />
     <CustomTextField ReadOnly=true Label="Hexadecimal" @bind-Value="@_Hexadecimal" MonoSpace /> 
     <CustomTextField ReadOnly=true Label="Decimal" @bind-Value="@_Decimal" MonoSpace/>
-    <CustomTextField ReadOnly=true Label="Octal" />
-    <CustomTextField ReadOnly=true Label="Binary" />
+    <CustomTextField ReadOnly=true Label="Octal" @bind-Value="@_Octal" MonoSpace />
+    <CustomTextField ReadOnly=true Label="Binary" @bind-Value="@_Binary" MonoSpace />
 </ToolUI>

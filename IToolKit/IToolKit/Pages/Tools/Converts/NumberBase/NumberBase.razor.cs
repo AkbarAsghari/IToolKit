@@ -4,7 +4,9 @@ namespace IToolKit.Pages.Tools.Converts.NumberBase
     {
         string _Hexadecimal;
         string _Decimal;
-        public void Convert(string input)
+        string _Octal ;
+        string _Binary;
+        public void GoConvert(string input)
         {
             if (String.IsNullOrWhiteSpace(input))
             {
@@ -12,6 +14,8 @@ namespace IToolKit.Pages.Tools.Converts.NumberBase
             }
             _Hexadecimal = int.Parse(input).ToString("X");
             _Decimal = decimal.Parse(input).ToString("N0");
+            _Octal = Convert.ToInt32(input, 8).ToString();
+            _Binary = Convert.ToString(int.Parse(input), 2);
         }
     }
 }
