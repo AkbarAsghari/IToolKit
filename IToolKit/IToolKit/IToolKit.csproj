@@ -16,7 +16,7 @@
     <PackageReference Include="Octokit" Version="7.1.0" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="showdownjs" Version="2.0.3" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.1.2" />
   </ItemGroup>
 
   <ItemGroup>
