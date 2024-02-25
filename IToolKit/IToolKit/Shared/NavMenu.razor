@@ -2,6 +2,9 @@
 @using IToolKit.API.Extensions;
 
 <MudNavMenu>
+    <MudNavMenu>
+        <IToolKit.Shared.Components.Search.SearchTools />
+    </MudNavMenu>
     <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
 
     @foreach (var groupTool in _GroupAndTools)

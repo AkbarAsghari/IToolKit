@@ -2,39 +2,34 @@
 @using IToolKit.API.Interfaces;
 
 
-<MudItem md="4" Class="@Class">
-    <MudTextField T="string"
-                  Class="pa-0"
-                  Placeholder="Search"
-                  Variant="Variant.Outlined"
-                  Margin="Margin.Dense"
-                  Style="@($"background:{Theme.Palette.GrayLight };")"
-                  @ref="SearchTextField"
-                  Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
-                  DebounceInterval="500" OnDebounceIntervalElapsed="Search"
-                  InputMode="InputMode.search"
-                  OnBlur="OnBlur" />
-    <MudPopover Open="@_IsOpen"
-                AnchorOrigin="Origin.BottomCenter"
-                TransformOrigin="Origin.TopCenter"
-                MaxHeight="300"
-                Duration="0"
-                Paper RelativeWidth>
-        <MudList Clickable="true">
-            @foreach (var item in _FoundTools)
-            {
-                <MudListItem Href="@item.Item1" OnClick="SearchItemClick">
-                    <MudText>@item.Item2.Header</MudText>
+<MudTextField T="string"
+                FullWidth
+               Placeholder="Search"
+               Variant="Variant.Outlined"
+               Margin="Margin.Dense"
+               @ref="SearchTextField"
+               Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+               DebounceInterval="500" OnDebounceIntervalElapsed="Search"
+               InputMode="InputMode.search"
+               OnBlur="OnBlur" />
+ <MudPopover Open="@_IsOpen"
+             AnchorOrigin="Origin.BottomLeft"
+             TransformOrigin="Origin.TopLeft"
+             MaxHeight="300"
+             Duration="0"
+            Paper RelativeWidth>
+    <MudList Clickable="true">
+        @foreach (var item in _FoundTools)
+        {
+            <MudListItem Href="@item.Item1" OnClick="SearchItemClick">
+                <MudText>@item.Item2.Header</MudText>
                 </MudListItem>
-            }
-        </MudList>
-    </MudPopover>
-</MudItem>
+        }
+    </MudList>
+</MudPopover>
 
 @code {
     private MudTheme Theme = new MudTheme();
-
-    [Parameter] public string Class { get; set; }
 
     MudTextField<string> SearchTextField;
     bool _IsOpen = false;
