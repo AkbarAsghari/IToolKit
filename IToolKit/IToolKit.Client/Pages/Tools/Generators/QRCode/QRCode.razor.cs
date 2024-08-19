@@ -44,6 +44,11 @@ partial class QRCode
         byte[] darkColor = new byte[] { _DarkColor.R, _DarkColor.G, _DarkColor.B, _DarkColor.A };
         byte[] lightColor = new byte[] { _LightColor.R, _LightColor.G, _LightColor.B, _LightColor.A };
 
+        if (!IsInputReady)
+        {
+            return;
+        }
+
         switch (QRCodeType)
         {
             case QRCodeTypeEnum.Text:
