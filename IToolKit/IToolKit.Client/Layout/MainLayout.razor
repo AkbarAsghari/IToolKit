@@ -13,6 +13,13 @@
 @*<PWAUpdater />*@
 
 <MudLayout>
+    @if (!OperatingSystem.IsBrowser())
+    {
+        <MudOverlay LightBackground Visible ZIndex="9998">
+            <MudText Align="Align.Center">In Preparation ...</MudText>
+            <IToolKit.Client.Shared.Progrssing />
+        </MudOverlay>
+    }
     <MudAppBar Dense Elevation="1">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudLink Underline="Underline.None" Href="/" Color="Color.Inherit"><MudText>iToolKit</MudText></MudLink>
@@ -32,10 +39,10 @@
             </MudContainer>
         </GlobalExceptionHandlerer>
     </MudMainContent>
-    </MudLayout>
+</MudLayout>
 
 
-    @code {
+@code {
     bool _drawerOpen = true;
 
     void DrawerToggle()
