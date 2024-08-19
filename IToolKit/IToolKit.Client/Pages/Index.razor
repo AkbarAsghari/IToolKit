@@ -3,7 +3,7 @@
 @using IToolKit.Client.API.Extensions;
 @using IToolKit.Client.API.Github;
 
-<MudText Typo="Typo.h1" Style="outline: none; box-shadow: none;">Welcome To iToolKit</MudText>
+<MudText Typo="Typo.h1">Welcome To iToolKit</MudText>
 <MudGrid Class="mt-5">
     @foreach (var groupTool in _GroupAndTools)
     {
@@ -14,7 +14,7 @@
             <MudGrid Spacing="1">
                 @foreach (var tool in groupTool.Value)
                 {
-                    <MudItem>
+                    <MudItem xs="12" sm="6" md="4" lg="3">
                         <ToolProviderGridItem Link="@($"Tool/{groupTool.Key.Route}/{tool.Route}")" Title="@tool.MenuDisplayName" />
                     </MudItem>
                 }
