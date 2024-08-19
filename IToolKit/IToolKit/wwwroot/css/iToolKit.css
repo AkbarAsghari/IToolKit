@@ -13,7 +13,7 @@
 
 /*Fonts*/
 
-.font-monospace {
+.font-monospace div .mud-typography-input {
     font-family: monospace;
 }
 

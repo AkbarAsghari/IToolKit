@@ -1,0 +1,14 @@
+﻿@using IToolKit.Client.API.Enums.Tools.Formatters;
+
+<ToolUI Header="XML Fromatter">
+    <CustomTextField Immediate Label="Input" Lines="5" Variant="Variant.Outlined" Placeholder="Type here ..." @bind-Value="@_InputValue" />
+    <MudGrid Class="mt-2 d-flex align-center flex-grow-1">
+        <MudItem xs="12" sm="3">
+            <CustomEnumSelect T="FormatterSpacesEnum" Label="Spaces" ValueChanged="OnXMLFormatterSpacesChange" />
+        </MudItem>
+        <MudItem>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="()=> Format()">Format</MudButton>
+        </MudItem>
+    </MudGrid>
+    <CustomTextField Lines="12" Variant="Variant.Outlined" Label="Result" @bind-Value="@_XMLFormatedResult" ReadOnly />
+</ToolUI>

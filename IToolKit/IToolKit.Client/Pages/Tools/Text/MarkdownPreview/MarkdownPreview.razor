@@ -1,0 +1,16 @@
+﻿<ToolUI Header="Markdown Preview">
+    <MudSelect Variant="Variant.Outlined" Label="Theme" T="string" @bind-Value="_Theme">
+        <MudSelectItem T="string" Value="@("light")">Light</MudSelectItem>
+        <MudSelectItem T="string" Value="@("dark")">Dark</MudSelectItem>
+    </MudSelect>
+    <MudGrid Class="mt-2">
+        <MudItem xs="12" md="6">
+            <MudText>Markdown</MudText>
+            <CustomTextField Immediate Lines="25" TextChanged="OnInputChange"></CustomTextField>
+            </MudItem>
+            <MudItem xs="12" md="6">
+            <MudText>Preview</MudText>
+            <IToolKit.Client.Shared.Components.Markdown.MarkdownViewer Theme="@_Theme" Markdown="@_Markdown" Height="31.7em" />
+            </MudItem>
+            </MudGrid>
+            </ToolUI>

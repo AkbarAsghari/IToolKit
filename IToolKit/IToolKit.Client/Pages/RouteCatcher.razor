@@ -1,0 +1,35 @@
+﻿@page "/Tool/{*pageRoute}"
+@using IToolKit.Client.API.Assembly;
+@using IToolKit.Client.API.Interfaces;
+@using IToolKit.Client.API.Attributes;
+@using IToolKit.Client.Pages.Tools.EncodersDecoders.Base32TextEncoderDecoder;
+
+@ChildContent
+
+@code {
+    [Parameter]
+    public string? PageRoute { get; set; }
+
+    RenderFragment ChildContent { get; set; }
+
+    static Dictionary<String, Type> RouteAndComponent = new Dictionary<string, Type>();
+
+    static RouteCatcher()
+    {
+        RouteAndComponent = AssemblyTools.GetRouteAndComponents();
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+        if (RouteAndComponent.ContainsKey($"Tool/{PageRoute!}".ToLower()))
+        {
+            ChildContent = (builder) =>
+            {
+                builder.OpenComponent(0, RouteAndComponent[$"Tool/{PageRoute!}".ToLower()]);
+                builder.CloseComponent();
+            };
+        }
+
+        return base.OnParametersSetAsync();
+    }
+}

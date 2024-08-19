@@ -1,0 +1,24 @@
+﻿@page "/"
+@using IToolKit.Client.API.Assembly;
+@using IToolKit.Client.API.Extensions;
+@using IToolKit.Client.API.Github;
+
+<MudText Typo="Typo.h1" Style="outline: none; box-shadow: none;">Welcome To iToolKit</MudText>
+<MudGrid Class="mt-5">
+    @foreach (var groupTool in _GroupAndTools)
+    {
+        <MudItem xs="12" md="3">
+            <MudText Typo="Typo.h2">@groupTool.Key.MenuDisplayName</MudText>
+        </MudItem>
+        <MudItem xs="12" md="9">
+            <MudGrid Spacing="1">
+                @foreach (var tool in groupTool.Value)
+                {
+                    <MudItem>
+                        <ToolProviderGridItem Link="@($"Tool/{groupTool.Key.Route}/{tool.Route}")" Title="@tool.MenuDisplayName" />
+                    </MudItem>
+                }
+            </MudGrid>
+        </MudItem>
+    }
+</MudGrid>
