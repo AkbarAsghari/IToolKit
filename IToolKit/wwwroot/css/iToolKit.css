@@ -19,15 +19,10 @@
 
 @font-face {
     font-family: 'opensans-bold';
-    src: url('../fonts/opensans-bold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'opensans-medium';
-    src: url('../fonts/opensans-medium.ttf') format('truetype');
+    src: url('../fonts/OpenSans-Bold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'opensans-regular';
-    src: url('../fonts/opensans-regular.ttf') format('truetype');
+    src: url('../fonts/OpenSans-Regular.woff') format('woff');
 }
