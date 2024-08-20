@@ -14,6 +14,8 @@ Many tools are available.
   - Base32 Text
   - Unicode
   - JWT Decoder
+- Converts
+  - Number Base
 - Ciphers
   - AES
 - Formatters
