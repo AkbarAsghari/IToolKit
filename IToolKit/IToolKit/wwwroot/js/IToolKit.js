@@ -60,6 +60,18 @@
         Reload: function () {
             location.reload();
         }
+    },
+    //Converts
+    Convert: {
+        ToHex: function (input) {
+            return (new BigNumber(input)).toString(16); 
+        },
+        ToOct: function (input) {
+            return (new BigNumber(input)).toString(8);
+        },
+        ToBin: function (input) {
+            return (new BigNumber(input)).toString(2);
+        },
     }
 }
 

@@ -1,21 +1,38 @@
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+
 namespace IToolKit.Client.Pages.Tools.Converts.NumberBase
 {
     public partial class NumberBase
     {
+        [Inject] IJSRuntime _JSRuntime { get; set; }
+
         string _Hexadecimal;
         string _Decimal;
-        string _Octal ;
+        string _Octal;
         string _Binary;
-        public void GoConvert(string input)
+
+        string _CurrentValue;
+
+        async Task OnChangeEvent(string value)
         {
-            if (String.IsNullOrWhiteSpace(input))
+            _CurrentValue = value;
+            await Convert();
+        }
+
+        async Task Convert()
+        {
+            try
             {
-                _Hexadecimal = _Decimal = String.Empty;
+                _Decimal = _CurrentValue;
+                _Hexadecimal = await _JSRuntime.InvokeAsync<string>($"IToolKit.Convert.ToHex", _CurrentValue);
+                _Octal = await _JSRuntime.InvokeAsync<string>($"IToolKit.Convert.ToOct", _CurrentValue);
+                _Binary = await _JSRuntime.InvokeAsync<string>($"IToolKit.Convert.ToBin", _CurrentValue);
             }
-            _Hexadecimal = int.Parse(input).ToString("X");
-            _Decimal = decimal.Parse(input).ToString("N0");
-            _Octal = Convert.ToInt32(input, 8).ToString();
-            _Binary = Convert.ToString(int.Parse(input), 2);
+            catch
+            {
+                _Hexadecimal = _Decimal = _Octal = _Binary = String.Empty;
+            }
         }
     }
 }
