@@ -23,5 +23,11 @@ namespace IToolKit.Client.API.Extensions
 
             return SortedResult;
         }
+
+        public static IEnumerable<IToolProvider> SortByOrderAttribute(this IEnumerable<IToolProvider> source)
+        {
+            return source.Where(x => Attribute.GetCustomAttribute(x.GetType(), typeof(OrderAttribute)) is not null)
+                 .OrderBy(x => ((OrderAttribute)Attribute.GetCustomAttribute(x.GetType(), typeof(OrderAttribute))!).Order);
+        }
     }
 }

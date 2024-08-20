@@ -1,6 +1,7 @@
 ﻿using IToolKit.Client.API.Attributes;
 using IToolKit.Client.API.Extensions;
 using IToolKit.Client.API.Interfaces;
+using IToolKit.Client.Pages.Tools;
 
 namespace IToolKit.Client.API.Assembly
 {
@@ -34,6 +35,11 @@ namespace IToolKit.Client.API.Assembly
             });
 
             return routeAndComponents;
+        }
+
+        public static IEnumerable<IToolProvider> GetGroupToolAndTools<T>() where T : IToolProvider
+        {
+            return GetGroupToolAndTools().First(x => x.Key.GetType() == typeof(T)).Value;
         }
 
         public static Dictionary<IToolProvider, IEnumerable<IToolProvider>> GetGroupToolAndTools()

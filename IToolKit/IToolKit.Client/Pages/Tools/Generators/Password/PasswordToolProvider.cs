@@ -4,7 +4,7 @@ using IToolKit.Client.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Client.Pages.Tools.Generators.Password
 {
-    [Parent(GeneratorsGroupToolProvider.InternameName)]
+    [Parent(GeneratorsGroupToolProvider.InternalName)]
     [Order(3)]
     internal sealed class PasswordToolProvider : IToolProvider
     {

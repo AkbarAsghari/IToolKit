@@ -4,7 +4,7 @@ using IToolKit.Client.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Client.Pages.Tools.Generators.QRCode
 {
-    [Parent(GeneratorsGroupToolProvider.InternameName)]
+    [Parent(GeneratorsGroupToolProvider.InternalName)]
     [Order(4)]
     internal sealed class QRCodeToolProvider : IToolProvider
     {

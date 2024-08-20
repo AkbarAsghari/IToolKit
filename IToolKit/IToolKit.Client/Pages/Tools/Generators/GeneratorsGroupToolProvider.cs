@@ -2,19 +2,19 @@
 
 namespace IToolKit.Client.Pages.Tools.Generators
 {
-    [Name(InternameName)]
+    [Name(InternalName)]
     [Order(3)]
     internal sealed class GeneratorsGroupToolProvider : GroupToolProviderBase
     {
-        internal const string InternameName = "Generators";
+        internal const string InternalName = "Generators";
 
-        public override string Header => InternameName;
+        public override string Header => InternalName;
 
-        public override string MenuDisplayName => InternameName;
+        public override string MenuDisplayName => InternalName;
 
         public override string Description => throw new NotImplementedException();
 
-        public override string Route => InternameName;
+        public override string Route => InternalName;
 
         public override Type Component => throw new NotImplementedException();
     }

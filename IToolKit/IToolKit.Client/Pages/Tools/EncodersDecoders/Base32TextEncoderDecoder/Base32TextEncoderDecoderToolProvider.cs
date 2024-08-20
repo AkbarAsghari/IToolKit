@@ -5,7 +5,7 @@ namespace IToolKit.Client.Pages.Tools.EncodersDecoders.Base32TextEncoderDecoder
 {
     [Order(2)]
     [Parent(EncodersDecodersGroupToolProvider.InternalName)]
-    internal sealed class Base32TextEncoderDecoderToolProvider : IToolProvider
+    internal sealed class EncodersDecoders : IToolProvider
     {
         public string Header => "Base32 Text Encoder / Decoder";
 

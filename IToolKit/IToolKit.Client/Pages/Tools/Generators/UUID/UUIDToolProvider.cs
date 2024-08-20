@@ -4,7 +4,7 @@ using IToolKit.Client.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Client.Pages.Tools.Generators.UUID
 {
-    [Parent(GeneratorsGroupToolProvider.InternameName)]
+    [Parent(GeneratorsGroupToolProvider.InternalName)]
     [Order(2)]
     internal sealed class UUIDToolProvider : IToolProvider
     {

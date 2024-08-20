@@ -4,6 +4,7 @@
 
 @inherits LayoutComponentBase
 @inject IGitHubAPI Github
+@inject NavigationManager NavigationManager;
 
 <MudThemeProvider Theme="MyCustomTheme" @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" />
 <MudDialogProvider />
@@ -32,7 +33,8 @@
         <NavMenu />
     </MudDrawer>
     <MudMainContent>
-        @*<UpdateAvailableDetector />*@
+        <MudBreadcrumbs Items="breadcrumbLinks" Separator="/"></MudBreadcrumbs>
+
         <GlobalExceptionHandlerer>
             <MudContainer MaxWidth="MaxWidth.Large" Class="mt-4 mb-4">
                 @Body
@@ -106,5 +108,30 @@
             }
         };
 
+
+    private string currentUrl;
+    List<BreadcrumbItem> breadcrumbLinks = new List<BreadcrumbItem>();
+
+
+    protected override void OnParametersSet()
+    {
+        breadcrumbLinks = new List<BreadcrumbItem>();
+        currentUrl = NavigationManager.Uri;
+        var myUrl = currentUrl.Replace(NavigationManager.BaseUri, "");
+        breadcrumbLinks.Add(new BreadcrumbItem("Home", NavigationManager.BaseUri.Substring(0, NavigationManager.BaseUri.Length - 1), NavigationManager.Uri == NavigationManager.BaseUri));
+
+        var path = myUrl.Split('/');
+        var count = 1;
+
+        foreach (var link in path)
+        {
+            if (link == "" || link == "Tool") continue;
+            count++;
+            var lastLink = breadcrumbLinks.Last();
+            breadcrumbLinks.Add(new BreadcrumbItem(link, $"{lastLink.Href}/Tool/{link}", link == path.Last()));
+        }
+
+        base.OnParametersSet();
+    }
 
 }

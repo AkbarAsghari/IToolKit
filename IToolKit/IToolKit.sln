@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IToolKit", "IToolKit\IToolKit.csproj", "{9C400BAF-26A0-4FF7-9383-9A395B9563BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IToolKit", "IToolKit\IToolKit.csproj", "{9C400BAF-26A0-4FF7-9383-9A395B9563BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IToolKit.Client", "IToolKit.Client\IToolKit.Client.csproj", "{2FF7A13A-40D5-4D25-ACC7-D6B61B4BDCBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IToolKit.Client", "IToolKit.Client\IToolKit.Client.csproj", "{2FF7A13A-40D5-4D25-ACC7-D6B61B4BDCBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,7 @@ using IToolKit.Client.Pages.Tools.EncodersDecoders.HTML;
 
 namespace IToolKit.Client.Pages.Tools.Generators.Hash
 {
-    [Parent(GeneratorsGroupToolProvider.InternameName)]
+    [Parent(GeneratorsGroupToolProvider.InternalName)]
     [Order(1)]
     internal sealed class HashToolProvider : IToolProvider
     {
