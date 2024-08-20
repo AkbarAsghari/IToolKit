@@ -1,5 +1,5 @@
 <ToolUI Header="Number base converts">
-    <CustomTextField Label="Input" Variant="Variant.Outlined" Immediate TextChanged="OnChangeEvent" />
+    <MudNumericField Label="Input" T="string" InputMode="InputMode.numeric" HideSpinButtons Variant="Variant.Outlined" Immediate TextChanged="OnChangeEvent" />
     <CustomTextField ReadOnly=true Label="Hexadecimal" @bind-Value="@_Hexadecimal" MonoSpace /> 
     <CustomTextField ReadOnly=true Label="Decimal" @bind-Value="@_Decimal" MonoSpace/>
     <CustomTextField ReadOnly=true Label="Octal" @bind-Value="@_Octal" MonoSpace />

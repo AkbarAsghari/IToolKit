@@ -22,6 +22,11 @@ namespace IToolKit.Client.Pages.Tools.Converts.NumberBase
 
         async Task Convert()
         {
+            if (String.IsNullOrWhiteSpace(_CurrentValue))
+            {
+                _Decimal = _Hexadecimal = _Octal = _Binary = _CurrentValue;
+                return;
+            }
             try
             {
                 _Decimal = _CurrentValue;
