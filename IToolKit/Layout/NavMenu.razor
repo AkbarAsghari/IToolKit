@@ -1,0 +1,23 @@
+﻿@using IToolKit.API.Assembly;
+@using IToolKit.API.Extensions;
+
+<MudNavMenu>
+    <MudNavMenu Class="pr-1">
+        <IToolKit.Shared.Components.Search.SearchTools />
+    </MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
+
+    @foreach (var groupTool in _GroupAndTools)
+    {
+        <MudNavGroup Title="@groupTool.Key.MenuDisplayName">
+            @foreach (var tool in groupTool.Value)
+            {
+                <MudNavLink Href="@($"Tool/{groupTool.Key.Route}/{tool.Route}")" Match="NavLinkMatch.Prefix">@tool.MenuDisplayName</MudNavLink>
+            }
+        </MudNavGroup>
+    }
+
+    <MudDivider />
+
+    <MudNavLink Href="/Settings" Match="NavLinkMatch.Prefix">Settings</MudNavLink>
+</MudNavMenu>
