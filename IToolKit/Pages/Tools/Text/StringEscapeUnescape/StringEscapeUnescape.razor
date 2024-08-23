@@ -8,7 +8,7 @@
             <CustomEnumSelect T="EscapeUnescapeTypeEnum" Label="Escape/Unescape" ValueChanged="OnEscapeTypeChange" />
         </MudItem>
         <MudItem>
-            <MudCheckBox Color="Color.Primary" T="bool" @bind-Checked="_IsAutoUpdate" Label="Auto Update" />
+            <MudCheckBox Color="Color.Primary" T="bool" @bind-Value="_IsAutoUpdate" Label="Auto Update" />
         </MudItem>
         <MudItem>
             @if (_IsAutoUpdate == false)

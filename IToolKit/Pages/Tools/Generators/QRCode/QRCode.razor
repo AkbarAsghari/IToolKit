@@ -29,7 +29,7 @@
                             </MudSelect>
                         </MudItem>
                         <MudItem xs="12" sm="6">
-                            <MudCheckBox T="bool" Label="Is Hidden" Color="Color.Primary" @bind-Checked=Wifi.IsHidden ValueChanged="()=> Generate()" />
+                            <MudCheckBox T="bool" Label="Is Hidden" Color="Color.Primary" @bind-Value=Wifi.IsHidden />
                         </MudItem>
                         <MudItem xs="12" sm="6">
                             <CustomTextField Label="SSID" @bind-Value=Wifi.SSID DebounceInterval="700" OnDebounceIntervalElapsed="Generate" />
@@ -66,7 +66,7 @@
                             <MudDatePicker Label="End" @bind-Date=CalendarEvent.End PickerClosed="Generate" />
                         </MudItem>
                         <MudItem xs="12">
-                            <MudCheckBox T="bool" Label="All day event" @bind-Checked=CalendarEvent.AllDayEvent ValueChanged="()=> Generate()" />
+                            <MudCheckBox T="bool" Label="All day event" @bind-Value=CalendarEvent.AllDayEvent />
                         </MudItem>
                     </MudGrid>
                     break;

@@ -13,7 +13,7 @@
                                 <MudText>Enables ECMAScript-compliant behavior for the expression. This value can be used only in conjunction with the Culture Invariant, Ignore Case and Multiline options.</MudText>
                             </MudItem>
                             <MudItem xs="3" lg="2">
-                                <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="EcmaScript" Label="@(EcmaScript ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                                <MudSwitch T="bool" Color="Color.Primary" @bind-Value="EcmaScript" Label="@(EcmaScript ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
                             </MudItem>
                         </MudGrid>
                     </MudListItem>
@@ -24,7 +24,7 @@
                                 <MudText>Specifies that cultural differences in language is ignored.</MudText>
                             </MudItem>
                             <MudItem xs="3" lg="2">
-                                <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="CultureInvariant" Label="@(CultureInvariant ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                                <MudSwitch T="bool" Color="Color.Primary" @bind-Value="CultureInvariant" Label="@(CultureInvariant ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
                             </MudItem>
                         </MudGrid>
                     </MudListItem>
@@ -35,7 +35,7 @@
                                 <MudText>Specifies case-insensitive matching.</MudText>
                             </MudItem>
                             <MudItem xs="3" lg="2">
-                                <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="IgnoreCase" Label="@(IgnoreCase ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                                <MudSwitch T="bool" Color="Color.Primary" @bind-Value="IgnoreCase" Label="@(IgnoreCase ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
                             </MudItem>
                         </MudGrid>
                     </MudListItem>
@@ -46,7 +46,7 @@
                                 <MudText>Eliminates unescaped white space from the pattern and enables comments marked with #. However, this value does not affect or eliminate white space in character classes, numeric quantifiers, or tokens that mark the beginning of individual regular expression language elements.</MudText>
                             </MudItem>
                             <MudItem xs="3" lg="2">
-                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="IgnoreWhitespace" Label="@(IgnoreWhitespace ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Value="IgnoreWhitespace" Label="@(IgnoreWhitespace ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
                             </MudItem>
                         </MudGrid>
                     </MudListItem>
@@ -57,7 +57,7 @@
                                 <MudText>Changes the meaning of the dot (.) so it matches every character (instead of every character except \n).</MudText>
                             </MudItem>
                             <MudItem xs="3" lg="2">
-                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="Singleline" Label="@(Singleline ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Value="Singleline" Label="@(Singleline ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
                             </MudItem>
                         </MudGrid>
                     </MudListItem>
@@ -68,7 +68,7 @@
                                 <MudText>Changes the meaning of ^ and $ so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string.</MudText>
                             </MudItem>
                             <MudItem xs="3" lg="2">
-                                <MudSwitch T="bool" Color="Color.Primary" @bind-Checked="Multiline" Label="@(Multiline ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                                <MudSwitch T="bool" Color="Color.Primary" @bind-Value="Multiline" Label="@(Multiline ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
                             </MudItem>
                         </MudGrid>
                     </MudListItem>
@@ -79,7 +79,7 @@
                                 <MudText>Specifies that the search will be from right to left instead of from left to right.</MudText>
                             </MudItem>
                             <MudItem xs="3" lg="2">
-                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Checked="RightToLeft" Label="@(RightToLeft ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
+                                <MudSwitch T="bool" Disabled="EcmaScript" Color="Color.Primary" @bind-Value="RightToLeft" Label="@(RightToLeft ? "On" : "Off")" LabelPosition="LabelPosition.Start" />
                             </MudItem>
                         </MudGrid>
                     </MudListItem>
