@@ -39,7 +39,7 @@ partial class QRCode
         }
     }
 
-    async Task Generate()
+    void Generate()
     {
         byte[] darkColor = new byte[] { _DarkColor.R, _DarkColor.G, _DarkColor.B, _DarkColor.A };
         byte[] lightColor = new byte[] { _LightColor.R, _LightColor.G, _LightColor.B, _LightColor.A };
@@ -85,7 +85,5 @@ partial class QRCode
             default:
                 break;
         }
-
-        await Task.CompletedTask;
     }
 }
