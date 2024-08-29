@@ -14,7 +14,7 @@ namespace IToolKit.API.Assembly
             {
                 foreach (var item in provider.Value)
                 {
-                    routeAndComponents.Add($"Tool/{provider.Key.Route}/{item.Route}".ToLower(), item.Component);
+                    routeAndComponents.Add($"tool/{provider.Key.Route}/{item.Route}".ToLower(), item.Component);
                 }
             });
 
@@ -29,7 +29,7 @@ namespace IToolKit.API.Assembly
             {
                 foreach (var item in provider.Value)
                 {
-                    routeAndComponents.Add(new Tuple<string, IToolProvider>($"Tool/{provider.Key.Route}/{item.Route}".ToLower(), item));
+                    routeAndComponents.Add(new Tuple<string, IToolProvider>($"Tool/{provider.Key.Route}/{item.Route}", item));
                 }
             });
 

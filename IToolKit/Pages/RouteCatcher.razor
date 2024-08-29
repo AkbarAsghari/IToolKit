@@ -21,11 +21,11 @@
 
     protected override Task OnParametersSetAsync()
     {
-        if (RouteAndComponent.ContainsKey($"Tool/{PageRoute!}".ToLower()))
+        if (RouteAndComponent.ContainsKey($"tool/{PageRoute!}".ToLower()))
         {
             ChildContent = (builder) =>
             {
-                builder.OpenComponent(0, RouteAndComponent[$"Tool/{PageRoute!}".ToLower()]);
+                builder.OpenComponent(0, RouteAndComponent[$"tool/{PageRoute!}".ToLower()]);
                 builder.CloseComponent();
             };
         }

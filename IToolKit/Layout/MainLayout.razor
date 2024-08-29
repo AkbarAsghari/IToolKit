@@ -118,7 +118,7 @@
 
         foreach (var link in path)
         {
-            if (link == "" || link == "Tool") continue;
+            if (link == "" || link.ToLower() == "tool") continue;
             count++;
             var lastLink = breadcrumbLinks.Last();
             breadcrumbLinks.Add(new BreadcrumbItem(link, $"{lastLink.Href}/Tool/{link}", link == path.Last()));
