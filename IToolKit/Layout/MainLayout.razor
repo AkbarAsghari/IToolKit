@@ -26,7 +26,11 @@
         <NavMenu />
     </MudDrawer>
     <MudMainContent>
-        <MudBreadcrumbs Items="breadcrumbLinks" Separator="/"></MudBreadcrumbs>
+
+        @if (breadcrumbLinks.Count > 1)
+        {
+            <MudBreadcrumbs Items="breadcrumbLinks" Separator="/"></MudBreadcrumbs>
+        }
 
         <GlobalExceptionHandlerer>
             <MudContainer MaxWidth="MaxWidth.Large" Class="mb-4">
