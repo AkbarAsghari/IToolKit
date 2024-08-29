@@ -3,14 +3,10 @@
 
 @if (ReadOnly)
 {
-    <MudGrid Spacing="1" Class="d-flex justify-end">
-        <MudItem>
-            <MudButton Class="mb-n1" StartIcon="@Icons.Material.Filled.QrCode" IconSize="Size.Large" Size="Size.Small" Variant="Variant.Filled" DisableElevation OnClick="GenerateQRCode">QR Code</MudButton>
-            </MudItem>
-            <MudItem>
-            <MudButton Class="mb-n1" StartIcon="@Icons.Material.Filled.ContentCopy" IconSize="Size.Large" Size="Size.Small" Variant="Variant.Filled" DisableElevation OnClick="Copy">Copy</MudButton>
-            </MudItem>
-            </MudGrid>
+    <MudStack Row Class="mb-n1" Spacing="1" Justify="Justify.FlexEnd">
+            <MudButton StartIcon="@Icons.Material.Filled.QrCode" IconSize="Size.Large" Size="Size.Small" Variant="Variant.Filled" DisableElevation OnClick="GenerateQRCode">QR Code</MudButton>
+            <MudButton StartIcon="@Icons.Material.Filled.ContentCopy" IconSize="Size.Large" Size="Size.Small" Variant="Variant.Filled" DisableElevation OnClick="Copy">Copy</MudButton>
+    </MudStack>
 }
 
 @{
