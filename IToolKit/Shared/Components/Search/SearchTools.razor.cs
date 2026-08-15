@@ -30,7 +30,7 @@ namespace IToolKit.Shared.Components.Search
             _IsOpen = false;
             _FoundTools.Clear();
 
-            SearchTextField.Clear();
+            SearchTextField.ClearAsync();
         }
 
         async void OnBlur()

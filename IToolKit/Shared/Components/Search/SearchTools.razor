@@ -18,12 +18,12 @@
             MaxHeight="300"
             Duration="0"
             Paper>
-    <MudList T="object">
+    <MudList T="object" Dense>
         @foreach (var item in _FoundTools)
         {
-        <MudListItem Href="@item.Item1" OnClick="SearchItemClick">
-            <MudText>@item.Item2.Header</MudText>
-        </MudListItem>
+            <MudListItem Href="@item.Item1" Dense=true OnClick="SearchItemClick">
+                <MudText>@item.Item2.Header</MudText>
+            </MudListItem>
         }
     </MudList>
 </MudPopover>

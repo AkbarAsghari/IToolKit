@@ -1,4 +1,5 @@
-﻿@using IToolKit.API.Github;
+﻿@using IToolKit.API.Enums.Components
+@using IToolKit.API.Github;
 @using IToolKit.Shared.Components.GitHub
 @using IToolKit.Shared.Components.Search
 
@@ -6,105 +7,48 @@
 @inject IGitHubAPI Github
 @inject NavigationManager NavigationManager;
 
-<MudThemeProvider Theme="MyCustomTheme" @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" />
-<MudDialogProvider />
-<MudSnackbarProvider />
-<MudPopoverProvider />
+<MudThemeProvider Theme="@_theme" @ref="_MudThemeProvider" IsDarkMode="true" />
 
-@*<PWAUpdater />*@
+<MudRTLProvider>
+    <MudPopoverProvider />
+    <MudDialogProvider />
+    <MudSnackbarProvider />
+    <MudLayout>
+        <MudAppBar Dense Elevation="1">
+            <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+            <MudLink Underline="Underline.None" Href="/" Color="Color.Inherit"><MudText>iToolKit</MudText></MudLink>
+            <MudSpacer />
+        </MudAppBar>
+        <MudDrawer @bind-Open="@_drawerOpen">
+            <NavMenu />
+        </MudDrawer>
+        <MudMainContent>
+            @if (breadcrumbLinks.Count > 1)
+            {
+                <MudBreadcrumbs Items="breadcrumbLinks" Separator="/"></MudBreadcrumbs>
+            }
 
-<MudLayout>
-    <MudAppBar Dense Elevation="1">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        <MudLink Underline="Underline.None" Href="/" Color="Color.Inherit"><MudText>iToolKit</MudText></MudLink>
-        <MudSpacer />
-        <MudButton Href="http://www.coffeete.ir/iToolKit" StartIcon="@Icons.Material.Filled.Favorite" IconSize="Size.Large"
-                   IconColor="Color.Error" Color="Color.Inherit">Donation</MudButton>
-        <GitHubStatus />
-    </MudAppBar>
-    <MudDrawer @bind-Open="@_drawerOpen">
-        <NavMenu />
-    </MudDrawer>
-    <MudMainContent>
-
-        @if (breadcrumbLinks.Count > 1)
-        {
-            <MudBreadcrumbs Items="breadcrumbLinks" Separator="/"></MudBreadcrumbs>
-        }
-
-        <GlobalExceptionHandlerer>
-            <MudContainer MaxWidth="MaxWidth.Large" Class="mb-4">
-                @Body
-            </MudContainer>
-        </GlobalExceptionHandlerer>
-    </MudMainContent>
-</MudLayout>
-
+            <GlobalExceptionHandlerer>
+                <MudContainer MaxWidth="MaxWidth.Large" Class="mb-4">
+                    @Body
+                </MudContainer>
+            </GlobalExceptionHandlerer>
+        </MudMainContent>
+    </MudLayout>
+</MudRTLProvider>
 
 @code {
-    bool _drawerOpen = true;
+    private MudTheme? _theme = null;
+    private NavMenu _NavMenu;
+    private MudThemeProvider _MudThemeProvider;
+    private bool _IsDarkMode;
+    private bool _drawerOpen = true;
+    private DarkModeEnum _DarkMode  = DarkModeEnum.Auto;
 
-    void DrawerToggle()
+    private void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
     }
-
-    bool _isDarkMode = false;
-    private MudThemeProvider _mudThemeProvider;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            _isDarkMode = await _mudThemeProvider.GetSystemPreference();
-            await _mudThemeProvider.WatchSystemPreference(OnSystemPreferenceChanged);
-            StateHasChanged();
-        }
-    }
-
-    private async Task OnSystemPreferenceChanged(bool newValue)
-    {
-        _isDarkMode = newValue;
-        StateHasChanged();
-        await Task.CompletedTask;
-    }
-
-    MudTheme MyCustomTheme = new MudTheme()
-        {
-            Typography = new Typography()
-            {
-                Default = new Default()
-                {
-                    FontFamily = new string[] { "opensans-regular" }
-                },
-                H1 = new H1
-                {
-                    FontFamily = new string[] { "opensans-bold" },
-                    FontSize = "xx-large"
-                },
-                H2 = new H2
-                {
-                    FontFamily = new string[] { "opensans-bold" },
-                    FontSize = "x-large"
-                },
-                H3 = new H3
-                {
-                    FontFamily = new string[] { "opensans-bold" },
-                    FontSize = "larger"
-                },
-                H4 = new H4
-                {
-                    FontFamily = new string[] { "opensans-bold" },
-                    FontSize = "large"
-                },
-                Subtitle1 = new Subtitle1
-                {
-                    FontSize = "large",
-                    FontWeight = 900
-                }
-            }
-        };
-
 
     private string currentUrl;
     List<BreadcrumbItem> breadcrumbLinks = new List<BreadcrumbItem>();
@@ -131,4 +75,165 @@
         base.OnParametersSet();
     }
 
+
+    private async Task OnSystemPreferenceChanged(bool newValue)
+    {
+        if (_DarkMode == DarkModeEnum.Auto)
+        {
+            _IsDarkMode = newValue;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    async Task DarkModeOnChange(DarkModeEnum darkMode)
+    {
+        _DarkMode = darkMode;
+        if (darkMode == DarkModeEnum.Auto)
+        {
+            _IsDarkMode = await _MudThemeProvider.GetSystemDarkModeAsync();
+            await InvokeAsync(StateHasChanged);
+        }
+        else
+        {
+            _IsDarkMode = darkMode == DarkModeEnum.Dark;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await _MudThemeProvider.WatchSystemDarkModeAsync(OnSystemPreferenceChanged);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        string[] boldFontFamily = { "opensans-bold" };
+        _theme = new()
+        {
+            Typography = new Typography()
+            {
+                Default = new DefaultTypography()
+                {
+                    FontFamily = ["opensans-regular"]
+                },
+                H1 = new H1Typography
+                {
+                    FontFamily = boldFontFamily,
+                    FontSize = "calc(1.375rem + 1.5vw)"
+                },
+                H2 = new H2Typography
+                {
+                    FontFamily = boldFontFamily,
+                    FontSize = "calc(1.325rem + .9vw)"
+                },
+                H3 = new H3Typography
+                {
+                    FontFamily = boldFontFamily,
+                    FontSize = "calc(1.3rem + .6vw)"
+                },
+                H4 = new H4Typography
+                {
+                    FontFamily = boldFontFamily,
+                    FontSize = "calc(1.275rem + .3vw)"
+                },
+                H5 = new H5Typography
+                {
+                    FontFamily = boldFontFamily,
+                    FontSize = "1.25rem"
+                },
+                H6 = new H6Typography
+                {
+                    FontFamily = boldFontFamily,
+                    FontSize = "1rem"
+                },
+                Body1 = new Body1Typography
+                {
+                    FontFamily = boldFontFamily,
+                    FontSize = ".813rem"
+                },
+            },
+            PaletteLight = _lightPalette,
+            PaletteDark = _darkPalette,
+            LayoutProperties = new LayoutProperties()
+        };
+    }
+
+    private readonly PaletteLight _lightPalette = new()
+    {
+        Black = "#1d1e22",
+        Background = "#f9f7f3",
+        Surface = "#ffffff",
+        AppbarBackground = "#f9f7f3",
+        AppbarText = "#717171",
+        DrawerBackground = "#f9f7f3",
+        DrawerText = "#717171",
+        GrayLight = "#e8e8e8",
+        GrayLighter = "#f9f9f9",
+
+        Primary = "#1d1e22",
+        PrimaryLighten = "#1d1e22",
+        PrimaryDarken = "#1d1e22",
+
+        Secondary = "#ff8e5e",
+
+        Info = "#14b8a6",
+        InfoLighten = "#14b8a6",
+        InfoDarken = "#14b8a6",
+
+        Warning = "#f97316",
+        WarningLighten = "#f97316",
+        WarningDarken = "#f97316",
+
+        Error = "#ef4444",
+        ErrorDarken = "#ef4444",
+        ErrorLighten = "#ef4444",
+
+
+        Success = "#22C55E",
+        SuccessDarken = "#22C55E",
+        SuccessLighten = "#22C55E",
+    };
+
+    private readonly PaletteDark _darkPalette = new()
+    {
+        Black = "#d1d5db",
+        Background = "#0a0f14",
+        Surface = "#1c1f26",
+        AppbarBackground = "#0a0f14",
+        AppbarText = "#d1d5db",
+        DrawerBackground = "#0a0f14",
+        DrawerText = "#d1d5db",
+        GrayLight = "#9ca3af",
+        GrayLighter = "#e5e7eb",
+
+        Primary = "#0891b2",
+        PrimaryLighten = "#0891b2",
+        PrimaryDarken = "#0891b2",
+
+        Secondary = "#a855f7",
+
+        Info = "#14b8a6",
+        InfoLighten = "#14b8a6",
+        InfoDarken = "#14b8a6",
+
+        Warning = "#f97316",
+        WarningLighten = "#f97316",
+        WarningDarken = "#f97316",
+
+        Error = "#ef4444",
+        ErrorDarken = "#ef4444",
+        ErrorLighten = "#ef4444",
+
+
+        Success = "#84cc16",
+        SuccessDarken = "#84cc16",
+        SuccessLighten = "#84cc16",
+    };
+
+
 }
+
